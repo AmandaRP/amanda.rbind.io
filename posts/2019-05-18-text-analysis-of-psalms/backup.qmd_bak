@@ -5,7 +5,7 @@ execute:
   eval: false
 date: '2019-06-22'
 categories: ["rstats", "sentiment", "bible"]
-draft: false
+draft: true
 ---
 
 ```{r setup, eval=FALSE, include = FALSE}
@@ -146,13 +146,7 @@ ggplot(psalms_sentiment_jockers_rinker,
 
 ![](sentiment.png){fig-alt="sentiment of Psalms" fig-align="center"}
 
-We see here that 
-<!-- [Chapter `r max_sentiment$ch_num`](%60r%20str_c(%22https://www.biblegateway.com/passage/?search=Psalms+%22,%20min_sentiment$ch_num,%20%22&version=GNT%22)%20%60)  -->
-[Chapter 150](https://www.biblegateway.com/passage/?search=Psalms+150&version=GNT) 
-is the most positive and 
-<!-- [Chapter `r min_sentiment$ch_num`](%60r%20str_c(%22https://www.biblegateway.com/passage/?search=Psalms+%22,%20max_sentiment$ch_num,%20%22&version=GNT%22)%60) -->
-[Chapter 10](https://www.biblegateway.com/passage/?search=Psalms+10&version=GNT)
-is the most negative. In Chapter 10, the psalmist laments about the wicked and asks God to "hear the desire of the afflicted." Here is a sample:
+We see here that <!-- [Chapter `r max_sentiment$ch_num`](%60r%20str_c(%22https://www.biblegateway.com/passage/?search=Psalms+%22,%20min_sentiment$ch_num,%20%22&version=GNT%22)%20%60)  --> [Chapter 150](https://www.biblegateway.com/passage/?search=Psalms+150&version=GNT) is the most positive and <!-- [Chapter `r min_sentiment$ch_num`](%60r%20str_c(%22https://www.biblegateway.com/passage/?search=Psalms+%22,%20max_sentiment$ch_num,%20%22&version=GNT%22)%60) --> [Chapter 10](https://www.biblegateway.com/passage/?search=Psalms+10&version=GNT) is the most negative. In Chapter 10, the psalmist laments about the wicked and asks God to "hear the desire of the afflicted." Here is a sample:
 
 > "His mouth is full of lies and threats; trouble and evil are under his tongue. He lies in wait near the villages; from ambush he murders the innocent. His eyes watch in secret for his victims; like a lion in cover he lies in wait."
 
@@ -233,26 +227,12 @@ flip_score1 <- flipped %>% select(avg_sentiment)
 flip_score2 <- flipped %>% select(ave_sentiment)
 ```
 
-Now, after taking valence shifters into account, 
-<!-- [Chapter `r max_sentiment$ch_num`](%60r%20str_c(%22https://www.biblegateway.com/passage/?search=Psalms+%22,%20max_sentiment$ch_num,%20%22&version=GNT%22)%60)  -->
-[Chapter 67](https://www.biblegateway.com/passage/?search=Psalms+67&version=GNT) 
-is the most positive while 
-<!-- [Chapter `r min_sentiment$ch_num`](%60r%20str_c(%22https://www.biblegateway.com/passage/?search=Psalms+%22,%20min_sentiment$ch_num,%20%22&version=GNT%22)%60)  -->
-[Chapter 10](https://www.biblegateway.com/passage/?search=Psalms+10&version=GNT) 
-is still the most negative. Chapter 67 is a short chapter (only 7 verses), a song written for the director of music. Here is a sample of verses 3 and 4:
+Now, after taking valence shifters into account, <!-- [Chapter `r max_sentiment$ch_num`](%60r%20str_c(%22https://www.biblegateway.com/passage/?search=Psalms+%22,%20max_sentiment$ch_num,%20%22&version=GNT%22)%60)  --> [Chapter 67](https://www.biblegateway.com/passage/?search=Psalms+67&version=GNT) is the most positive while <!-- [Chapter `r min_sentiment$ch_num`](%60r%20str_c(%22https://www.biblegateway.com/passage/?search=Psalms+%22,%20min_sentiment$ch_num,%20%22&version=GNT%22)%60)  --> [Chapter 10](https://www.biblegateway.com/passage/?search=Psalms+10&version=GNT) is still the most negative. Chapter 67 is a short chapter (only 7 verses), a song written for the director of music. Here is a sample of verses 3 and 4:
 
 > "May the peoples praise you, God; may all the peoples praise you. May the nations be glad and sing for joy, for you rule the peoples with equity and guide the nations of the earth."
 
 Chapter 67 seems to have a similar sentiment as [Chapter 150](https://www.biblegateway.com/passage/?search=Psalms+150&version=GNT), which we identified in the previous analysis.
 
-Additionally, between the two analyses, 
-<!-- [Chapter 13](%60r%20str_c(%22https://www.biblegateway.com/passage/?search=Psalms+%22,%20flip_ch,%20%22&version=GNT%22)%60)  -->
-[Chapter 13](https://www.biblegateway.com/passage/?search=Psalms+13&version=GNT) 
-switched from a very slight negative sentiment 
-(-0.0038)
-<!-- (`r round(flip_score1, 4)`)  -->
-to a somewhat positive sentiment 
-<!-- (`r round(flip_score2, 4)`) -->
-(0.1513). This chapter had the largest score change between the two analyses.
+Additionally, between the two analyses, <!-- [Chapter 13](%60r%20str_c(%22https://www.biblegateway.com/passage/?search=Psalms+%22,%20flip_ch,%20%22&version=GNT%22)%60)  --> [Chapter 13](https://www.biblegateway.com/passage/?search=Psalms+13&version=GNT) switched from a very slight negative sentiment (-0.0038) <!-- (`r round(flip_score1, 4)`)  --> to a somewhat positive sentiment <!-- (`r round(flip_score2, 4)`) --> (0.1513). This chapter had the largest score change between the two analyses.
 
 Have comments or feedback? Message me on Twitter: [DrAmandaRP](https://twitter.com/DrAmandaRP)
