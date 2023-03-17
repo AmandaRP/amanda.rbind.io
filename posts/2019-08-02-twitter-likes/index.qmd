@@ -1,0 +1,79 @@
+---
+title: 'Shiny App: Twitter Likes'
+author: Amanda Peterson
+date: '2019-08-02'
+description: "Analysis of my Twitter likes via a wordcloud and a shiny app."
+categories: ["rstats","shiny", "twitter"]
+---
+
+<!-- Note: During transition from my old blog to my new blog (and given a hard drive failure causing the loss of my twitter token) I decided to just insert the images from my old blog instead of re-running the code. Thus, code chunks are not evaluated and static images are inserted instead. I may come back to change this in the future.-->
+
+I love that Twitter recently came out with bookmarks! My previous MO on Twitter was to `r emo::ji("heart")` posts that contain information that I want to keep for later, most of which are #rstats tweets. I now have 700+ likes, which are time consuming to browse through when I need to find something. I didn't find an easy way to search likes within Twitter itself, so I built a shiny app to do that using the [`rtweet`](https://rtweet.info/index.html) and [`shiny`](https://shiny.rstudio.com/) R packages.
+
+# `rtweet` Package
+
+<!-- <center> -->
+
+<!-- ```{r echo=FALSE} -->
+
+<!-- blogdown::shortcode('tweet', '1109764129005420544') -->
+
+<!-- ``` -->
+
+<!-- </center> -->
+
+``` {.markdown shortcodes="false"}
+{{< tweet user=dataandme id=1109764129005420544 >}}
+```
+
+``` {.markdown shortcodes="false"}
+{{< tweet user=juliesquid id=1557485909486059523 >}}
+```
+
+To grab the tweets, there is a little setup with Twitter that is necessary. The setup is described on the [`rtweet` website](https://rtweet.info/index.html).
+
+```{r eval=FALSE, echo=FALSE, message=FALSE}
+## load rtweet package
+library(rtweet)
+library(here)
+library(tidyverse)
+token <- readRDS(str_c(here(),"/twitter_token.rds"))
+```
+
+During setup, I ran into a bit of an issue authenticating my Twitter app. I'm working in RStudio on an AWS instance (via a Chromebook), which has a known issue. The issue and its work-around are described by the package author [here](https://github.com/mkearney/rtweet/issues/156). After that speed bump was crossed, the `rtweet` package was extremely easy to use!
+
+# My Twitter Likes
+
+To get a Twitter user's favorites (aka likes), use the `get_favorites` function. Below I'm going to grab my most recent five favorites:
+
+```{r eval=FALSE}
+favorites <- get_favorites("DrAmandaRP", n = 5, token = token)
+```
+
+The resulting [tibble](https://tibble.tidyverse.org/) has 91 columns!
+
+For fun, here is a wordcloud composed of all of my Twitter likes (created using the [`tidytext`](https://cran.r-project.org/web/packages/tidytext/index.html) and [`wordcloud2`](https://cran.r-project.org/web/packages/wordcloud2/index.html) packages):
+
+```{r eval = FALSE, message=FALSE}
+library(wordcloud2)
+library(tidytext)
+favorites <- get_favorites("DrAmandaRP", n = 1000, token = token)
+favorites %>% 
+  select(text) %>%
+  unnest_tokens(word, text) %>%
+  count(word, sort = TRUE) %>%
+  anti_join(stop_words) %>%
+  filter(!word %in% c("t.co", "https", "http")) %>%
+  wordcloud2()
+
+```
+
+![](twitter_wordcloud.png){fig-alt="twitter likes wordcloud" fig-align="center"}
+
+# shiny app for searching
+
+I zeroed in on the following fields: `status_id`, `created_at`, `text`, `hashtags`, `name`, `screen_name`. I put them in a table in a shiny app for easy browsing. Check it out [here](https://amandarp.shinyapps.io/TwitterLikes/)! It's nothing fancy, but I think it's going to come in handy.
+
+If you'd like to make your own app, my code is available [on GitHub](https://github.com/AmandaRP/TwitterBrowser/blob/master/TwitterBrowser/app.R).
+
+It would also be nice to add functionality to search Twitter bookmarks, but apparently at the time of this post, reading bookmarks isn't yet available in the Twitter API. I'm keeping an eye on [this `rtweet` issue](https://github.com/mkearney/rtweet/issues/344) for updates.

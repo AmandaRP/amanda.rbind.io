@@ -1,0 +1,394 @@
+---
+title: "rstudio::conf recap"
+author: "Amanda Peterson"
+date: 2019-01-26
+categories: ["rstats","conference"]
+description: "My notes from 2019 rstudio::conf"
+image: "rstudio_conf_2019.png"
+---
+
+
+**The overview**: I had the pleasure of attending rstudio::conf 2019 (in Austin, TX), a conference about all things R and RStudio. Over 1700 people attended the main conference, which consisted of three tracks (so my notes below cover only a third of the conference talks). There were an additional two days of tutorials and a two-day hackathon, which I did not attend. The 2020 conference will be in San Francisco Jan 27-30.
+
+**My thoughts**: rstudio::conf (and also the yearly UseR! conference) is a great way to stay up to date on the latest and greatest R packages (there are currently 13K+ packages on CRAN) and to meet others excited about #rstats. They also gave the most useful swag that I've ever received at a conference: a binder full fo R package cheat sheets! ... in addition to hex stickers and t-shirts. A big theme was using R in production; I found the talk about the use of [R at T-mobile](#production) interesting. Additionally, the talks by Garrett Grolemund and Yihui Xie about [rmarkdown/pagedown](#doc) and the keynote by David Robinson, [The Unreasonable Effectiveness of Public Work](#ds), motivated me to create this blog site!
+
+**Resources**: Recorded videos of all talks are posted [here](https://resources.rstudio.com/rstudio-conf-2019). Additionally, links to slides can be found at [here](https://github.com/kbroman/RStudioConf2019Slides). And, check out the Twitter hashtag, #rstudioconf.
+
+**Read more**: Below are my notes from the talks that I attended. The post is a bit long, so I've divided it into the sections listed in the right margin.
+
+## Visualization {#viz}
+
+**3D mapping, plotting, and printing with rayshader**, *Tyler Morgan-Wall (Institute for Defense Analysis)*
+
+-   [Rayshader](https://cran.r-project.org/web/packages/rayshader/index.html): building realistic 3D maps from elevation data
+-   Can overlay images onto map. Animations possible. 3-D printing of maps.
+-   Watch the video for lots of cool examples.
+-   Next version will contain 3D ggplots
+
+**gganimate Live Cookbook**, *Thomas Lin Pedersen (Software Engineer, RStudio)*
+
+-   [gganimate]((https://CRAN.R-project.org/package=gganimate)) is an implementation of the grammar of animated graphics, extension to ggplot2.
+-   Rewritten completely in the last year.
+-   Now available on CRAN!
+-   How to use:
+    -   Transitions: you want your data to change (`transition_reveal`: multiple enter/exit options )
+    -   Views: you want your viewpoint to change
+    -   Shadows: you want the animation to have memory
+-   Documentation: https://youtu.be/21ZWDrTukEs
+-   See [slides](https://www.data-imaginist.com/slides/rstudioconf2019/assets/player/keynotedhtmlplayer#0) for examples.
+
+## Modeling {#modeling}
+
+**Introducing MLflow**, *Kevin Kuo (Software Engineer, RStudio)*
+
+-   [MLfow](https://CRAN.R-project.org/package=mlflow): an open source platform for the machine learning lifecycle.
+-   Motivation:
+    -   Keeping track of what you did (trying different hyper-params, going back to a previous experiment, etc)
+    -   Reproducability
+    -   Lots of different modeling packages and ways to deploy them.
+
+**Solving the model representation problem with broom**, *Alex Hayes (Tidyverse Intern, RStudio)*
+
+-   Model representation problem: Need a standard way to represent models.
+-   [broom](https://cran.r-project.org/web/packages/broom/index.html) tools:
+    -   `tidy()`: summarize info about fit components. Broom cleans up fit for us.
+    -   `glance()`: report goodness of fit measures
+    -   `augment()`: add info about observations to a dataset -- not currently defined yet.
+-   Print really pretty table of fit desc: `tidy(fit) %>% kable2()`\
+-   Compare different models using `purrr`. (See code on slides)
+-   Real power: working with multiple models at once.
+-   Resource: [broom.tidyverse.org](https://broom.tidyverse.org)
+-   See [slides](https://buff.ly/2FGKFkj)!!!
+
+**Parsnip - a tidy model interface (building models)**, *Max Kuhn (Engineer, RStudio)*
+
+-   Why [parsnip]((https://cran.r-project.org/web/packages/parsnip/index.html)) name? White carrot (a play on `caret`)
+-   Motivation for `parsnip`:
+    -   Different packages have different modeling interfaces.
+    -   Functions run `na.omit` silently. Delete data.
+-   `parsnip` has a tidy interface
+-   Similar to `broom`, nicely prints output.
+-   Ex: `set_engine(“glmnet”)` , however, engine doesn't necessarily have to be an R engine.
+-   Next steps:
+    -   Add more models and classes of models
+    -   Formalize the API and tools for others to add parsnip models to their packages
+
+**Why Tensorflow Eager Execution matters**, *Sigrid Keydana*
+
+-   Typically a static graph is generated. New way: eager execution
+-   See [blog articles](https://blogs.rstudio.com/tensorflow/).
+
+## Other R Packages {#other}
+
+**Melt the clock: tidy time series analysis**, *Earo Wang (PhD student, Monash University)*
+
+-   Packages:
+    -   [tsibble](https://cran.r-project.org/web/packages/tsibble/index.html): to tidy and transform ts data
+    -   [mable](https://cran.r-project.org/web/packages/mable/index.html): table of models
+    -   `fable`: tidy forecasting (table of forecasts)
+-   Can use familiar broom functions on a `mable`: `tidy`, `glance`, `augment`. Then use `geom_forecast` (`ggplot`) to visualize.
+
+**Working with categorical data in R without losing your mind**, *Amelia McNamara (Assistant professor, University of St Thomas)*
+
+-   "Practical Data Science for Statistics": collection of papers. Avail on Github.
+-   In R, categorical data is represented as factors.
+-   Factors are nice for 1) modeling, 2) reordering items in `ggplot`.
+-   Paper: Wrangling categorical data in R. Shows how factors behave unexpectedly.
+-   Use `read_csv` instead of `read.csv`! Better options for data formats.
+-   [forcats](https://cran.r-project.org/web/packages/forcats/index.html): package to easily work with factors. Solves many of the issues that base R has with factors.\
+-   See her cheat sheet on [RStudio website](https://www.rstudio.com/resources/cheatsheets/): syntax comparison.
+-   `summary()` is your friend (along with `testthat`) to make sure data isn't changing unexpectedly.
+
+**Building an A/B testing analytics system with R and Shiny**, *Emily Robinson (Data Scientist, DataCamp)*
+
+-   [funneljoin]((https://github.com/datacamp/funneljoin)) - R package for common A/B testing analyses.
+
+## Documentation {#doc}
+
+**R Markdown: The Bigger Picture**, *Garrett Grolemund (Data scientist and Educator, RStudio)*
+
+-   Co-other of [R Markdown the Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+-   Replication crisis example: Estimate: 75%-90% of preclinical results cannot be reproduced, which costs \$28 billion per year in the US.
+-   Rmarkdown provides a map for other scientists to reproduce your results.
+
+**Pagedown: Creating Beautiful PDFs with R Markdown**, *Yihui Xie (Software Engineer, RStudio) -- collaborator: Romain Lesur*
+
+-   Status: package is still experimental (obtain from github)
+-   [pagedeown](https://github.com/rstudio/pagedown) creates paged documents (e.g. PDF) from web pages.
+-   Chrome or chromium is recommended browser to view.
+-   Can also use to create:
+    -   business cards.
+    -   Resume (e.g. https://pagedown.rbind.io/html-resume)
+    -   Posters
+    -   Letters
+    -   Books
+-   Slides: http://bit.ly/pagedown
+
+**Introducing the the gt Package**, *Rich Iannone (Software Engineer, RStudio)* @riannone
+
+-   [gt](https://github.com/rstudio/gt) lets you build pretty display tables with easy-to-use functions for HTML, LaTeX and RTF.
+-   Currently on Github (not yet on CRAN)
+-   `tibble %>% gt()` or `dataframe %>% gt()`
+-   See [slides](https://github.com/rich-iannone/presentations) for an example of sending an email (with a table) from RStudio.
+
+## General Programming {#programming}
+
+**Democratizing R with Plumber APIs**, *James Blair (Solutions Engineers, RStudio)*
+
+-   [plumber](https://cran.r-project.org/web/packages/plumber/index.html): Easily create API endpoints around R functions.
+-   Interacts with OPENAPI (Swagger)
+-   Use case: Use `plumber` to expose R models via an API
+-   Most recent updates avail in github repo
+-   Resources:
+    -   Plumber: [www.rplumber.io](https://www.rplumber.io/)
+    -   openAPI: https://swagger.io/docs/specification/about
+    -   Github: [github.com/sol-eng/plumber-model](https://github.com/sol-eng/plumber-model)
+
+**Vctrs: tools for making size and type consistent functions**, *Hadley Wickham (Chief Scientist, RStudio)* @hadleywickham
+
+-   [vctrs](https://cran.r-project.org/web/packages/vctrs/index.html): a new package that provides tools to ensure that functions behave consistently with respect to inputs of varying length and type.
+-   Base R: When combining objects of different classes using `c()`, the following order of precidence occurs: Logical -\> integer -\> double -\> character (combine 2 types in an atomic vector and you get the type on the right)
+-   `vctrs` is more strict than an atomic vector in base R.
+-   Will be integrated into `tidyverse` packages (behind the scenes) during 2019.
+
+**Tidy eval context**, *Jenny Bryan (Software Engineer, RStudio)*
+
+-   Tidy evaluation is a toolkit for metaprogramming (code that writes/mutates code) in R.
+-   Tidyverse itself does alot of metaprogramming (behind the scenes).
+-   Similar to nonstandard evaluation or unquoted variable names.
+-   Package: `rlang` ([rlang.r-lib.org](https://rlang.r-lib.org/)) is a developer facing package. Most people will not need to use.
+-   Might need `enquo` or `!!` if passing variables to tidyverse function.
+-   My perspective: This is more in the low level weeds than I need.
+
+**Box plots: a case study in debugging and perseverance**, *Kara Woo (Research Scientist, Sage Bionetworks)*
+
+-   Talked through an example of a difficult debugging problem (for the `ggplot2` package). \* Advice:
+    -   Use a [reprex](https://cran.r-project.org/web/packages/reprex/index.html) (minimal reproducible example) to determine/reproduce problem.
+    -   Use `debug` function. (Let's you step through function.)
+-   How do you know when you are done? Don't let perfect be the enemy of good.
+
+## Interoperability with other languages {#interop}
+
+**Scaling R with Spark**, *Javier Luraschi (Software Engineer, RStudio)*
+
+-   [sparklyr](https://cran.r-project.org/web/packages/sparklyr/index.html) package avail on cran (also need spark on machine)
+-   Connecting to Spark: "Connections" pain in the upper right tab. -\> new connection -\> spark. Click the "Connect from" dropdown to see interaction options (e.g.: command line, R notebook)
+-   To start: `sc <- spark_connect(master=”local”)`
+-   Can use `dplyr` or sql code for data manipulation/query
+-   New features:
+    -   Introduced pipelines. Can export to be used by ppl working in other languages.
+    -   Spark structured streams: process streaming data with R dataframes. Apply usual dplyr transformations.
+-   Currently working on:
+    -   Support for Apache arrow. Install R arrow package from github.
+    -   Xgboost models in spark
+-   Resources:
+    -   Docs: [spark.rstudio.com](https://spark.rstudio.com/)
+    -   Blog: [blog.rstudio.com/tags/sparklyr](https://blog.rstudio.com/tags/sparklyr)
+    -   Stackoverflow: [stackoverflow.com/tags/skparklyr](https://stackoverflow.com/tags/skparklyr)
+
+**Ursa Labs and Apache Arrow in 2019: Infrastructure for next-gen data science toolbox**, *Wes McKinney (Ursa Labs, Python Pandas Creator)*
+
+-   https://ursalabs.org
+-   R and Python programmers solving many of the same problems.
+-   Vision: multicore algorithms, lazy eval, sophisticated memory management, interoperable memory models, interchangeable between languages.
+-   Arrow: founded in 2016. Language agnostic, open standard in-memory format for data frames. Tools (languages) share arrow memory. Goals: faster access to data, move data efficiently, compute analytics fast.
+-   Arrow for R: Building bindings for R.
+-   Plans to improve the [feather](https://cran.r-project.org/web/packages/feather/index.html) package. The feather file format is readable by both R and Python.
+
+## R in Production {#production}
+
+**API Development with R and Tensorflow at T-Mobile**, *Heather Nolis & Jacqueline Nolis (Machine Learning Engineer & Data Scientist, nolisllc)* {#tmobile}
+
+-   T-mobile has 70 million customers (+ additional from merger with Sprint)
+-   NLP models to classify incoming customer message (including account info) to give live agent a heads up about the likely topic. (They used a CNN via the keras R package.)
+-   Their workflow steps: First Rmarkdown for exploratory data analysis. Second show model to business people using a shiny demo to get them interested. Success: Given millions of \$ to put it into production.
+-   Was told: "If you want to do ML in production, you have to use Python." Idea: Treat R like a real programming language (because it is one)! Didn't want to re-write everything. Steps:
+    -   Turn R into an API using plumber
+    -   Use docker images (rocker)
+    -   Plumber doesn't support https. Used an appache2 server to reroute.
+    -   Container was too big. Swapped miniconda for anaconda. Removed RStudio & some unnecessary Linux, R, and python packages.
+-   This model is now deployed and used in production at T-mobile.
+-   Their docker container is now open source: https://github.com/tmobile/r-tensorflow-api
+-   Slides: nollisllc.com/rstudio19
+
+**Keynote: Tareef Kawaf (President, RStudio)**,
+
+-   RStudio maintains 170 R packages
+-   Making the life of an SA better: RStudio Server Pro, RStudio package manager.
+-   Rstudio connect to publish Shiny applications, R Markdown reports, Plumber APIs, dashboards, plots, and more.
+
+**Keynote: Shiny in Production**, *Joe Cheng (CTO of RStudio)*
+
+-   [Cloud.r-project.org](https://cloud.r-project.org/): cran mirror managed by RStudio. Download logs available (for that mirror).
+-   Q: Can [shiny](https://cran.r-project.org/web/packages/shiny/index.html) be used for production. Ans: Yes! (It's quite easy.) Challenges: Cultural (shiny apps usually developed by R users, who aren't necessarily SWEs). Organizational (IT and management can be skeptical). Technical (shiny lowers bar for creating web app... but not easy to automated testing, load testing, profiling, and deployment ... but RStudio has worked on making this better).
+-   Pet peeve: "R is not a real programming language."
+-   New tools for shiny in production:
+    -   RStudio Connect - Shiny serving with push-button deployment
+    -   [Shinytest](https://cran.r-project.org/web/packages/shinytest/index.html) (now on cran) - automated ui testing for shiny
+    -   Shinyloadtest - load testing for shiny
+    -   [profvis](https://cran.r-project.org/web/packages/profvis/index.html) - profiler for R
+    -   Plot caching - in Shiny 1.2. Speed up plots. Use if plots are 1) slow, 2) significant fraction of total amt of time the app spending thinking, 3) most users likely to request the same few plots.
+    -   Async - last resort for slow portions.
+-   Use shinyloadtest to see if it's fast enough (generates large amounts of traffic). If not, use profvis to see what's making it slow. Then optimize: move work out of shiny (very often). Make code faster (very often), using caching (sometimes), use async (occasionally). Repeat.
+-   Deploy apps to either RStudioConnect or Shiny Server.
+-   Reading from feather files is faster than csv.
+-   Resources:
+    -   Book: [Shiny in Production](http://bit.ly/shiny-prod-book) (in progress)
+    -   [Slide deck](https://speakerdeck.com/jcheng5/shiny-in-production)
+
+**R in Production** *Mark Sellers (Data Engineer, Mango Solutions)*
+
+-   Authored: [Field Guide to the R Ecosystem](https://fg2re.sellorm.com/)
+-   Biggest challenge to using R in production: cultural, not technical.
+
+## RStudio Updates {#rstudio}
+
+**New Language Features in RStudio 1.2**, *Jonathan McPherson (Engineer, RStudio)*
+
+-   Goals: more comprehensive R project workbench. Embrace other languages commonly used in R data science projects, reduce context switching.
+-   Non-goals: Become a general purpose IDE. Lose focus on R.
+-   Demo-ed the following languages within one R notebook.
+    -   SQL: Connections tab -\> new connection -\> ODBC. Write SQL in RStudio (as a code chunk in R notebook, or in a SQL file).
+    -   Python: [reticulate](https://cran.r-project.org/web/packages/reticulate/index.html) package
+    -   D3: `r2d4` function
+-   Background scripts: "source as local job" button to run job in the background. Can do other things in RStudio while it's running. Multiple jobs can be run at once. Useful for long running computations.
+-   Make powerpoint presentation with RMarkdown: New file -\> presentation -\> PowerPoint
+-   Stable release of 1.2 this spring.
+
+## Education {#education}
+
+**R4DS online learning community**, *Jesse Mostipak (Data Scientist, Teaching Trust)*
+
+-   Started the R for Data Science (R4DS) slack group.
+-   Rules: You will be kicked out of the group for being not-nice.
+-   [www.Rfordatasci.com](https://www.rfordatasci.com/)
+-   @R4DScommunity
+-   [TidyTuesday](https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/)
+
+**Keynote: Explicit Direct Instruction in Programming Education**, *Felienne (Associate Prof, Leiden University)* @felienne
+
+-   Topic: How to teach programming?
+-   Examples of direct instruction:
+    -   Vocalize code snippets (when teaching kids)
+    -   Explanation and practice works best (as opposed to explore). Skill -\> motivation.
+-   Interesting & entertaining talk for people interested in the teaching of coding.
+
+**The next million R users** *Carl Howe (Director of Education, RStudio)*
+
+-   Survey: See [rstd.io/learning-r-survey](https://github.com/rstudio/learning-r-survey). 3300 responses. (warning: sampling bias may be present)
+-   Who uses R? 110 countries responded.
+-   Most have advanced degrees.
+-   ⅔ of R users use tidyverse today.
+-   15% of R users have no one else in their work group that knows R :(
+-   Resources:
+    -   RStudio teacher certification available.
+    -   Free academic licensing for RStudio pro tools. Just send course syllabus from a certified academic institution. Research (instead of teaching) gets a 50% discount.
+    -   Data Science in a box: https://datasciencebox.org
+    -   Lots of free online books: R for Data Science, Advanced R, Blogdown, Hands on programming with R, Geocomputation in R.
+    -   [rstudio.cloud](https://rstudio.cloud/) (free) primers for self learning.
+
+**Introductory Statistics with R: Easing the transition to software for beginning students**, *Kelly Nicole Bodwin (Faculty, Cal Poly)* @kellybodwin
+
+-   They use pre-lab exercises built in Shiny to let the students practice the statistics before having to code in R. Demo of a pre-lab exercise shown in talk.
+-   [learnr](https://cran.r-project.org/web/packages/learnr/index.html) package was used to build shiny apps.
+-   Github repo with exercises: [github.com/kbodwin/Introductory-Statistics-Labs](https://github.com/kbodwin/Introductory-Statistics-Labs)
+-   Demos:
+    -   https://kbodwin.shinyapps.io/Lab_Exercise_CatVars2
+    -   https://kbodwin.shinyapps.io/Lab_Exercise_tDist
+    -   https://kbodwin.shinyapps.io/t_tests2
+
+**Teaching data science with puzzles**, *Irene Steves (former intern, RStudio)* @isteves
+
+-   Puzzle name: Tidies of March
+-   R package: `tidiesofmarch`
+-   Slides and code available at: [bit.ly/ds-puzzles](https://github.com/isteves/ds-puzzles)
+
+**Catching the R wave how R and RStudio are revolutionizing statistics education in community colleges (and beyond)**, *Mary Rudis (Math Dept Chair, Great Bay Community College)*
+
+-   Shiny apps for teaching stats:
+    -   https://statistics.calpoly.edu/shiny
+    -   https://shinyapps.science.psu.edu
+-   Github: [github.com/mrshrbrmstr/RStudioConf2019](https://github.com/mrshrbrmstr/RStudioConf2019) (includes lesson plans)
+
+## Data Science {#ds}
+
+**Using Data Effectively: Beyond Art and Science**, *Hilary Parker (Data Scientist, Stitch Fix)*
+
+-   Stitch Fix has very little data on both the person and the clothing item... traditional matrix factorization (collaborative filtering) does not work well. Soln: They added the "style shuffle" where customer flips through a bunch of clothes and says yes/no to whether they would wear it. This enabled traditional matrix factorization.
+-   R `magik` package for image processing.
+
+**Data Science as a Team Sport**, *Angela Bassa (Director of Data Science, iRobot)* @angebassa
+
+-   Just because a data scientist can do everything, doesn't mean they should.
+-   Data engineer != data scientist
+-   When to grow? When you'd like to grow scope & maturity. Adding people will slow things down (additional complexity) unless systems are improved.
+-   When adding people: add specialization (people have different roles in the DS pipeline), add process (documentation, authentication, governance, data provenance, automation: testing, deployment), add resilience (hiring, methodical on-boarding, culture, diversity & inclusion)
+-   Idea: Documentation party ... offsite ... have pizza.
+-   Hire both experts and interns (the latter question what experts have forgotten to question)
+-   Where should DS team live? Embedded or centralized? Her answer: It doesn't matter. The importance is how they interact and communicate. But, remember teams don't scale.
+-   In her experience the best model she's found is 5-10 data scientists (of differing background/expertise) + \~3 data engineers on a team. If more then split into multiple teams.
+
+**Keynote: The Unreasonable Effectiveness of Public Work**, *David Robinson (Chief Data Scientist, Data Camp)* {#dr}
+
+-   Work shared publically is way more useful than work local on your computer.
+-   Effective ways to share: blog, tweet, contribute to open source, give talks, record screencasts, write a book.
+-   When you've given the same in-person advice 3 times, write a blog post.
+-   If you start a data-related blog, tweet link to @drob and he'll tweet about your first post.
+-   What to blog about?
+    -   Any paper you're written. (more exposure)
+    -   Current events
+    -   TidyTuesday
+    -   Teach a concept
+    -   Blog about something that you're learning.
+    -   Examples: #datablog hashtag on Twitter
+-   Twitter:
+    -   One for each blog post.
+    -   Promote others' work
+    -   Tidytuesday evaluation.
+    -   What you've learned at a conference
+    -   Not a great way to document knowledge for long term. Blog better for that.
+    -   From:username to search within one person's tweets.
+-   Contribute to open source:
+    -   See [Ten Steps to Becoming a Tidyverse Contributor by Nic Crane](https://thisisnic.github.io/2018/11/28/ten-steps-to-becoming-a-tidyverse-contributor/)
+    -   Contribute to a beginner-friendly issue
+    -   Write R packages (See [R Packages](http://r-pkgs.had.co.nz/) book)
+-   Give talks:
+    -   See [Giving your first data science talk](https://hookedondata.org/giving-your-first-data-science-talk/) by Emily Robinson
+    -   Introvert tip: It makes networking at conferences easier.
+    -   Be sure to publish your slides.
+-   Record screencasts:
+    -   Limitation: you need to be capable and confident enough to improvise.
+    -   Rachel Tatman does live coding on Twitch.
+-   Write a book:
+    -   You need a good amount to say and some practice saying it.
+    -   R [bookdown](https://cran.r-project.org/web/packages/bookdown/index.html) package.
+-   Slides: [bit.ly/drob-rstudio-2019](https://www.dropbox.com/s/jk7216yr30ztpdp/DavidRobinson-RStudio-2019-old.pdf?dl=0)
+
+**Panel Discussion: Growth and Data Science: Individuals, leaders, organizations and responsibilities**, *Speakers: Hilary Parker (Data Scientist, Stitch Fix), Karthik Ram (Data Science Fellow, UC Berkeley), Angela Bassa (Director of Data Science, iRobot), Tracy Teal (Exec Dir, Carpentries), Eduardo (Data Science Leader, Instagram)*
+
+-   See Hilary's [Not so standard data science](http://nssdeviations.com/) podcast
+-   What is the most important thing for success as a data scientist:
+    -   Flexibility in tooling (no space for a tooling purist)... but know at least one language fluently. Softer skills (e.g. empathy, understanding user/reader)
+    -   If an organization is giving you a hard time about your lack of knowledge as a junior data scientist, consider a different company. Don't shy away from saying "I don't know." Her interview guide has impossible questions to answer... she's looking for humility to say "I don't know."
+-   How to choose to become a DS lead vs staying technical:
+    -   Data scientists aren't necessarily given opportunity to learn/grow leadership skills. Need to be more strategic to grow better leaders. Some DS's stumble into a management/leadership position.
+    -   Angela didn't want to become a manager and wanted to stay in trenches at first, but now loves it (took the position b/c didn't want to let her management down).. "Management is a skill that is learnable." If you feel accomplishment from management, great rock it. If you don't, then no worries don't be a manger.
+    -   It takes personal growth to stop self-depricating yourself as a manager: "I just read email and schedule meetings."
+    -   Fear: Skills will atrophy. Remember "loops are still loops." Opportunity to develop additional skills. Redefine what success means: How can I enable people to do their best work?
+-   In a growing organization that you've been at, what is the most important lesson to do/not do?
+    -   Don't hire DS if you don't have data.
+    -   Adapt as the business grows.
+    -   Invest in systems that let people work effectively together
+    -   Don't over hire. No clear success criteria.
+    -   For machine learning projects, useful to have a PM that understand machine learning. There types of people can be rare.
+-   Responsibilities as Data scientists:
+    -   Data are artifacts...not ground truth.
+    -   Own your mistakes.
+    -   Make work reproducible.
+    -   See [datasciencemanifesto.org](http://www.datasciencemanifesto.org/)
+-   What is the most effective way that program management and DS works together:
+    -   Product has a road map. Make sure that DS also has a road map and that they are correlated.
+-   What are common ways that data scientists fail?
+    -   By not saying "no" enough then only providing a cursery analysis that has little impact.
+    -   Assuming the PM knows enough to ask the question in the best way.
+    -   Caring more about the stats method/model than solving the problem for the business.

@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Amanda Peterson">
+<meta name="dcterms.date" content="2019-01-26">
+<meta name="description" content="My notes from 2019 rstudio::conf">
+
+<title>Amanda’s Data Science Blog - rstudio::conf recap</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Amanda’s Data Science Blog - rstudio::conf recap">
+<meta property="og:description" content="My notes from 2019 rstudio::conf">
+<meta property="og:image" content="https://amanda.rbind.io/posts/2019-01-25-rstudio-conf-2019-recap/rstudio_conf_2019.png">
+<meta property="og:site-name" content="Amanda's Data Science Blog">
+<meta property="og:image:height" content="363">
+<meta property="og:image:width" content="945">
+<meta name="twitter:title" content="Amanda’s Data Science Blog">
+<meta name="twitter:description" content="My notes from 2019 rstudio::conf">
+<meta name="twitter:image" content="https://amanda.rbind.io/posts/2019-01-25-rstudio-conf-2019-recap/rstudio_conf_2019.png">
+<meta name="twitter:creator" content="@DrAmandaRP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="363">
+<meta name="twitter:image-width" content="945">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Amanda’s Data Science Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/AmandaRP"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/DrAmandaRP"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">rstudio::conf recap</h1>
+                  <div>
+        <div class="description">
+          My notes from 2019 rstudio::conf
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">rstats</div>
+                <div class="quarto-category">conference</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Amanda Peterson </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 26, 2019</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#viz" id="toc-viz" class="nav-link active" data-scroll-target="#viz">Visualization</a></li>
+  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling">Modeling</a></li>
+  <li><a href="#other" id="toc-other" class="nav-link" data-scroll-target="#other">Other R Packages</a></li>
+  <li><a href="#doc" id="toc-doc" class="nav-link" data-scroll-target="#doc">Documentation</a></li>
+  <li><a href="#programming" id="toc-programming" class="nav-link" data-scroll-target="#programming">General Programming</a></li>
+  <li><a href="#interop" id="toc-interop" class="nav-link" data-scroll-target="#interop">Interoperability with other languages</a></li>
+  <li><a href="#production" id="toc-production" class="nav-link" data-scroll-target="#production">R in Production</a></li>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio Updates</a></li>
+  <li><a href="#education" id="toc-education" class="nav-link" data-scroll-target="#education">Education</a></li>
+  <li><a href="#ds" id="toc-ds" class="nav-link" data-scroll-target="#ds">Data Science</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><strong>The overview</strong>: I had the pleasure of attending rstudio::conf 2019 (in Austin, TX), a conference about all things R and RStudio. Over 1700 people attended the main conference, which consisted of three tracks (so my notes below cover only a third of the conference talks). There were an additional two days of tutorials and a two-day hackathon, which I did not attend. The 2020 conference will be in San Francisco Jan 27-30.</p>
+<p><strong>My thoughts</strong>: rstudio::conf (and also the yearly UseR! conference) is a great way to stay up to date on the latest and greatest R packages (there are currently 13K+ packages on CRAN) and to meet others excited about #rstats. They also gave the most useful swag that I’ve ever received at a conference: a binder full fo R package cheat sheets! … in addition to hex stickers and t-shirts. A big theme was using R in production; I found the talk about the use of <a href="#production">R at T-mobile</a> interesting. Additionally, the talks by Garrett Grolemund and Yihui Xie about <a href="#doc">rmarkdown/pagedown</a> and the keynote by David Robinson, <a href="#ds">The Unreasonable Effectiveness of Public Work</a>, motivated me to create this blog site!</p>
+<p><strong>Resources</strong>: Recorded videos of all talks are posted <a href="https://resources.rstudio.com/rstudio-conf-2019">here</a>. Additionally, links to slides can be found at <a href="https://github.com/kbroman/RStudioConf2019Slides">here</a>. And, check out the Twitter hashtag, #rstudioconf.</p>
+<p><strong>Read more</strong>: Below are my notes from the talks that I attended. The post is a bit long, so I’ve divided it into the sections listed in the right margin.</p>
+<section id="viz" class="level2">
+<h2 class="anchored" data-anchor-id="viz">Visualization</h2>
+<p><strong>3D mapping, plotting, and printing with rayshader</strong>, <em>Tyler Morgan-Wall (Institute for Defense Analysis)</em></p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/rayshader/index.html">Rayshader</a>: building realistic 3D maps from elevation data</li>
+<li>Can overlay images onto map. Animations possible. 3-D printing of maps.</li>
+<li>Watch the video for lots of cool examples.</li>
+<li>Next version will contain 3D ggplots</li>
+</ul>
+<p><strong>gganimate Live Cookbook</strong>, <em>Thomas Lin Pedersen (Software Engineer, RStudio)</em></p>
+<ul>
+<li><a href="(https://CRAN.R-project.org/package=gganimate)">gganimate</a> is an implementation of the grammar of animated graphics, extension to ggplot2.</li>
+<li>Rewritten completely in the last year.</li>
+<li>Now available on CRAN!</li>
+<li>How to use:
+<ul>
+<li>Transitions: you want your data to change (<code>transition_reveal</code>: multiple enter/exit options )</li>
+<li>Views: you want your viewpoint to change</li>
+<li>Shadows: you want the animation to have memory</li>
+</ul></li>
+<li>Documentation: https://youtu.be/21ZWDrTukEs</li>
+<li>See <a href="https://www.data-imaginist.com/slides/rstudioconf2019/assets/player/keynotedhtmlplayer#0">slides</a> for examples.</li>
+</ul>
+</section>
+<section id="modeling" class="level2">
+<h2 class="anchored" data-anchor-id="modeling">Modeling</h2>
+<p><strong>Introducing MLflow</strong>, <em>Kevin Kuo (Software Engineer, RStudio)</em></p>
+<ul>
+<li><a href="https://CRAN.R-project.org/package=mlflow">MLfow</a>: an open source platform for the machine learning lifecycle.</li>
+<li>Motivation:
+<ul>
+<li>Keeping track of what you did (trying different hyper-params, going back to a previous experiment, etc)</li>
+<li>Reproducability</li>
+<li>Lots of different modeling packages and ways to deploy them.</li>
+</ul></li>
+</ul>
+<p><strong>Solving the model representation problem with broom</strong>, <em>Alex Hayes (Tidyverse Intern, RStudio)</em></p>
+<ul>
+<li>Model representation problem: Need a standard way to represent models.</li>
+<li><a href="https://cran.r-project.org/web/packages/broom/index.html">broom</a> tools:
+<ul>
+<li><code>tidy()</code>: summarize info about fit components. Broom cleans up fit for us.</li>
+<li><code>glance()</code>: report goodness of fit measures</li>
+<li><code>augment()</code>: add info about observations to a dataset – not currently defined yet.</li>
+</ul></li>
+<li>Print really pretty table of fit desc: <code>tidy(fit) %&gt;% kable2()</code><br>
+</li>
+<li>Compare different models using <code>purrr</code>. (See code on slides)</li>
+<li>Real power: working with multiple models at once.</li>
+<li>Resource: <a href="https://broom.tidyverse.org">broom.tidyverse.org</a></li>
+<li>See <a href="https://buff.ly/2FGKFkj">slides</a>!!!</li>
+</ul>
+<p><strong>Parsnip - a tidy model interface (building models)</strong>, <em>Max Kuhn (Engineer, RStudio)</em></p>
+<ul>
+<li>Why <a href="(https://cran.r-project.org/web/packages/parsnip/index.html)">parsnip</a> name? White carrot (a play on <code>caret</code>)</li>
+<li>Motivation for <code>parsnip</code>:
+<ul>
+<li>Different packages have different modeling interfaces.</li>
+<li>Functions run <code>na.omit</code> silently. Delete data.</li>
+</ul></li>
+<li><code>parsnip</code> has a tidy interface</li>
+<li>Similar to <code>broom</code>, nicely prints output.</li>
+<li>Ex: <code>set_engine(“glmnet”)</code> , however, engine doesn’t necessarily have to be an R engine.</li>
+<li>Next steps:
+<ul>
+<li>Add more models and classes of models</li>
+<li>Formalize the API and tools for others to add parsnip models to their packages</li>
+</ul></li>
+</ul>
+<p><strong>Why Tensorflow Eager Execution matters</strong>, <em>Sigrid Keydana</em></p>
+<ul>
+<li>Typically a static graph is generated. New way: eager execution</li>
+<li>See <a href="https://blogs.rstudio.com/tensorflow/">blog articles</a>.</li>
+</ul>
+</section>
+<section id="other" class="level2">
+<h2 class="anchored" data-anchor-id="other">Other R Packages</h2>
+<p><strong>Melt the clock: tidy time series analysis</strong>, <em>Earo Wang (PhD student, Monash University)</em></p>
+<ul>
+<li>Packages:
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/tsibble/index.html">tsibble</a>: to tidy and transform ts data</li>
+<li><a href="https://cran.r-project.org/web/packages/mable/index.html">mable</a>: table of models</li>
+<li><code>fable</code>: tidy forecasting (table of forecasts)</li>
+</ul></li>
+<li>Can use familiar broom functions on a <code>mable</code>: <code>tidy</code>, <code>glance</code>, <code>augment</code>. Then use <code>geom_forecast</code> (<code>ggplot</code>) to visualize.</li>
+</ul>
+<p><strong>Working with categorical data in R without losing your mind</strong>, <em>Amelia McNamara (Assistant professor, University of St Thomas)</em></p>
+<ul>
+<li>“Practical Data Science for Statistics”: collection of papers. Avail on Github.</li>
+<li>In R, categorical data is represented as factors.</li>
+<li>Factors are nice for 1) modeling, 2) reordering items in <code>ggplot</code>.</li>
+<li>Paper: Wrangling categorical data in R. Shows how factors behave unexpectedly.</li>
+<li>Use <code>read_csv</code> instead of <code>read.csv</code>! Better options for data formats.</li>
+<li><a href="https://cran.r-project.org/web/packages/forcats/index.html">forcats</a>: package to easily work with factors. Solves many of the issues that base R has with factors.<br>
+</li>
+<li>See her cheat sheet on <a href="https://www.rstudio.com/resources/cheatsheets/">RStudio website</a>: syntax comparison.</li>
+<li><code>summary()</code> is your friend (along with <code>testthat</code>) to make sure data isn’t changing unexpectedly.</li>
+</ul>
+<p><strong>Building an A/B testing analytics system with R and Shiny</strong>, <em>Emily Robinson (Data Scientist, DataCamp)</em></p>
+<ul>
+<li><a href="(https://github.com/datacamp/funneljoin)">funneljoin</a> - R package for common A/B testing analyses.</li>
+</ul>
+</section>
+<section id="doc" class="level2">
+<h2 class="anchored" data-anchor-id="doc">Documentation</h2>
+<p><strong>R Markdown: The Bigger Picture</strong>, <em>Garrett Grolemund (Data scientist and Educator, RStudio)</em></p>
+<ul>
+<li>Co-other of <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown the Definitive Guide</a></li>
+<li>Replication crisis example: Estimate: 75%-90% of preclinical results cannot be reproduced, which costs $28 billion per year in the US.</li>
+<li>Rmarkdown provides a map for other scientists to reproduce your results.</li>
+</ul>
+<p><strong>Pagedown: Creating Beautiful PDFs with R Markdown</strong>, <em>Yihui Xie (Software Engineer, RStudio) – collaborator: Romain Lesur</em></p>
+<ul>
+<li>Status: package is still experimental (obtain from github)</li>
+<li><a href="https://github.com/rstudio/pagedown">pagedeown</a> creates paged documents (e.g.&nbsp;PDF) from web pages.</li>
+<li>Chrome or chromium is recommended browser to view.</li>
+<li>Can also use to create:
+<ul>
+<li>business cards.</li>
+<li>Resume (e.g.&nbsp;https://pagedown.rbind.io/html-resume)</li>
+<li>Posters</li>
+<li>Letters</li>
+<li>Books</li>
+</ul></li>
+<li>Slides: http://bit.ly/pagedown</li>
+</ul>
+<p><strong>Introducing the the gt Package</strong>, <em>Rich Iannone (Software Engineer, RStudio)</em> <span class="citation" data-cites="riannone">@riannone</span></p>
+<ul>
+<li><a href="https://github.com/rstudio/gt">gt</a> lets you build pretty display tables with easy-to-use functions for HTML, LaTeX and RTF.</li>
+<li>Currently on Github (not yet on CRAN)</li>
+<li><code>tibble %&gt;% gt()</code> or <code>dataframe %&gt;% gt()</code></li>
+<li>See <a href="https://github.com/rich-iannone/presentations">slides</a> for an example of sending an email (with a table) from RStudio.</li>
+</ul>
+</section>
+<section id="programming" class="level2">
+<h2 class="anchored" data-anchor-id="programming">General Programming</h2>
+<p><strong>Democratizing R with Plumber APIs</strong>, <em>James Blair (Solutions Engineers, RStudio)</em></p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/plumber/index.html">plumber</a>: Easily create API endpoints around R functions.</li>
+<li>Interacts with OPENAPI (Swagger)</li>
+<li>Use case: Use <code>plumber</code> to expose R models via an API</li>
+<li>Most recent updates avail in github repo</li>
+<li>Resources:
+<ul>
+<li>Plumber: <a href="https://www.rplumber.io/">www.rplumber.io</a></li>
+<li>openAPI: https://swagger.io/docs/specification/about</li>
+<li>Github: <a href="https://github.com/sol-eng/plumber-model">github.com/sol-eng/plumber-model</a></li>
+</ul></li>
+</ul>
+<p><strong>Vctrs: tools for making size and type consistent functions</strong>, <em>Hadley Wickham (Chief Scientist, RStudio)</em> <span class="citation" data-cites="hadleywickham">@hadleywickham</span></p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/vctrs/index.html">vctrs</a>: a new package that provides tools to ensure that functions behave consistently with respect to inputs of varying length and type.</li>
+<li>Base R: When combining objects of different classes using <code>c()</code>, the following order of precidence occurs: Logical -&gt; integer -&gt; double -&gt; character (combine 2 types in an atomic vector and you get the type on the right)</li>
+<li><code>vctrs</code> is more strict than an atomic vector in base R.</li>
+<li>Will be integrated into <code>tidyverse</code> packages (behind the scenes) during 2019.</li>
+</ul>
+<p><strong>Tidy eval context</strong>, <em>Jenny Bryan (Software Engineer, RStudio)</em></p>
+<ul>
+<li>Tidy evaluation is a toolkit for metaprogramming (code that writes/mutates code) in R.</li>
+<li>Tidyverse itself does alot of metaprogramming (behind the scenes).</li>
+<li>Similar to nonstandard evaluation or unquoted variable names.</li>
+<li>Package: <code>rlang</code> (<a href="https://rlang.r-lib.org/">rlang.r-lib.org</a>) is a developer facing package. Most people will not need to use.</li>
+<li>Might need <code>enquo</code> or <code>!!</code> if passing variables to tidyverse function.</li>
+<li>My perspective: This is more in the low level weeds than I need.</li>
+</ul>
+<p><strong>Box plots: a case study in debugging and perseverance</strong>, <em>Kara Woo (Research Scientist, Sage Bionetworks)</em></p>
+<ul>
+<li>Talked through an example of a difficult debugging problem (for the <code>ggplot2</code> package). * Advice:
+<ul>
+<li>Use a <a href="https://cran.r-project.org/web/packages/reprex/index.html">reprex</a> (minimal reproducible example) to determine/reproduce problem.</li>
+<li>Use <code>debug</code> function. (Let’s you step through function.)</li>
+</ul></li>
+<li>How do you know when you are done? Don’t let perfect be the enemy of good.</li>
+</ul>
+</section>
+<section id="interop" class="level2">
+<h2 class="anchored" data-anchor-id="interop">Interoperability with other languages</h2>
+<p><strong>Scaling R with Spark</strong>, <em>Javier Luraschi (Software Engineer, RStudio)</em></p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/sparklyr/index.html">sparklyr</a> package avail on cran (also need spark on machine)</li>
+<li>Connecting to Spark: “Connections” pain in the upper right tab. -&gt; new connection -&gt; spark. Click the “Connect from” dropdown to see interaction options (e.g.: command line, R notebook)</li>
+<li>To start: <code>sc &lt;- spark_connect(master=”local”)</code></li>
+<li>Can use <code>dplyr</code> or sql code for data manipulation/query</li>
+<li>New features:
+<ul>
+<li>Introduced pipelines. Can export to be used by ppl working in other languages.</li>
+<li>Spark structured streams: process streaming data with R dataframes. Apply usual dplyr transformations.</li>
+</ul></li>
+<li>Currently working on:
+<ul>
+<li>Support for Apache arrow. Install R arrow package from github.</li>
+<li>Xgboost models in spark</li>
+</ul></li>
+<li>Resources:
+<ul>
+<li>Docs: <a href="https://spark.rstudio.com/">spark.rstudio.com</a></li>
+<li>Blog: <a href="https://blog.rstudio.com/tags/sparklyr">blog.rstudio.com/tags/sparklyr</a></li>
+<li>Stackoverflow: <a href="https://stackoverflow.com/tags/skparklyr">stackoverflow.com/tags/skparklyr</a></li>
+</ul></li>
+</ul>
+<p><strong>Ursa Labs and Apache Arrow in 2019: Infrastructure for next-gen data science toolbox</strong>, <em>Wes McKinney (Ursa Labs, Python Pandas Creator)</em></p>
+<ul>
+<li>https://ursalabs.org</li>
+<li>R and Python programmers solving many of the same problems.</li>
+<li>Vision: multicore algorithms, lazy eval, sophisticated memory management, interoperable memory models, interchangeable between languages.</li>
+<li>Arrow: founded in 2016. Language agnostic, open standard in-memory format for data frames. Tools (languages) share arrow memory. Goals: faster access to data, move data efficiently, compute analytics fast.</li>
+<li>Arrow for R: Building bindings for R.</li>
+<li>Plans to improve the <a href="https://cran.r-project.org/web/packages/feather/index.html">feather</a> package. The feather file format is readable by both R and Python.</li>
+</ul>
+</section>
+<section id="production" class="level2">
+<h2 class="anchored" data-anchor-id="production">R in Production</h2>
+<p><strong>API Development with R and Tensorflow at T-Mobile</strong>, <em>Heather Nolis &amp; Jacqueline Nolis (Machine Learning Engineer &amp; Data Scientist, nolisllc)</em> {#tmobile}</p>
+<ul>
+<li>T-mobile has 70 million customers (+ additional from merger with Sprint)</li>
+<li>NLP models to classify incoming customer message (including account info) to give live agent a heads up about the likely topic. (They used a CNN via the keras R package.)</li>
+<li>Their workflow steps: First Rmarkdown for exploratory data analysis. Second show model to business people using a shiny demo to get them interested. Success: Given millions of $ to put it into production.</li>
+<li>Was told: “If you want to do ML in production, you have to use Python.” Idea: Treat R like a real programming language (because it is one)! Didn’t want to re-write everything. Steps:
+<ul>
+<li>Turn R into an API using plumber</li>
+<li>Use docker images (rocker)</li>
+<li>Plumber doesn’t support https. Used an appache2 server to reroute.</li>
+<li>Container was too big. Swapped miniconda for anaconda. Removed RStudio &amp; some unnecessary Linux, R, and python packages.</li>
+</ul></li>
+<li>This model is now deployed and used in production at T-mobile.</li>
+<li>Their docker container is now open source: https://github.com/tmobile/r-tensorflow-api</li>
+<li>Slides: nollisllc.com/rstudio19</li>
+</ul>
+<p><strong>Keynote: Tareef Kawaf (President, RStudio)</strong>,</p>
+<ul>
+<li>RStudio maintains 170 R packages</li>
+<li>Making the life of an SA better: RStudio Server Pro, RStudio package manager.</li>
+<li>Rstudio connect to publish Shiny applications, R Markdown reports, Plumber APIs, dashboards, plots, and more.</li>
+</ul>
+<p><strong>Keynote: Shiny in Production</strong>, <em>Joe Cheng (CTO of RStudio)</em></p>
+<ul>
+<li><a href="https://cloud.r-project.org/">Cloud.r-project.org</a>: cran mirror managed by RStudio. Download logs available (for that mirror).</li>
+<li>Q: Can <a href="https://cran.r-project.org/web/packages/shiny/index.html">shiny</a> be used for production. Ans: Yes! (It’s quite easy.) Challenges: Cultural (shiny apps usually developed by R users, who aren’t necessarily SWEs). Organizational (IT and management can be skeptical). Technical (shiny lowers bar for creating web app… but not easy to automated testing, load testing, profiling, and deployment … but RStudio has worked on making this better).</li>
+<li>Pet peeve: “R is not a real programming language.”</li>
+<li>New tools for shiny in production:
+<ul>
+<li>RStudio Connect - Shiny serving with push-button deployment</li>
+<li><a href="https://cran.r-project.org/web/packages/shinytest/index.html">Shinytest</a> (now on cran) - automated ui testing for shiny</li>
+<li>Shinyloadtest - load testing for shiny</li>
+<li><a href="https://cran.r-project.org/web/packages/profvis/index.html">profvis</a> - profiler for R</li>
+<li>Plot caching - in Shiny 1.2. Speed up plots. Use if plots are 1) slow, 2) significant fraction of total amt of time the app spending thinking, 3) most users likely to request the same few plots.</li>
+<li>Async - last resort for slow portions.</li>
+</ul></li>
+<li>Use shinyloadtest to see if it’s fast enough (generates large amounts of traffic). If not, use profvis to see what’s making it slow. Then optimize: move work out of shiny (very often). Make code faster (very often), using caching (sometimes), use async (occasionally). Repeat.</li>
+<li>Deploy apps to either RStudioConnect or Shiny Server.</li>
+<li>Reading from feather files is faster than csv.</li>
+<li>Resources:
+<ul>
+<li>Book: <a href="http://bit.ly/shiny-prod-book">Shiny in Production</a> (in progress)</li>
+<li><a href="https://speakerdeck.com/jcheng5/shiny-in-production">Slide deck</a></li>
+</ul></li>
+</ul>
+<p><strong>R in Production</strong> <em>Mark Sellers (Data Engineer, Mango Solutions)</em></p>
+<ul>
+<li>Authored: <a href="https://fg2re.sellorm.com/">Field Guide to the R Ecosystem</a></li>
+<li>Biggest challenge to using R in production: cultural, not technical.</li>
+</ul>
+</section>
+<section id="rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio">RStudio Updates</h2>
+<p><strong>New Language Features in RStudio 1.2</strong>, <em>Jonathan McPherson (Engineer, RStudio)</em></p>
+<ul>
+<li>Goals: more comprehensive R project workbench. Embrace other languages commonly used in R data science projects, reduce context switching.</li>
+<li>Non-goals: Become a general purpose IDE. Lose focus on R.</li>
+<li>Demo-ed the following languages within one R notebook.
+<ul>
+<li>SQL: Connections tab -&gt; new connection -&gt; ODBC. Write SQL in RStudio (as a code chunk in R notebook, or in a SQL file).</li>
+<li>Python: <a href="https://cran.r-project.org/web/packages/reticulate/index.html">reticulate</a> package</li>
+<li>D3: <code>r2d4</code> function</li>
+</ul></li>
+<li>Background scripts: “source as local job” button to run job in the background. Can do other things in RStudio while it’s running. Multiple jobs can be run at once. Useful for long running computations.</li>
+<li>Make powerpoint presentation with RMarkdown: New file -&gt; presentation -&gt; PowerPoint</li>
+<li>Stable release of 1.2 this spring.</li>
+</ul>
+</section>
+<section id="education" class="level2">
+<h2 class="anchored" data-anchor-id="education">Education</h2>
+<p><strong>R4DS online learning community</strong>, <em>Jesse Mostipak (Data Scientist, Teaching Trust)</em></p>
+<ul>
+<li>Started the R for Data Science (R4DS) slack group.</li>
+<li>Rules: You will be kicked out of the group for being not-nice.</li>
+<li><a href="https://www.rfordatasci.com/">www.Rfordatasci.com</a></li>
+<li><span class="citation" data-cites="R4DScommunity">@R4DScommunity</span></li>
+<li><a href="https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/">TidyTuesday</a></li>
+</ul>
+<p><strong>Keynote: Explicit Direct Instruction in Programming Education</strong>, <em>Felienne (Associate Prof, Leiden University)</em> <span class="citation" data-cites="felienne">@felienne</span></p>
+<ul>
+<li>Topic: How to teach programming?</li>
+<li>Examples of direct instruction:
+<ul>
+<li>Vocalize code snippets (when teaching kids)</li>
+<li>Explanation and practice works best (as opposed to explore). Skill -&gt; motivation.</li>
+</ul></li>
+<li>Interesting &amp; entertaining talk for people interested in the teaching of coding.</li>
+</ul>
+<p><strong>The next million R users</strong> <em>Carl Howe (Director of Education, RStudio)</em></p>
+<ul>
+<li>Survey: See <a href="https://github.com/rstudio/learning-r-survey">rstd.io/learning-r-survey</a>. 3300 responses. (warning: sampling bias may be present)</li>
+<li>Who uses R? 110 countries responded.</li>
+<li>Most have advanced degrees.</li>
+<li>⅔ of R users use tidyverse today.</li>
+<li>15% of R users have no one else in their work group that knows R :(</li>
+<li>Resources:
+<ul>
+<li>RStudio teacher certification available.</li>
+<li>Free academic licensing for RStudio pro tools. Just send course syllabus from a certified academic institution. Research (instead of teaching) gets a 50% discount.</li>
+<li>Data Science in a box: https://datasciencebox.org</li>
+<li>Lots of free online books: R for Data Science, Advanced R, Blogdown, Hands on programming with R, Geocomputation in R.</li>
+<li><a href="https://rstudio.cloud/">rstudio.cloud</a> (free) primers for self learning.</li>
+</ul></li>
+</ul>
+<p><strong>Introductory Statistics with R: Easing the transition to software for beginning students</strong>, <em>Kelly Nicole Bodwin (Faculty, Cal Poly)</em> <span class="citation" data-cites="kellybodwin">@kellybodwin</span></p>
+<ul>
+<li>They use pre-lab exercises built in Shiny to let the students practice the statistics before having to code in R. Demo of a pre-lab exercise shown in talk.</li>
+<li><a href="https://cran.r-project.org/web/packages/learnr/index.html">learnr</a> package was used to build shiny apps.</li>
+<li>Github repo with exercises: <a href="https://github.com/kbodwin/Introductory-Statistics-Labs">github.com/kbodwin/Introductory-Statistics-Labs</a></li>
+<li>Demos:
+<ul>
+<li>https://kbodwin.shinyapps.io/Lab_Exercise_CatVars2</li>
+<li>https://kbodwin.shinyapps.io/Lab_Exercise_tDist</li>
+<li>https://kbodwin.shinyapps.io/t_tests2</li>
+</ul></li>
+</ul>
+<p><strong>Teaching data science with puzzles</strong>, <em>Irene Steves (former intern, RStudio)</em> <span class="citation" data-cites="isteves">@isteves</span></p>
+<ul>
+<li>Puzzle name: Tidies of March</li>
+<li>R package: <code>tidiesofmarch</code></li>
+<li>Slides and code available at: <a href="https://github.com/isteves/ds-puzzles">bit.ly/ds-puzzles</a></li>
+</ul>
+<p><strong>Catching the R wave how R and RStudio are revolutionizing statistics education in community colleges (and beyond)</strong>, <em>Mary Rudis (Math Dept Chair, Great Bay Community College)</em></p>
+<ul>
+<li>Shiny apps for teaching stats:
+<ul>
+<li>https://statistics.calpoly.edu/shiny</li>
+<li>https://shinyapps.science.psu.edu</li>
+</ul></li>
+<li>Github: <a href="https://github.com/mrshrbrmstr/RStudioConf2019">github.com/mrshrbrmstr/RStudioConf2019</a> (includes lesson plans)</li>
+</ul>
+</section>
+<section id="ds" class="level2">
+<h2 class="anchored" data-anchor-id="ds">Data Science</h2>
+<p><strong>Using Data Effectively: Beyond Art and Science</strong>, <em>Hilary Parker (Data Scientist, Stitch Fix)</em></p>
+<ul>
+<li>Stitch Fix has very little data on both the person and the clothing item… traditional matrix factorization (collaborative filtering) does not work well. Soln: They added the “style shuffle” where customer flips through a bunch of clothes and says yes/no to whether they would wear it. This enabled traditional matrix factorization.</li>
+<li>R <code>magik</code> package for image processing.</li>
+</ul>
+<p><strong>Data Science as a Team Sport</strong>, <em>Angela Bassa (Director of Data Science, iRobot)</em> <span class="citation" data-cites="angebassa">@angebassa</span></p>
+<ul>
+<li>Just because a data scientist can do everything, doesn’t mean they should.</li>
+<li>Data engineer != data scientist</li>
+<li>When to grow? When you’d like to grow scope &amp; maturity. Adding people will slow things down (additional complexity) unless systems are improved.</li>
+<li>When adding people: add specialization (people have different roles in the DS pipeline), add process (documentation, authentication, governance, data provenance, automation: testing, deployment), add resilience (hiring, methodical on-boarding, culture, diversity &amp; inclusion)</li>
+<li>Idea: Documentation party … offsite … have pizza.</li>
+<li>Hire both experts and interns (the latter question what experts have forgotten to question)</li>
+<li>Where should DS team live? Embedded or centralized? Her answer: It doesn’t matter. The importance is how they interact and communicate. But, remember teams don’t scale.</li>
+<li>In her experience the best model she’s found is 5-10 data scientists (of differing background/expertise) + ~3 data engineers on a team. If more then split into multiple teams.</li>
+</ul>
+<p><strong>Keynote: The Unreasonable Effectiveness of Public Work</strong>, <em>David Robinson (Chief Data Scientist, Data Camp)</em> {#dr}</p>
+<ul>
+<li>Work shared publically is way more useful than work local on your computer.</li>
+<li>Effective ways to share: blog, tweet, contribute to open source, give talks, record screencasts, write a book.</li>
+<li>When you’ve given the same in-person advice 3 times, write a blog post.</li>
+<li>If you start a data-related blog, tweet link to <span class="citation" data-cites="drob">@drob</span> and he’ll tweet about your first post.</li>
+<li>What to blog about?
+<ul>
+<li>Any paper you’re written. (more exposure)</li>
+<li>Current events</li>
+<li>TidyTuesday</li>
+<li>Teach a concept</li>
+<li>Blog about something that you’re learning.</li>
+<li>Examples: #datablog hashtag on Twitter</li>
+</ul></li>
+<li>Twitter:
+<ul>
+<li>One for each blog post.</li>
+<li>Promote others’ work</li>
+<li>Tidytuesday evaluation.</li>
+<li>What you’ve learned at a conference</li>
+<li>Not a great way to document knowledge for long term. Blog better for that.</li>
+<li>From:username to search within one person’s tweets.</li>
+</ul></li>
+<li>Contribute to open source:
+<ul>
+<li>See <a href="https://thisisnic.github.io/2018/11/28/ten-steps-to-becoming-a-tidyverse-contributor/">Ten Steps to Becoming a Tidyverse Contributor by Nic Crane</a></li>
+<li>Contribute to a beginner-friendly issue</li>
+<li>Write R packages (See <a href="http://r-pkgs.had.co.nz/">R Packages</a> book)</li>
+</ul></li>
+<li>Give talks:
+<ul>
+<li>See <a href="https://hookedondata.org/giving-your-first-data-science-talk/">Giving your first data science talk</a> by Emily Robinson</li>
+<li>Introvert tip: It makes networking at conferences easier.</li>
+<li>Be sure to publish your slides.</li>
+</ul></li>
+<li>Record screencasts:
+<ul>
+<li>Limitation: you need to be capable and confident enough to improvise.</li>
+<li>Rachel Tatman does live coding on Twitch.</li>
+</ul></li>
+<li>Write a book:
+<ul>
+<li>You need a good amount to say and some practice saying it.</li>
+<li>R <a href="https://cran.r-project.org/web/packages/bookdown/index.html">bookdown</a> package.</li>
+</ul></li>
+<li>Slides: <a href="https://www.dropbox.com/s/jk7216yr30ztpdp/DavidRobinson-RStudio-2019-old.pdf?dl=0">bit.ly/drob-rstudio-2019</a></li>
+</ul>
+<p><strong>Panel Discussion: Growth and Data Science: Individuals, leaders, organizations and responsibilities</strong>, <em>Speakers: Hilary Parker (Data Scientist, Stitch Fix), Karthik Ram (Data Science Fellow, UC Berkeley), Angela Bassa (Director of Data Science, iRobot), Tracy Teal (Exec Dir, Carpentries), Eduardo (Data Science Leader, Instagram)</em></p>
+<ul>
+<li>See Hilary’s <a href="http://nssdeviations.com/">Not so standard data science</a> podcast</li>
+<li>What is the most important thing for success as a data scientist:
+<ul>
+<li>Flexibility in tooling (no space for a tooling purist)… but know at least one language fluently. Softer skills (e.g.&nbsp;empathy, understanding user/reader)</li>
+<li>If an organization is giving you a hard time about your lack of knowledge as a junior data scientist, consider a different company. Don’t shy away from saying “I don’t know.” Her interview guide has impossible questions to answer… she’s looking for humility to say “I don’t know.”</li>
+</ul></li>
+<li>How to choose to become a DS lead vs staying technical:
+<ul>
+<li>Data scientists aren’t necessarily given opportunity to learn/grow leadership skills. Need to be more strategic to grow better leaders. Some DS’s stumble into a management/leadership position.</li>
+<li>Angela didn’t want to become a manager and wanted to stay in trenches at first, but now loves it (took the position b/c didn’t want to let her management down).. “Management is a skill that is learnable.” If you feel accomplishment from management, great rock it. If you don’t, then no worries don’t be a manger.</li>
+<li>It takes personal growth to stop self-depricating yourself as a manager: “I just read email and schedule meetings.”</li>
+<li>Fear: Skills will atrophy. Remember “loops are still loops.” Opportunity to develop additional skills. Redefine what success means: How can I enable people to do their best work?</li>
+</ul></li>
+<li>In a growing organization that you’ve been at, what is the most important lesson to do/not do?
+<ul>
+<li>Don’t hire DS if you don’t have data.</li>
+<li>Adapt as the business grows.</li>
+<li>Invest in systems that let people work effectively together</li>
+<li>Don’t over hire. No clear success criteria.</li>
+<li>For machine learning projects, useful to have a PM that understand machine learning. There types of people can be rare.</li>
+</ul></li>
+<li>Responsibilities as Data scientists:
+<ul>
+<li>Data are artifacts…not ground truth.</li>
+<li>Own your mistakes.</li>
+<li>Make work reproducible.</li>
+<li>See <a href="http://www.datasciencemanifesto.org/">datasciencemanifesto.org</a></li>
+</ul></li>
+<li>What is the most effective way that program management and DS works together:
+<ul>
+<li>Product has a road map. Make sure that DS also has a road map and that they are correlated.</li>
+</ul></li>
+<li>What are common ways that data scientists fail?
+<ul>
+<li>By not saying “no” enough then only providing a cursery analysis that has little impact.</li>
+<li>Assuming the PM knows enough to ask the question in the best way.</li>
+<li>Caring more about the stats method/model than solving the problem for the business.</li>
+</ul></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

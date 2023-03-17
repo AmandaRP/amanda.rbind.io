@@ -1,0 +1,23 @@
+---
+title: Sentiment Analysis of Psalms
+author: AmandaRP
+execute:
+  eval: false
+date: '2019-06-22'
+categories: ["rstats", "sentiment", "bible"]
+draft: true
+---
+
+```{r setup, eval=FALSE, include = FALSE}
+library(wordcloud)
+library(tidytext)
+library(sentimentr)
+library(tidyverse)
+library(magrittr)
+library(rvest)
+```
+
+<!-- Note: During transition from my old blog to my new blog I decided to just insert the images from my old blog instead of re-running the code. Thus, code chunks are not evaluated and static images are inserted instead. I may come back to change this in the future.-->
+
+[Psalms](https://www.biblegateway.com/quicksearch/?quicksearch=psalms&qs_version=GNT) is a book in both the Christian Bible and the Jewish Tanakh. I thought it would be interesting to look at a sentiment analysis of the book. I chose to work with the "Good News Translation" of the bible as it does not have copyright issues like some of the other translations (per the [American Bible Society](https://scripture.api.bible/)). We'll use the [tidytext](https://CRAN.R-project.org/package=tidytext) and [sentimentr](https://CRAN.R-project.org/package=sentimentr) R packages to do the analysis. Let's start by reading data from [biblegateway.com](https://www.biblegateway.com/) (using [rvest](https://CRAN.R-project.org/package=rvest)) and doing a bit of cleaning:
+

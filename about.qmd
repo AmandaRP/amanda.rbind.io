@@ -1,0 +1,18 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/DrAmandaRP
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/amanda-peterson-29138399
+    - icon: github
+      text: Github
+      href: https://github.com/AmandaRP
+---
+
+About this blog
