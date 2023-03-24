@@ -4,7 +4,7 @@ author: "Amanda Peterson"
 date: 2019-03-10
 categories: ["statistics","education"]
 description: "Bingo for a statistics course"
-image: "rstats_cookies.jpg"
+image: bingo.jpg
 ---
 
 I just wrapped up another round of teaching stats. I co-teach two courses per year as an adjunct instructor: one class that covers intro stats and the other that hits higher level concepts. Both courses move at a high pace; they're intended to be a survey course for professionals with a STEM background. Some students have a math background, but have never taken a statistics course. Other students have had statistics a long time ago in their undergraduate studies, but want to brush up on the material.
@@ -20,7 +20,7 @@ Lastly, don't forget the sugar! M&M's make great bingo chips. And, cookies decor
 ## Bingo Questions for Probability & Statistics I:
 
 | Questions                                                                                                                                                                                                      | Answers                       |
-|:-----------------------------------------------|------------------------|
+|:----------------------------------------------|------------------------|
 | 1\. The R function used to find the area under the normal curve                                                                                                                                                | `pnorm`                       |
 | 2\. For a discrete random variable: $E(X) = \sum_i^n X_i$ \* \_\_\_\_                                                                                                                                          | $P(X)$                        |
 | 3\. Step 5 of the hypothesis testing method is to provide a conclusion in the \_\_\_\_\_.                                                                                                                      | context of the problem        |
@@ -49,7 +49,7 @@ Lastly, don't forget the sugar! M&M's make great bingo chips. And, cookies decor
 ## Bingo Questions for Probability & Statistics II:
 
 | Questions                                                                                                                                                                                                                                                             | Answers                                       |
-|:-----------------------------------------------|------------------------|
+|:----------------------------------------------|------------------------|
 | 1\. Let {$X_i$} for $i=1..n$ partition the sample space. Bayes rule says that $f(X_i \text{ given } Y) = \frac{f(Y \text{ given } X_i)f(X_i)}{\sum_{i=1}^{n}f(Y \text{ given } X_i)f(X_i)}$. The \_\_\_ law is used in denominator when marginal, $f(Y)$, is unknown. | Law of Total Probability                      |
 | 2\. Maximization of the log likelihood function (take derivative and set equal to 0)                                                                                                                                                                                  | MLE                                           |
 | 3\. Probability density function for 2 or more variables                                                                                                                                                                                                              | Joint PDF                                     |
