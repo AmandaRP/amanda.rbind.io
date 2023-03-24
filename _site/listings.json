@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2019-11-12-dcr/index.html",
       "/posts/2019-08-02-twitter-likes/index.html",
       "/posts/2019-05-18-text-analysis-of-psalms/index.html",
       "/posts/2019-05-24-new-r-package-hddtest/index.html",

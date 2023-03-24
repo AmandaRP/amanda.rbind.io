@@ -1,0 +1,211 @@
+---
+title: DC R Conference Recap
+author: Amanda Peterson
+date: '2019-11-12'
+categories: ["rstats", "conference"]
+tags:
+  - Conference
+description: "A summary of the 2019 DC R Conference at Georgetown University."
+image: dcr.png
+draft: false
+---
+
+<!-- TODO: Fix twitter inserts. -->
+
+**The overview**: [DC R](https://dc.rstats.ai/) 2019, hosted by Lander Analytics, was held Nov 7-9 at Georgetown University. The short action-packed conference consisted of one-day workshops and two days of talks. Find the videos on the [DC R website](https://dc.rstats.ai/) (available soon) and associated tweets via the `#rstatsdc` hashtag on Twitter. Also, see [Jared Lander's blog post](https://www.jaredlander.com/2019/11/the-r-conference-returns-to-dc-for-a-second-year/) for a higher level overview of the conference with lots of fun pics.
+
+Highlights for me personally included [Malorie Hughes' presentation of `flexdashboard`](#comms). Somehow in the hype of R [`shiny`](https://shiny.rstudio.com/), I had missed this dashboard tool. I was also excited to learn about [Dr Dasgupta's `coursedown`](#comms) package, which I'm looking forward to testing out for the class that I teach. Another highlight was learning more about the implementation of Google's [BERT model in R](#modeling) by Jon Harmon & Jonathan Bratt.
+
+**Read more**: Below are my notes from selected talks. I've divided it into the following sections: [Communication](#comms), [Modeling](#modeling), [Spatial Analysis](#spatial), [General R Programming](#general), and [A Few Remaining Random Bits](#random).
+
+## Communication (Dashboards, Websites, and Data Viz) {#comms}
+
+**Coursedown: Managing Course Materials Using R Techniques**, Dr Abhijit Dasgupta, [*\@webbedfeet*](https://twitter.com/webbedfeet)
+
+-   Package available [on GitHub](https://github.com/webbedfeet/coursedown).
+-   Use [`drake`](https://github.com/ropensci/drake) to tie it all together
+
+**Dashboarding Like a Boss**, Malorie Hughes, [*\@data_all_day*](https://twitter.com/data_all_day)
+
+-   Don't email your results. Create a dashboard!
+-   Talk featured a [demo of `flexdashboard`](https://maloriejhughes.github.io/Dashboarding-Tutorial/). See more info about [`flexdashboard`](https://cran.r-project.org/web/packages/flexdashboard/index.html) on [RStudio's website](https://rmarkdown.rstudio.com/flexdashboard/).\
+-   Create using R Markdown. Just requires a different output type in the YAML header.
+-   See her [GitHub repo](https://github.com/maloriejhughes?tab=repositories) for templates
+-   Tips for making your output look pretty on the dashboard:
+    -   Use [`printr`](https://cran.r-project.org/web/packages/printr/index.html) to make printing R output look better. Less effort than `knitr::kable()`.
+    -   Use [`summarytools`](https://cran.r-project.org/web/packages/summarytools/index.html). It's not great YET for R Markdown, but keep tabs on it.
+    -   For model output, use [`stargazer`](https://cran.r-project.org/web/packages/stargazer/index.html)
+    -   `DT::datatable()` for interactive table (see advanced options in this function for fancier options for the table)
+    -   For interactive plots: [`highcharter`](https://cran.r-project.org/web/packages/highcharter/index.html). Assign colors with `colorize()`.
+-   She included an export/download data button on her dashboard. See her code to learn how to do that.
+-   See Malorie's official DC R dashboard:
+
+<center>
+
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1192878268850081792')
+```
+
+</center>
+
+**Using networkD3 and R to Visualize and Explore Relationships in Data**, Dr Ami Gates, [*\@DrGates309*](https://twitter.com/DrGates309)
+
+-   Talk focused on [`networkD3`](https://cran.r-project.org/web/packages/networkD3/index.html), which is nice for interactive networks.
+-   Other options for visualizing networks: [`igraph`](https://cran.r-project.org/web/packages/igraph/index.html), `ggnet2()` (part of [GGally](https://cran.r-project.org/web/packages/GGally/)), and [`visNetwork`](https://cran.r-project.org/web/packages/visNetwork/index.html)
+-   [`arules`](https://cran.r-project.org/web/packages/arules/index.html) package for association mining in R. She used it to find associated words considering both how often words appear together and also how often they appear in same dataset (in her example, how often in the same tweet)
+-   [`arulesViz`](https://cran.r-project.org/web/packages/arulesViz/index.html) - for visualization of association rules
+-   She used the `igraph` package to massage the data before giving it to `networkD3`
+
+**Better DataViz in ggplot2: Tips, Tricks, and Examples**, Alex Engler, [*\@AlexCEngler*](https://twitter.com/AlexCEngler)
+
+1.  [`ggplot2`](https://cran.r-project.org/web/packages/ggplot2/index.html) + [`sf`](https://cran.r-project.org/web/packages/sf/index.html) for bivariate plots: `ggplot2::geom_sf()`. See the [Drawing beautiful maps with R, sf, and ggplot2 sf](https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html) tutorial on r-spatial.org.
+2.  [`ggtext`](https://github.com/clauswilke/ggtext) to add text to plots using markdown. Includes text formatting. Showed an example of how to highlight parts of title to match highlighted part of graph.
+3.  [`gghighlight`](https://cran.r-project.org/web/packages/gghighlight/) to highlight parts of graph with color (and grey out rest)
+4.  `ggplot2::annotation_custom()` to add a plot on top of another. Create a "grobe" and drop it somewhere. Use to zoom in to a map with a bounding box. (My comment: seems similar to [`cowplot`](https://cran.r-project.org/web/packages/cowplot/index.html)).
+5.  `geofacet::facet_geo()` to create a plot per state, positioned in the location of the states on the map.
+6.  `ggplot2` extensions: See www.ggplot2-exts.org/gallery and the [`rayshader`](https://cran.r-project.org/web/packages/rayshader/index.html) package.
+
+## Modeling {#modeling}
+
+**RBERT: Cutting Edge NLP in R**, Jon Harmon, [*\@JonTheGeek*](https://twitter.com/JonTheGeek)
+
+-   BERT: **B**idirectional **E**ncoder **R**epresentations from **T**ransformers. Transfer learning for natural language processing. Created by Google. [RBERT](https://github.com/jonathanbratt/RBERT) is the R implementation.
+-   Older embeddings have one embedding per word. Can't help this situation: "I saw the branch on the bank." vs "I saw the branch of the bank." BERT addresses this issue.
+-   [`RBERTviz`](https://github.com/jonathanbratt/RBERTviz): Visualize attention and PCA. Let's you see how BERT is thinking. Showed an interactive demo--- go watch the video!
+-   BERT has 12 layers.
+-   RBERT usable now (available on GitHub), but the Jon and Jonathan are making it more user-friendly. Goal: On CRAN by end of 2019
+-   Works with tensorflow 2.0 (in testing)
+-   Example shown: Used RBERT to pull out features for [xgboost](https://cran.r-project.org/web/packages/xgboost/index.html) model.
+-   Slides available [here](https://raw.githack.com/jonthegeek/dcrbert/master/dcrbert.html#1)
+
+**Optimizing Topic Models for Classification Tasks**, Tommy Jones, [*\@thos_jones*](https://twitter.com/thos_jones)
+
+-   Performing PhD research to optimize LDA topic models
+-   Cousin to LDA: Text embeddings (considered state of the art). In his words, LDA stopped being cared about after deep learning came along. However, he thinks the LDA work was never completed to determine a good LDA model. He thinks LDA might be competitive with deep neural nets if tuned appropriately.
+-   Walked through an example of classifying 20newsgroups
+-   Tech stack: [`textmineR`](https://cran.r-project.org/web/packages/textmineR/index.html) (maintained by Tommy), [`randomForest`](https://cran.r-project.org/web/packages/randomForest/index.html) (simple so he could focus more on LDA), [`SigOptR`](https://cran.r-project.org/web/packages/SigOptR/index.html), [`cloudml`](https://cran.r-project.org/web/packages/cloudml/index.html), [`magrittr`](https://cran.r-project.org/web/packages/magrittr/index.html), [`stringr`](https://cran.r-project.org/web/packages/stringr/index.html), `parallel` (part of R-core)
+-   `SigOpt`: ensemble of Bayesian optimizers for picking hyperparmeters (more efficient than grid search). SigOptR is an R API for [SigOpt](https://sigopt.com/). -Used unigrams, removed stopwords, and words that were seen in less than 5 docs
+-   Optimized for accuracy and coherence. LDA was way more accurate than LSA. Showed a accuracy vs topic coherence.
+
+**Topic Modeling Consumer Complaints at the Federal Reserve**, BJ Bloom, [*\@bj_bloom*](https://twitter.com/bj_bloom)
+
+-   Goal: Use consumer complaints to inform risk analysis for Federal Reserve Board
+-   Used LDA topic modeling
+-   Main LDA packages in R: [`lda`](https://cran.r-project.org/web/packages/lda/index.html) (old, fine), [`topicmodels`](https://cran.r-project.org/web/packages/topicmodels/index.html) (special snowflake, have to re-index to 0, tricky to use), [`stm`](https://cran.r-project.org/web/packages/stm/index.html) (recommend, structural topic modeling, can use to incorporate metadata into topic model), [`textmineR`](https://cran.r-project.org/web/packages/textmineR/index.html) (recommend, in his opinion includes diagnostic measures that make sense)
+-   In his words, "Don't use [`tm`](https://cran.r-project.org/web/packages/tm/index.html). It had its place back in the day." Instead, he's a fan of [`tidytext`](https://cran.r-project.org/web/packages/tidytext/index.html).
+-   Other R packages used: [`textrank`](https://cran.r-project.org/web/packages/textrank/index.html) (for pagerank)
+
+## Spatial Analysis {#spatial}
+
+**The Care and Feeding of Spatial Data**, Angela Li, [*\@CivicAngela*](https://twitter.com/CivicAngela)
+
+-   Slides available [here](https://docs.google.com/presentation/d/1BHlrSZWmw9tRWfYFVsRLNhAoX6KzhOhsnezTqL-R0sU/edit#slide=id.g6aeb55b281_0_971)
+-   She described the steps *before* the fancy plots and regression, focusing on the data.
+-   Two types of spatial data:
+    -   Vector data - points lines polygons (she focused more on this)
+    -   Raster data - grids, pixels, cells
+-   Geo-coding: `tmaptools::geocode_OSM(“Georgetown University”)` gives coordinates (to translate human spatial data to computer understandable spatial data). Note that OSM = "open street map." Talk to your GIS librarian (or if you have ARCGis) to get coords.
+-   In her words: "Spatial file formats are confusing."
+-   Spatial data formats: `.shp` (shapefile made up of 4 files), `.geojson` (lots of web-based mapping), `.gpkg` (new and good, but not common yet), `.csv`, `.tiff` (for raster data)
+-   Library she uses: [`sf`](https://cran.r-project.org/web/packages/sf/index.html) package. `st_read()` or `read_sf()` to create a tidy `sf` data frame.
+-   Her tech stack: geoDa, QGIS, ArcGIS, PostGIS, CART, R
+-   R packages she uses the most (packages in parens are the "comparable" non-spatial versions):
+    -   [`sf`](https://cran.r-project.org/web/packages/sf/index.html) (readr, tidyr, dplyr)
+    -   [`tmap`](https://cran.r-project.org/web/packages/tmap/index.html) (ggplot2)
+    -   [`spdep`](https://cran.r-project.org/web/packages/spdep/index.html) (glmnet)
+    -   [`sp`](https://cran.r-project.org/web/packages/sp/index.html) (data.table)
+-   [`rayshader`](https://cran.r-project.org/web/packages/rayshader/index.html) for 3D plotting.\
+-   Use [`mapview`](https://cran.r-project.org/web/packages/mapview/index.html) for GIS-like experience
+-   Think beyond dots on a map. Are there clusters? Look at spatial auto-correlation and spatially constrained clustering.
+-   Pre release of [`rgeoda`](https://github.com/lixun910/rgeoda) on GitHub
+-   See `#rspatial` on Twitter
+-   Most important slide she's ever made in her life:
+
+<center>
+
+```{r out.width='80%', echo=FALSE}
+knitr::include_graphics("spatialsearch.jpeg")
+```
+
+</center>
+
+**R is Not Just Basic Stats: Think Spatially!**, Tatyana Tsvetovat, [*\@t_tsvet*](https://twitter.com/t_tsvet)
+
+-   Divided household: She's an R enthusiast and her husband is a Python fan `r emo::ji("scream")`
+-   Packages she uses: [`rgdal`](https://cran.r-project.org/web/packages/rgdal/index.html), [`rgeos`](https://cran.r-project.org/web/packages/rgeos/index.html), [`sp`](https://cran.r-project.org/web/packages/sp/index.html), [`spatstat`](https://cran.r-project.org/web/packages/spatstat/index.html), [`kernlab`](https://cran.r-project.org/web/packages/kernlab/index.html), [`zoo`](https://cran.r-project.org/web/packages/zoo/index.html)
+
+## General R Programming {#general}
+
+**Ten Tremendous Tricks in the Tidyverse**, David Robinson, [*\@drob*](https://twitter.com/drob)
+
+Be sue to catch his `#tidytuesday` screen casts [on YouTube](https://www.youtube.com/playlist?list=PLEtQC6FY-llkqIhZjI1TYkm4cV6WjobTC). Ten tricks that people have liked from his screen casts:
+
+1.  `count()`: One of the most used EDA functions
+2.  `count(column, sort, wt, name)`: Create a new variable within count. For example: `count(decade = 10 * (year %/% 10)` to produce counts for each decade.
+3.  `add_count()` adds a count column (really useful to combine with filter to get `x` with a minimum count)
+4.  Use `summarize()` to create a list column. Looks like `data %>% groupby() %>% summarize`. Example: `summarize(test = list(t.test(avg_score)))` Then use broom to visualize. See [chapter 25 of R for Data Science](https://r4ds.had.co.nz/many-models.html).
+5.  Use the combination of: `count()`, `fct_reorder()` (to turn column into ordered factor), `geom_col` (use instead of `geom_bar(stat = ‘idendtity’))`, `coord_flip()`,\
+6.  `fct_lump()` to combine least/most common levels together
+7.  `scale_x` or `y_log10()` to use log scale. In his words: "I suspect much more data is log-normal than normal."
+8.  `tidyr::crossing()` to find all combinations of multiple vectors. Example: `crossing(a = 1:3, b = A:Z, c = 10:20)`. Can use for simulations in place of for-loops.
+9.  `separate()` to split a column into multiple columns based on a regex
+10. `extract()` to extract information from a column based on a regex
+
+<center>
+
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1193212461773545472')
+```
+
+</center>
+
+**Raising baby with R**, Jared Lander, [*\@jaredlander*](https://twitter.com/jaredlander)
+
+-   Jared and his wife recently had a baby. He described his use of R to choose the baby's name and analyze its eating, sleeping, and poo patterns.
+-   See the [`babynames`](https://cran.r-project.org/web/packages/babynames/index.html) package for data about popularity of baby names
+-   Analyzing time series data: [`tsibble`](https://cran.r-project.org/web/packages/tsibble/index.html), [`fable`](https://cran.r-project.org/web/packages/fable/index.html), [`feast`](https://cran.r-project.org/web/packages/feasts/index.html). Use `model()` function in this package to fit `ts` models. Use `autoplot()` to plot `ts` data. `index_by()` is the `ts` equiv of `group_by()`.
+-   [`fable.prophet`](https://github.com/mitchelloharawild/fable.prophet) package to use prophet in a fable framework. Used this to perform change-point detection.
+-   Slides available [here](https://jaredlander.com/content/2019/11/BabyData.html#1).
+
+**R and Python coexisting in the same Development environment**, Dan Chen, [*\@chendaniely*](https://twitter.com/chendaniely), (Author of "Pandas for Everyone")
+
+-   What he believes Python does better: environments, web development, and hardware
+-   What he likes about R: communication (`shiny`, `rmarkdown`, `ggplot2`)
+-   Python environments in R:
+
+```{r eval=FALSE}
+conda_envs <- reticulate::cond_list()
+conda_envs$name[[1]] #have to restart R if you want to change env again)
+```
+
+-   Most data scientists using Python use anaconda.
+-   Don't mix anaconda R package installation with `install.packages()`
+-   New model pipeline in R: [`rsample`](https://cran.r-project.org/web/packages/rsample/index.html), [`recipes`](https://cran.r-project.org/web/packages/recipes/index.html), [`parsnip`](https://cran.r-project.org/web/packages/parsnip/index.html), [`yardstick`](https://cran.r-project.org/web/packages/yardstick/index.html)\
+-   Described workflow: Python `joblib` for "pickling" a model in python. Read it into R. Then use R `shiny` to display
+-   \[`blogdown`\] supports jupyter notebooks
+-   `knitpy`: `knitr` implementation in python
+-   Use Apache arrow to pass datasets between R and python
+-   Information on installing python [here](https://swcarpentry.github.io/python-novice-inflammation/setup/index.html)
+-   Slides available [here](https://speakerdeck.com/chendaniely/using-python-with-r)
+
+**Managing Your Cloud: Working with APIs**, Marck Vaisman, [*\@wahalulu*](https://twitter.com/wahalulu)
+
+-   Discussed how to use R to interact with APIs (mostly for the consumption of data)
+-   [`plumber`](https://cran.r-project.org/web/packages/plumber/index.html) for building and serving up APIs
+-   three package to be aware of: [`httr`](https://cran.r-project.org/web/packages/httr/index.html) (Part of the `tidyverse`. More abstract/easier than `curl` package), [`curl`](https://cran.r-project.org/web/packages/curl/index.html) (new package), [`jsonlite`](https://cran.r-project.org/web/packages/jsonlite/index.html)
+
+## A Few Remaining Random Bits {#random}
+
+-   Check out the [`memeR`](https://github.com/sctyner/memer) package by [*\@sctyner*](https://twitter.com/sctyner)
+-   R Markdown tips from [*\@datadanya*](https://twitter.com/datadanya): Include `session_info()` at the end of all markdown docs. See https://bootswatch.com/3/ for a list of R Markdown themes
+-   Use [`gmailr`](https://cran.r-project.org/web/packages/gmailr/index.html) to send email from R
+-   See [`learnr`](https://cran.r-project.org/web/packages/learnr/index.html) for creating teaching materials. (Use in conjunction with [`gradethis`](https://rstudio-education.github.io/gradethis/.)
+-   For conversations about R administration, see `#radmins` on Twitter, [solutions.rstudio.com](https://solutions.rstudio.com/), or the radmins channel on [community.rstudio.com](https://community.rstudio.com/). Management and IT folks should watch Kelly O'Briant's talk, [Reflections on a Year Spent Talking to Data Scientists About DevOps](https://speakerdeck.com/kellobri/a-year-of-talking-about-devops).
+
+<center>
+
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1192889086639513600')
+```
+
+</center>
