@@ -42,9 +42,7 @@ Highlights for me personally included [Malorie Hughes' presentation of `flexdash
 
 <center>
 
-```{r echo=FALSE}
-blogdown::shortcode('tweet', '1192878268850081792')
-```
+{{< tweet rstatsdc 1192878268850081792 >}}
 
 </center>
 
@@ -153,9 +151,7 @@ Be sue to catch his `#tidytuesday` screen casts [on YouTube](https://www.youtube
 
 <center>
 
-```{r echo=FALSE}
-blogdown::shortcode('tweet', '1193212461773545472')
-```
+{{< tweet drob 1193212461773545472 >}}
 
 </center>
 
@@ -204,8 +200,6 @@ conda_envs$name[[1]] #have to restart R if you want to change env again)
 
 <center>
 
-```{r echo=FALSE}
-blogdown::shortcode('tweet', '1192889086639513600')
-```
+{{< tweet rstatsdc 1192889086639513600 >}}
 
 </center>

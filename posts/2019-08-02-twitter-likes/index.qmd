@@ -12,23 +12,11 @@ I love that Twitter recently came out with bookmarks! My previous MO on Twitter 
 
 # `rtweet` Package
 
-<!-- <center> -->
+<center>
 
-<!-- ```{r echo=FALSE} -->
+{{< tweet dataandme 1109764129005420544 >}}
 
-<!-- blogdown::shortcode('tweet', '1109764129005420544') -->
-
-<!-- ``` -->
-
-<!-- </center> -->
-
-``` {.markdown shortcodes="false"}
-{{< tweet user=dataandme id=1109764129005420544 >}}
-```
-
-``` {.markdown shortcodes="false"}
-{{< tweet user=juliesquid id=1557485909486059523 >}}
-```
+</center>
 
 To grab the tweets, there is a little setup with Twitter that is necessary. The setup is described on the [`rtweet` website](https://rtweet.info/index.html).
 
