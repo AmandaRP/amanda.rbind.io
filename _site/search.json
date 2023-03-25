@@ -130,7 +130,7 @@
     "href": "index.html",
     "title": "Amanda's Data Science Blog",
     "section": "",
-    "text": "rstats\n\n\nconference\n\n\n\nA summary of the 2019 DC R Conference at Georgetown University.\n\n\n\nAmanda Peterson\n\n\nNov 12, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nshiny\n\n\ntwitter\n\n\n\nAnalysis of my Twitter likes via a wordcloud and a shiny app.\n\n\n\nAmanda Peterson\n\n\nAug 2, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nsentiment\n\n\nbible\n\n\n\nSentiment analysis of Psalms using the tidytext and sentimentr packages\n\n\n\nAmandaRP\n\n\nJun 22, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstatistics\n\n\nrstats\n\n\n\nAn R package for two sample hypothesis testing of high dimensional discrete data\n\n\n\nAmanda Peterson\n\n\nMay 24, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstatistics\n\n\neducation\n\n\n\nBingo for a statistics course\n\n\n\nAmanda Peterson\n\n\nMar 10, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nconference\n\n\n\nMy notes from 2019 rstudio::conf\n\n\n\nAmanda Peterson\n\n\nJan 26, 2019\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "blah\n\n\n\nAmanda Peterson\n\n\nFeb 7, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nconference\n\n\n\nA summary of the 2019 DC R Conference at Georgetown University.\n\n\n\nAmanda Peterson\n\n\nNov 12, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nshiny\n\n\ntwitter\n\n\n\nAnalysis of my Twitter likes via a wordcloud and a shiny app.\n\n\n\nAmanda Peterson\n\n\nAug 2, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nsentiment\n\n\nbible\n\n\n\nSentiment analysis of Psalms using the tidytext and sentimentr packages\n\n\n\nAmandaRP\n\n\nJun 22, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstatistics\n\n\nrstats\n\n\n\nAn R package for two sample hypothesis testing of high dimensional discrete data\n\n\n\nAmanda Peterson\n\n\nMay 24, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstatistics\n\n\neducation\n\n\n\nBingo for a statistics course\n\n\n\nAmanda Peterson\n\n\nMar 10, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nconference\n\n\n\nMy notes from 2019 rstudio::conf\n\n\n\nAmanda Peterson\n\n\nJan 26, 2019\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2019-05-24-new-r-package-hddtest/index.html",
@@ -187,5 +187,12 @@
     "title": "DC R Conference Recap",
     "section": "A Few Remaining Random Bits",
     "text": "A Few Remaining Random Bits\n\nCheck out the memeR package by @sctyner\nR Markdown tips from @datadanya: Include session_info() at the end of all markdown docs. See https://bootswatch.com/3/ for a list of R Markdown themes\nUse gmailr to send email from R\nSee learnr for creating teaching materials. (Use in conjunction with gradethis\nFor conversations about R administration, see #radmins on Twitter, solutions.rstudio.com, or the radmins channel on community.rstudio.com. Management and IT folks should watch Kelly O’Briant’s talk, Reflections on a Year Spent Talking to Data Scientists About DevOps."
+  },
+  {
+    "objectID": "posts/2020-02-07-shiny-r-ladies/index.html",
+    "href": "posts/2020-02-07-shiny-r-ladies/index.html",
+    "title": "Shiny R-Ladies",
+    "section": "",
+    "text": "We made an app showing the wildfires in south eastern Australia along with historic rainfall and temperature data. This dataset was provided as a Tidy Tuesday dataset by the R for Data Science Learning Community.\nHere is a peak at the app…\n\n\n\nAnd, a few more pictures from the event…\n\n\n\nSlides:"
   }
 ]

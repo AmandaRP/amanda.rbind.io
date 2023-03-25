@@ -1,0 +1,14 @@
+{
+  "hash": "a7a67ec453323f210b096977a222ecc3",
+  "result": {
+    "markdown": "---\ntitle: Shiny R-Ladies\nauthor: Amanda Peterson\ndate: '2020-02-07'\ntags: [rstats, shiny, rladies]\ndescription: blah\ndraft: false\nimage: shiny_rladies.png\n---\n\n\nEarlier this year I had the pleasure of talking about R [`shiny`](https://CRAN.R-project.org/package=shiny){target=\"_blank\"} at the [Baltimore R-Ladies](https://rladies-baltimore.github.io/){target=\"_blank\"} Meetup. `shiny` is an R package for building interactive web applications.\n\nWe made an app showing the wildfires in south eastern Australia along with historic rainfall and temperature data. This dataset was provided as a [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-07/readme.md) dataset by the R for Data Science Learning Community.\n\nHere is a peak at the app...\n\n<center>\n\n\n{{< tweet RLadiesBmore 1222660774134370304 >}}\n\n\n\n</center>\n\nAnd, a few more pictures from the event...\n\n<center>\n\n\n{{< tweet stephaniehicks 1222656050202988544 >}}\n\n\n\n</center>\n\nSlides:\n\n\n::: {.cell}\n<iframe src=\"https://amanda.rbind.io/slides/shiny-rladies\" width=\"672\" height=\"400px\" data-external=\"1\"></iframe>\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
