@@ -6,6 +6,7 @@ categories: ["statistics","rstats"]
 description: "An R package for two sample hypothesis testing of high dimensional discrete data"
 draft: false
 image: thumbnail_package.jpg
+code-copy: true
 ---
 
 ```{r setup, include = FALSE}

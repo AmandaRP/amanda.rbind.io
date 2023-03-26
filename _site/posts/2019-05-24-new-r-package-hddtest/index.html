@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="AmandaRP">
+<meta name="author" content="Amanda Peterson">
 <meta name="dcterms.date" content="2019-05-24">
 <meta name="description" content="An R package for two sample hypothesis testing of high dimensional discrete data">
 
@@ -194,7 +194,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           An R package for two sample hypothesis testing of high dimensional discrete data
         </div>
       </div>
-                </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">statistics</div>
+                <div class="quarto-category">rstats</div>
+              </div>
+                  </div>
   </div>
     
   
@@ -203,7 +207,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>AmandaRP </p>
+               <p>Amanda Peterson </p>
             </div>
     </div>
       
@@ -246,16 +250,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Next for each of the two groups, sum the 200 term frequency vectors together. They will be the two multinomial vectors that we test. We’ll store the result in a list called, <code>vecs2Test</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>vecs2Test <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="cn">NA</span>, <span class="dv">2</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>vecs2Test[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> twoNewsGroups<span class="sc">$</span>sci.med[group_1, ] <span class="sc">|&gt;</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colSums</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>vecs2Test[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> twoNewsGroups<span class="sc">$</span>sci.med[group_1, ] <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colSums</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="at">nrow =</span> <span class="dv">1</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>vecs2Test[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> twoNewsGroups<span class="sc">$</span>sci.med[group_2, ] <span class="sc">|&gt;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colSums</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>vecs2Test[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> twoNewsGroups<span class="sc">$</span>sci.med[group_2, ] <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colSums</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="at">nrow =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now test the null hypothesis that the associated multinomial probability vectors are within some neighborhood, <code>delta</code>, of each other (against the alternative that they are not). We can then use this result to infer whether the sets of documents are likely from the same newsgroup.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vecs2Test <span class="sc">|&gt;</span> <span class="fu">multinom.neighborhood.test</span>(<span class="at">delta =</span> <span class="dv">60</span>)</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vecs2Test <span class="sc">%&gt;%</span> <span class="fu">multinom.neighborhood.test</span>(<span class="at">delta =</span> <span class="dv">60</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $statistic</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 7.811123</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -275,20 +279,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>       row_ids <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data[[<span class="dv">2</span>]])</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>       group_1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(row_ids, num_docs[<span class="dv">1</span>])</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>       group_2 <span class="ot">&lt;-</span> <span class="fu">sample</span>(row_ids[<span class="sc">-</span>group_1], num_docs[<span class="dv">2</span>])</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>       vecs2Test[[<span class="dv">1</span>]][i, ] <span class="ot">&lt;-</span> data[[<span class="dv">2</span>]][group_1, ] <span class="sc">|&gt;</span> <span class="fu">colSums</span>()</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>       vecs2Test[[<span class="dv">2</span>]][i, ] <span class="ot">&lt;-</span> data[[<span class="dv">2</span>]][group_2, ] <span class="sc">|&gt;</span> <span class="fu">colSums</span>()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>       vecs2Test[[<span class="dv">1</span>]][i, ] <span class="ot">&lt;-</span> data[[<span class="dv">2</span>]][group_1, ] <span class="sc">%&gt;%</span> <span class="fu">colSums</span>()</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>       vecs2Test[[<span class="dv">2</span>]][i, ] <span class="ot">&lt;-</span> data[[<span class="dv">2</span>]][group_2, ] <span class="sc">%&gt;%</span> <span class="fu">colSums</span>()</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>       </span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>     }<span class="cf">else</span>{</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>       <span class="co"># Sample num_docs from each of the two DIFFERENT sets of documents</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>       vecs2Test[[<span class="dv">1</span>]][i, ] <span class="ot">&lt;-</span> data[[<span class="dv">1</span>]][<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data[[<span class="dv">1</span>]]), num_docs[<span class="dv">1</span>]), ] <span class="sc">|&gt;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>       vecs2Test[[<span class="dv">1</span>]][i, ] <span class="ot">&lt;-</span> data[[<span class="dv">1</span>]][<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data[[<span class="dv">1</span>]]), num_docs[<span class="dv">1</span>]), ] <span class="sc">%&gt;%</span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="fu">colSums</span>()</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>       vecs2Test[[<span class="dv">2</span>]][i,] <span class="ot">&lt;-</span> data[[<span class="dv">2</span>]][<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data[[<span class="dv">2</span>]]), num_docs[<span class="dv">2</span>]), ] <span class="sc">|&gt;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>       vecs2Test[[<span class="dv">2</span>]][i,] <span class="ot">&lt;-</span> data[[<span class="dv">2</span>]][<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data[[<span class="dv">2</span>]]), num_docs[<span class="dv">2</span>]), ] <span class="sc">%&gt;%</span></span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                                      <span class="fu">colSums</span>()</span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>     }</span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>   }</span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>   <span class="co">#Perform the test:</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>   result <span class="ot">&lt;-</span> vecs2Test <span class="sc">|&gt;</span> <span class="fu">multinom.neighborhood.test</span>(<span class="at">delta =</span> delta)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>   result <span class="ot">&lt;-</span> vecs2Test <span class="sc">%&gt;%</span> <span class="fu">multinom.neighborhood.test</span>(<span class="at">delta =</span> delta)</span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>} <span class="co">#end simulation function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
