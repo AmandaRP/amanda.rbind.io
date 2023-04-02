@@ -208,16 +208,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="filtering-by-genre" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-by-genre">Filtering by genre</h2>
 <p>The <code>shelves</code> field in the <code>book_info</code> data set is a list of virtual shelves that users have added books to. The shelf name is defined by the user and can be anything such as “to read”, “book club”, or the name of the genre. By looking at the list of shelves associated with a particular book, we can make some inferences about its genre. To limit books for my book club to Christian fiction (the focus of our group), I included books that were on at least one shelf with “christian” in the name and at least one shelf with “fiction” in the name (being careful to ignore “nonfiction” and “non-fiction”). This isn’t a perfect method for determining genre, but it significantly reduced the data size: 228,648,342 user-book interactions reduced to 5,628,062, a 98% reduction. If you’d like to try filtering the data by a different genre, use the <a href="https://github.com/AmandaRP/NeuralCollaborativeFiltering/blob/master/Data/genre_subset.R"><code>genre_subset.R</code></a> script.</p>
-<div id="fig-top-five" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 20.0%;justify-content: center;">
-<p><img src="images/thelionthewitchandthewardrobe.jpg" class="img-fluid figure-img"> <img src="images/thepoisonwoodbible.jpg" class="img-fluid figure-img"> <img src="images/thecroniclesofnarnia.jpg" class="img-fluid figure-img"> <img src="images/thefivepeopleyoumeetinheaven.jpg" class="img-fluid figure-img"> <img src="images/unbroken.jpg" class="img-fluid figure-img"></p>
-</div>
-</div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: The top five books appearing on the most shelves</figcaption><p></p>
-</figure>
-</div>
+<center>
+<p><img src="images/thelionthewitchandthewardrobe.jpg" class="img-fluid" style="width:18.0%"> <img src="images/thepoisonwoodbible.jpg" class="img-fluid" style="width:18.0%"> <img src="images/thecroniclesofnarnia.jpg" class="img-fluid" style="width:18.0%"> <img src="images/thefivepeopleyoumeetinheaven.jpg" class="img-fluid" style="width:18.0%"> <img src="images/unbroken.jpg" class="img-fluid" style="width:18.0%"></p>
+<p>The top five books appearing on the most shelves</p>
+</center>
 <p>The top book, <a href="https://www.goodreads.com/book/show/100915.The_Lion_the_Witch_and_the_Wardrobe?from_search=true&amp;from_srp=true&amp;rank=1">The Lion, the Witch and the Wardrobe</a>, is a well known classic fiction book and part of the series of books at #3, <a href="https://www.goodreads.com/book/show/101704">The Chronicles of Narnia</a>. It is one that I read as a young girl. I was not familiar with the books at #2 and #4: <a href="https://www.goodreads.com/book/show/17847199">The Poisonwood Bible</a> and <a href="https://www.goodreads.com/book/show/6980106">The Five People You Meet in Heaven</a>. Finally, the last on the list at #5 is <a href="https://www.goodreads.com/book/show/21864196">Unbroken: A World War II Story of Survival, Resilience, and Redemption</a>. This book is a true story and actually shouldn’t be included in the fiction genre. So, we see that this filtering method isn’t perfect. I’m OK with that.</p>
 </section>
 <section id="bookmark" class="level2">

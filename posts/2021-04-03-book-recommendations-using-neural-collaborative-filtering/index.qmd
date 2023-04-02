@@ -48,16 +48,16 @@ Note that this data set is a bit outdated (only six books from 2019 and none fro
 
 The `shelves` field in the `book_info` data set is a list of virtual shelves that users have added books to. The shelf name is defined by the user and can be anything such as "to read", "book club", or the name of the genre. By looking at the list of shelves associated with a particular book, we can make some inferences about its genre. To limit books for my book club to Christian fiction (the focus of our group), I included books that were on at least one shelf with "christian" in the name and at least one shelf with "fiction" in the name (being careful to ignore "nonfiction" and "non-fiction"). This isn't a perfect method for determining genre, but it significantly reduced the data size: 228,648,342 user-book interactions reduced to 5,628,062, a 98% reduction. If you'd like to try filtering the data by a different genre, use the [`genre_subset.R`](https://github.com/AmandaRP/NeuralCollaborativeFiltering/blob/master/Data/genre_subset.R) script.
 
-::: {#fig-top-five layout-ncol=5}
-
-![](images/thelionthewitchandthewardrobe.jpg) 
-![](images/thepoisonwoodbible.jpg)
-![](images/thecroniclesofnarnia.jpg)
-![](images/thefivepeopleyoumeetinheaven.jpg)
-![](images/unbroken.jpg)
+<center>
+![](images/thelionthewitchandthewardrobe.jpg){width=18%} 
+![](images/thepoisonwoodbible.jpg){width=18%}
+![](images/thecroniclesofnarnia.jpg){width=18%}
+![](images/thefivepeopleyoumeetinheaven.jpg){width=18%}
+![](images/unbroken.jpg){width=18%}
 
 The top five books appearing on the most shelves
-:::
+
+</center>
 
 The top book, [The Lion, the Witch and the Wardrobe](https://www.goodreads.com/book/show/100915.The_Lion_the_Witch_and_the_Wardrobe?from_search=true&from_srp=true&rank=1), is a well known classic fiction book and part of the series of books at #3, [The Chronicles of Narnia](https://www.goodreads.com/book/show/101704). It is one that I read as a young girl. I was not familiar with the books at #2 and #4: [The Poisonwood Bible](https://www.goodreads.com/book/show/17847199) and [The Five People You Meet in Heaven](https://www.goodreads.com/book/show/6980106). Finally, the last on the list at #5 is [Unbroken: A World War II Story of Survival, Resilience, and Redemption](https://www.goodreads.com/book/show/21864196). This book is a true story and actually shouldn't be included in the fiction genre. So, we see that this filtering method isn't perfect. I'm OK with that.
 
