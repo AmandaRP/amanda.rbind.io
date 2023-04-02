@@ -3,7 +3,7 @@ title: 'Mirror, mirror on the wall, does my test data reflect my training data a
 author: Amanda Peterson
 date: '2020-11-08'
 description: A closer look at the train-test split 
-tags: [ML, rstats]
+tags: ["machine learning", "rstats"]
 draft: false
 code-copy: true
 image: mirror_cartoon.jpg

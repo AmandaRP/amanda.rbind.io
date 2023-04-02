@@ -3,7 +3,7 @@ title: rstudio::global(2021) |> summarize()
 author: Amanda Peterson
 date: '2021-01-21'
 slug: rstudio-global
-tags: [rstats, conference]
+tags: ["rstats", "conference"]
 description: My notes from the 2021 RStudio (virtual) Conference
 image: rstudio_2021.png
 draft: false

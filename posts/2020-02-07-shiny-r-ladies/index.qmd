@@ -2,8 +2,8 @@
 title: Shiny R-Ladies
 author: Amanda Peterson
 date: '2020-02-07'
-tags: [rstats, shiny, rladies]
-description: blah
+tags: ["rstats", "shiny", "rladies"]
+description: "Tutorial on R Shiny at a Baltimore R-Ladies meetup"
 draft: false
 image: shiny_rladies.png
 ---
@@ -31,8 +31,7 @@ And, a few more pictures from the event...
 Slides:
 
 
-```{r echo=FALSE fig.align="center"}
+```{r echo=FALSE, fig.align="center"}
 knitr::include_url('https://amanda.rbind.io/slides/shiny-rladies')
-
 ```
 
