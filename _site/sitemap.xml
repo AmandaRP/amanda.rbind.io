@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://amanda.rbind.io/index.html</loc>
-    <lastmod>2023-03-26T01:18:02.933Z</lastmod>
+    <lastmod>2023-04-02T00:44:14.970Z</lastmod>
   </url>
   <url>
     <loc>https://amanda.rbind.io/posts/2019-05-24-new-r-package-hddtest/index.html</loc>
@@ -46,6 +46,10 @@
   </url>
   <url>
     <loc>https://amanda.rbind.io/posts/2020-11-08-mirror-mirror-on-the-wall-does-my-test-data-reflect-my-training-data-at-all/index.html</loc>
-    <lastmod>2023-03-26T01:18:06.897Z</lastmod>
+    <lastmod>2023-04-02T00:44:50.811Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanda.rbind.io/posts/2021-01-21-rstudio-global/index.html</loc>
+    <lastmod>2023-04-02T00:44:22.034Z</lastmod>
   </url>
 </urlset>

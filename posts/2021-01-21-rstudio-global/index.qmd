@@ -1,0 +1,126 @@
+---
+title: rstudio::global(2021) |> summarize()
+author: Amanda Peterson
+date: '2021-01-21'
+slug: rstudio-global
+tags: [rstats, conference]
+description: My notes from the 2021 RStudio (virtual) Conference
+image: rstudio_2021.png
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Due to the COVID-19 pandemic, this year's rstudio::conf was virtual (and free!). The conference is about all things R and RStudio. There were 15K+ registrants. Talks ran concurrently over a 12 hour period (and repeated again for viewers in other time zones). My notes below are only for a handful of selected talks-- there are many others that I was not able to watch (yet). Videos are available on the [RStuduio website](https://resources.rstudio.com/resources/rstudioglobal-2021/){target="_blank"}.
+
+## Keynote: Maintaining the house that tidyverse built
+
+**Speaker**: Hadley Wickham (Chief Scientist at RStudio)
+
+![](images/hadley.png){width="100%" fig-align='center'}
+
+-   Discussed the life cycle of functions and packages, which you will see tagged on many of RStudio's packages. See [this page](https://www.tidyverse.org/lifecycle/){target="_blank"} and the [`lifecycle`](https://cran.r-project.org/web/packages/lifecycle/index.html){target="_blank"} package for more details.
+-   To maintain a static package installation for a project: Use [`renv`](https://rstudio.github.io/renv/){target="_blank"} or [RStudio's public package manager](https://packagemanager.rstudio.com/client/#/){target="_blank"}. On the latter, just pick a day in the past to maintain package state from that date (only for packages on CRAN).
+-   If you haven't already heard, [`dplyr`](https://dplyr.tidyverse.org/){target="_blank"}'s spread & gather functions are not going away. However, the recommended replacement functions are `pivot_longer` and `wider_wider`.
+
+![](images/gather.jpeg){width="85%" fig-align='center'}
+
+-   [`magrittr`](https://magrittr.tidyverse.org/){target="_blank"} will be around for at least 4 or 5 years, but people will be encouraged to use the new pipe in base R version 4.1.
+-   [`modelr`](https://modelr.tidyverse.org/){target="_blank"} is superseded by [`tidymodels`](https://www.tidymodels.org/){target="_blank"}.
+
+<br>
+
+## R & Python: Going Steady
+
+**Speaker**: Sean Lopp (Project Manager at RStudio)
+
+-   Myth: Data science teams need to choose between R and Python (or some other language).
+-   Truth: Using the right tool for the right job can make data science teams more effective.
+-   [RStudio Server Pro](https://rstudio.com/products/rstudio-server-pro/){target="_blank"}: Provides a common architecture for many different types of data science tools (e.g. Jupyter notebooks, JupyterLab, RStudio). IT teams only need to set up one infrastructure instead of supporting many tools.
+-   [RStudio Connect](https://rstudio.com/products/connect/){target="_blank"}: Provides a common hosting architecture for many different types of data science products (e.g. reports, notebooks, APIs, shiny applications). Additionally, RStudio Connect increases collaboration between team members using different programming languages and tools.
+-   My thoughts: I would `r emo::ji("heart")` to have access to RStudio Connect.
+
+<br>
+
+## Art Lessons: One Year as RStudio's Artist-in-Residence
+
+**Speaker**: Allison Horst (Professor at the Bren School of Environmental Science and Management at UC Santa Barbara)
+
+Allison talked about the importance of art for making R instruction material more approachable for learners. Some of her new artwork was featured in this talk-- I'm feeling motivated to add some of new artwork to some of my training materials. Allison's artwork can be found in her [GitHub repo](https://github.com/allisonhorst/stats-illustrations){target="_blank"}.
+
+![](images/horst2.png){width="100%" fig-align='center'}
+
+
+<br>
+
+## Keynote: Reporting on and visualising the pandemic
+
+**Speaker**: John Burn-Murdoch (Financial Timesâ senior data visualization journalist, and creator of the FTâ's coronavirus trajectory tracker charts)
+
+John's talk focused on data visualization for a mass audience. The data viz research paper that has been the most influential on his work: [Beyond Memorability: Visualization Recognition and Recall](https://vcg.seas.harvard.edu/files/pfister/files/infovis_submission251-camera.pdf?m=1441898216){target="_blank"}.
+
+![](images/keynote2.png){width="100%" fig-align='center'}
+
+
+Lessons:
+
+-   Text and other annotations are critical when sharing charts to the masses. The annotations make the chart accessible.
+-   It's the responsibility of the chart designer to make sure the reader is not confused when looking at the chart.
+-   Info viz is personal and often political. People will bring their prior beliefs to the plot and make judgments about the utility of the chart (for example many strong opinions about the use of log scale on the vertical axis).
+-   Don't publish and vanish. Incorporate readers' feedback.
+-   Ease of understanding is top priority (more than accuracy). For example, using a 7 day rolling average may be easier for people to understand than splines (even though the latter shows more accurate numbers).
+-   Animation can be incredibly effective (but use it sparingly).
+
+<br>
+
+## What's new in `tidymodels`?
+
+**Speaker**: Max Kuhn (Software engineer at RStudio)
+
+Recent updates in `tidymodels`:
+
+-   Added limited support for sparse matrices.
+-   [`finetune`](https://cran.r-project.org/web/packages/finetune/index.html){target="_blank"} package (extension of [`tune`](https://tune.tidymodels.org/){target="_blank"} package) for finding optimal tuning hyper-parameters. Nice methods available in `finetune` finding optimal hyper-parameters (methods are more efficient that full grid search):
+    -   Racing methods
+    -   Simulated Annealing search
+
+How do you pick a modeling framework (e.g. `mlr3`, `h2o`, `tidymodels`)?
+
+-   `h2o` for speed (sub-second latency).
+-   If your framework is tidyverse, you might go with `tidymodels`.
+-   `mlr3` is great, too `r emo::ji("smiley")`
+
+See the book: [Tidy modeling with R](https://www.tmwr.org/){target="_blank"}. Slides for talk available [here](https://github.com/rstudio/rstudio-conf/tree/master/2021/maxkuhn){target="_blank"}.
+
+<br>
+
+## Feedback at scale
+
+**Speaker**: Mine Çetinkaya-Rundel (Educator and Data Scientist at RStudio, Senior Lecturer in the School of Mathematics at University of Edinburgh)
+
+Building tutorials using [`learnr`](https://rstudio.github.io/learnr/){target="_blank"}:
+
+-   Really shines with coding exercises. Provides instant feedback to students.
+-   Recommendations: Include starter code for students to complete. Give "human friendly" feedback in response to incorrect responses. Check the result instead of checking the code (since students can order operations in multiple ways).
+
+[`learnrhash`](https://github.com/rundel/learnrhash/){target="_blank"}: Use with `learnr` to collect (hashed) answer submissions from student `learnr` sessions.
+
+Options for distributing at scale:
+
+-   shinyapps.io or RStudio connect, or\
+-   distribute within a package
+
+![](images/mine.png){width="100%" fig-align='center'}
+
+
+<br>
+
+## Always look on the bright side of plots
+
+**Speaker**: Kara Woo (Research scientist in data curation at Sage Bionetworks)
+
+Discussion points: Mapping mishaps, scale snafus (setting scale limits removes data before statistical summaries. To zoom in on a plot, better to set coordinate limits), and theme threats. Kara talked about common mistakes that people make when using [`ggplot2`](https://ggplot2.tidyverse.org/){target="_blank"}.
+
+Follow [accidental aRt](https://twitter.com/accidental__aRt){target="_blank"} on Twitter.

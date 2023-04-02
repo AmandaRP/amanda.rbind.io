@@ -130,7 +130,7 @@
     "href": "index.html",
     "title": "Amanda's Data Science Blog",
     "section": "",
-    "text": "A closer look at the train-test split\n\n\n\nAmanda Peterson\n\n\nNov 8, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nblah\n\n\n\nAmanda Peterson\n\n\nFeb 7, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nconference\n\n\n\nA summary of the 2019 DC R Conference at Georgetown University.\n\n\n\nAmanda Peterson\n\n\nNov 12, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nshiny\n\n\ntwitter\n\n\n\nAnalysis of my Twitter likes via a wordcloud and a shiny app.\n\n\n\nAmanda Peterson\n\n\nAug 2, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nsentiment\n\n\nbible\n\n\n\nSentiment analysis of Psalms using the tidytext and sentimentr packages\n\n\n\nAmandaRP\n\n\nJun 22, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstatistics\n\n\nrstats\n\n\n\nAn R package for two sample hypothesis testing of high dimensional discrete data\n\n\n\nAmanda Peterson\n\n\nMay 24, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstatistics\n\n\neducation\n\n\n\nBingo for a statistics course\n\n\n\nAmanda Peterson\n\n\nMar 10, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nconference\n\n\n\nMy notes from 2019 rstudio::conf\n\n\n\nAmanda Peterson\n\n\nJan 26, 2019\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "My notes from the 2021 RStudio (virtual) Conference\n\n\n\nAmanda Peterson\n\n\nJan 21, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA closer look at the train-test split\n\n\n\nAmanda Peterson\n\n\nNov 8, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nblah\n\n\n\nAmanda Peterson\n\n\nFeb 7, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nconference\n\n\n\nA summary of the 2019 DC R Conference at Georgetown University.\n\n\n\nAmanda Peterson\n\n\nNov 12, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nshiny\n\n\ntwitter\n\n\n\nAnalysis of my Twitter likes via a wordcloud and a shiny app.\n\n\n\nAmanda Peterson\n\n\nAug 2, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nsentiment\n\n\nbible\n\n\n\nSentiment analysis of Psalms using the tidytext and sentimentr packages\n\n\n\nAmandaRP\n\n\nJun 22, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstatistics\n\n\nrstats\n\n\n\nAn R package for two sample hypothesis testing of high dimensional discrete data\n\n\n\nAmanda Peterson\n\n\nMay 24, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstatistics\n\n\neducation\n\n\n\nBingo for a statistics course\n\n\n\nAmanda Peterson\n\n\nMar 10, 2019\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrstats\n\n\nconference\n\n\n\nMy notes from 2019 rstudio::conf\n\n\n\nAmanda Peterson\n\n\nJan 26, 2019\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2019-05-24-new-r-package-hddtest/index.html",
@@ -243,5 +243,61 @@
     "title": "Mirror, mirror on the wall, does my test data reflect my training data at all?",
     "section": "Closing Thoughts",
     "text": "Closing Thoughts\nUsing a few methods (vizualization, Gini index, and hypothesis testing) we observed that the provided test data set did not follow the same popularity distribution as the training set.\nAnother scenario to consider: Should we always expect our train and test data to have the same distribution? What if the test/train split were based on time (i.e. we use earlier data to train the model and use the most recent data to test). How much difference is acceptable? After all, movie popularity changes over time (thinking about our particular application). This might be an interesting topic for a future blog post.\n\nIf you would like to provide feedback on this blog post, you can contact me via Twitter (@DrAmandaRP). Thanks for reading!"
+  },
+  {
+    "objectID": "posts/2021-01-21-rstudio-global/index.html",
+    "href": "posts/2021-01-21-rstudio-global/index.html",
+    "title": "rstudio::global(2021) |> summarize()",
+    "section": "",
+    "text": "Due to the COVID-19 pandemic, this year’s rstudio::conf was virtual (and free!). The conference is about all things R and RStudio. There were 15K+ registrants. Talks ran concurrently over a 12 hour period (and repeated again for viewers in other time zones). My notes below are only for a handful of selected talks– there are many others that I was not able to watch (yet). Videos are available on the RStuduio website."
+  },
+  {
+    "objectID": "posts/2021-01-21-rstudio-global/index.html#keynote-maintaining-the-house-that-tidyverse-built",
+    "href": "posts/2021-01-21-rstudio-global/index.html#keynote-maintaining-the-house-that-tidyverse-built",
+    "title": "rstudio::global(2021) |> summarize()",
+    "section": "Keynote: Maintaining the house that tidyverse built",
+    "text": "Keynote: Maintaining the house that tidyverse built\nSpeaker: Hadley Wickham (Chief Scientist at RStudio)\n\n\n\n\n\n\nDiscussed the life cycle of functions and packages, which you will see tagged on many of RStudio’s packages. See this page and the lifecycle package for more details.\nTo maintain a static package installation for a project: Use renv or RStudio’s public package manager. On the latter, just pick a day in the past to maintain package state from that date (only for packages on CRAN).\nIf you haven’t already heard, dplyr’s spread & gather functions are not going away. However, the recommended replacement functions are pivot_longer and wider_wider.\n\n\n\n\n\n\n\nmagrittr will be around for at least 4 or 5 years, but people will be encouraged to use the new pipe in base R version 4.1.\nmodelr is superseded by tidymodels."
+  },
+  {
+    "objectID": "posts/2021-01-21-rstudio-global/index.html#r-python-going-steady",
+    "href": "posts/2021-01-21-rstudio-global/index.html#r-python-going-steady",
+    "title": "rstudio::global(2021) |> summarize()",
+    "section": "R & Python: Going Steady",
+    "text": "R & Python: Going Steady\nSpeaker: Sean Lopp (Project Manager at RStudio)\n\nMyth: Data science teams need to choose between R and Python (or some other language).\nTruth: Using the right tool for the right job can make data science teams more effective.\nRStudio Server Pro: Provides a common architecture for many different types of data science tools (e.g. Jupyter notebooks, JupyterLab, RStudio). IT teams only need to set up one infrastructure instead of supporting many tools.\nRStudio Connect: Provides a common hosting architecture for many different types of data science products (e.g. reports, notebooks, APIs, shiny applications). Additionally, RStudio Connect increases collaboration between team members using different programming languages and tools.\nMy thoughts: I would ❤️ to have access to RStudio Connect."
+  },
+  {
+    "objectID": "posts/2021-01-21-rstudio-global/index.html#art-lessons-one-year-as-rstudios-artist-in-residence",
+    "href": "posts/2021-01-21-rstudio-global/index.html#art-lessons-one-year-as-rstudios-artist-in-residence",
+    "title": "rstudio::global(2021) |> summarize()",
+    "section": "Art Lessons: One Year as RStudio’s Artist-in-Residence",
+    "text": "Art Lessons: One Year as RStudio’s Artist-in-Residence\nSpeaker: Allison Horst (Professor at the Bren School of Environmental Science and Management at UC Santa Barbara)\nAllison talked about the importance of art for making R instruction material more approachable for learners. Some of her new artwork was featured in this talk– I’m feeling motivated to add some of new artwork to some of my training materials. Allison’s artwork can be found in her GitHub repo."
+  },
+  {
+    "objectID": "posts/2021-01-21-rstudio-global/index.html#keynote-reporting-on-and-visualising-the-pandemic",
+    "href": "posts/2021-01-21-rstudio-global/index.html#keynote-reporting-on-and-visualising-the-pandemic",
+    "title": "rstudio::global(2021) |> summarize()",
+    "section": "Keynote: Reporting on and visualising the pandemic",
+    "text": "Keynote: Reporting on and visualising the pandemic\nSpeaker: John Burn-Murdoch (Financial Timesâ senior data visualization journalist, and creator of the FTâ’s coronavirus trajectory tracker charts)\nJohn’s talk focused on data visualization for a mass audience. The data viz research paper that has been the most influential on his work: Beyond Memorability: Visualization Recognition and Recall.\n\n\n\n\n\nLessons:\n\nText and other annotations are critical when sharing charts to the masses. The annotations make the chart accessible.\nIt’s the responsibility of the chart designer to make sure the reader is not confused when looking at the chart.\nInfo viz is personal and often political. People will bring their prior beliefs to the plot and make judgments about the utility of the chart (for example many strong opinions about the use of log scale on the vertical axis).\nDon’t publish and vanish. Incorporate readers’ feedback.\nEase of understanding is top priority (more than accuracy). For example, using a 7 day rolling average may be easier for people to understand than splines (even though the latter shows more accurate numbers).\nAnimation can be incredibly effective (but use it sparingly)."
+  },
+  {
+    "objectID": "posts/2021-01-21-rstudio-global/index.html#whats-new-in-tidymodels",
+    "href": "posts/2021-01-21-rstudio-global/index.html#whats-new-in-tidymodels",
+    "title": "rstudio::global(2021) |> summarize()",
+    "section": "What’s new in tidymodels?",
+    "text": "What’s new in tidymodels?\nSpeaker: Max Kuhn (Software engineer at RStudio)\nRecent updates in tidymodels:\n\nAdded limited support for sparse matrices.\nfinetune package (extension of tune package) for finding optimal tuning hyper-parameters. Nice methods available in finetune finding optimal hyper-parameters (methods are more efficient that full grid search):\n\nRacing methods\nSimulated Annealing search\n\n\nHow do you pick a modeling framework (e.g. mlr3, h2o, tidymodels)?\n\nh2o for speed (sub-second latency).\nIf your framework is tidyverse, you might go with tidymodels.\nmlr3 is great, too 😃\n\nSee the book: Tidy modeling with R. Slides for talk available here."
+  },
+  {
+    "objectID": "posts/2021-01-21-rstudio-global/index.html#feedback-at-scale",
+    "href": "posts/2021-01-21-rstudio-global/index.html#feedback-at-scale",
+    "title": "rstudio::global(2021) |> summarize()",
+    "section": "Feedback at scale",
+    "text": "Feedback at scale\nSpeaker: Mine Çetinkaya-Rundel (Educator and Data Scientist at RStudio, Senior Lecturer in the School of Mathematics at University of Edinburgh)\nBuilding tutorials using learnr:\n\nReally shines with coding exercises. Provides instant feedback to students.\nRecommendations: Include starter code for students to complete. Give “human friendly” feedback in response to incorrect responses. Check the result instead of checking the code (since students can order operations in multiple ways).\n\nlearnrhash: Use with learnr to collect (hashed) answer submissions from student learnr sessions.\nOptions for distributing at scale:\n\nshinyapps.io or RStudio connect, or\n\ndistribute within a package"
+  },
+  {
+    "objectID": "posts/2021-01-21-rstudio-global/index.html#always-look-on-the-bright-side-of-plots",
+    "href": "posts/2021-01-21-rstudio-global/index.html#always-look-on-the-bright-side-of-plots",
+    "title": "rstudio::global(2021) |> summarize()",
+    "section": "Always look on the bright side of plots",
+    "text": "Always look on the bright side of plots\nSpeaker: Kara Woo (Research scientist in data curation at Sage Bionetworks)\nDiscussion points: Mapping mishaps, scale snafus (setting scale limits removes data before statistical summaries. To zoom in on a plot, better to set coordinate limits), and theme threats. Kara talked about common mistakes that people make when using ggplot2.\nFollow accidental aRt on Twitter."
   }
 ]
