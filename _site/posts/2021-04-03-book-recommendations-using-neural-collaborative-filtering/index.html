@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Amanda Peterson">
+<meta name="dcterms.date" content="2021-04-12">
+
+<title>Amanda’s Data Science Blog - Book Recommendations via Neural Collaborative Filtering</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Amanda’s Data Science Blog - Book Recommendations via Neural Collaborative Filtering">
+<meta property="og:description" content="Over the past 1.5 years I have enjoyed being part of a book club with ladies from my church. Sadly our book club ended as life has pulled us in separate directions.">
+<meta property="og:site-name" content="Amanda's Data Science Blog">
+<meta name="twitter:title" content="Amanda’s Data Science Blog">
+<meta name="twitter:description" content="Over the past 1.5 years I have enjoyed being part of a book club with ladies from my church. Sadly our book club ended as life has pulled us in separate directions.">
+<meta name="twitter:creator" content="@DrAmandaRP">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Amanda’s Data Science Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/AmandaRP"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/DrAmandaRP"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Book Recommendations via Neural Collaborative Filtering</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Amanda Peterson </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 12, 2021</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-technical-details" id="toc-the-technical-details" class="nav-link active" data-scroll-target="#the-technical-details">The technical details</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The Data</a>
+  <ul class="collapse">
+  <li><a href="#filtering-by-genre" id="toc-filtering-by-genre" class="nav-link" data-scroll-target="#filtering-by-genre">Filtering by genre</a></li>
+  <li><a href="#bookmark" id="toc-bookmark" class="nav-link" data-scroll-target="#bookmark">Inferring Likes and Dislikes</a></li>
+  <li><a href="#data-for-my-book-club" id="toc-data-for-my-book-club" class="nav-link" data-scroll-target="#data-for-my-book-club">Data for my book club</a></li>
+  <li><a href="#trainvalidationtest-split" id="toc-trainvalidationtest-split" class="nav-link" data-scroll-target="#trainvalidationtest-split">Train/Validation/Test Split</a></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
+  <ul class="collapse">
+  <li><a href="#recommendations-for-my-book-club" id="toc-recommendations-for-my-book-club" class="nav-link" data-scroll-target="#recommendations-for-my-book-club">Recommendations for my book club</a></li>
+  </ul></li>
+  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts">Final thoughts</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Over the past 1.5 years I have enjoyed being part of a book club with ladies from my church. Sadly our book club ended as life has pulled us in separate directions. I plan to continue reading books, but what should I read? I decided to build a recommender system.</p>
+<section id="the-technical-details" class="level1">
+<h1>The technical details</h1>
+<p>A recommender system utilizes user feedback history (either “explicit” feedback, such as star ratings, or “implicit” feedback, such as views, clicks, purchases, etc) to recommend items to users. Recommender systems have become ubiquitous in our society; examples include:</p>
+<ul>
+<li>Amazon recommends products to buy</li>
+<li>Facebook recommends friends to connect with</li>
+<li>YouTube recommends videos to watch</li>
+</ul>
+<p>In this experiment, I’ll be using a Neural Collaborative Filtering (NCF) model, a deep learning model proposed by He et. al.&nbsp;in their <a href="https://arxiv.org/pdf/1708.05031.pdf?source=post_page---------------------------">2017 paper</a>. The model is implemented by the authors using Keras and is available in <a href="https://github.com/hexiangnan/neural_collaborative_filtering">this GitHub repository</a>. For my own fun exercise, I implemented the model using <a href="https://keras.rstudio.com/">R Keras</a>. You can find it in my <a href="https://github.com/AmandaRP/NeuralCollaborativeFiltering">GitHub repository</a>.</p>
+<p>The model is designed for binary feedback (that is, positive and negative user preferences). I’ll be using a mixture of explicit and implicit feedback, described in more detail in the <a href="#bookmark">Inferring Likes and Dislikes section</a> of this post. The image below, from the <a href="https://arxiv.org/pdf/1708.05031.pdf?source=post_page---------------------------">NCF paper</a>, shows the neural network model architecture.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/NCFarchitecture.png" style="width:85.0%;height:90.0%" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-data" class="level1">
+<h1>The Data</h1>
+<p>To train the model I used a data set originally obtained from <a href="https://en.wikipedia.org/wiki/Goodreads">GoodReads.com</a>, a social book cataloging system. The data is available on the <a href="https://sites.google.com/eng.ucsd.edu/ucsdbookgraph">USCD Book Graph webiste</a>. Specifically, I’m using three files, each containing the following fields:</p>
+<ul>
+<li><strong>interactions</strong>: Contains <code>user_id</code>, <code>book_id</code>, <code>is_read</code>, <code>rating</code>, <code>is_reviewed</code></li>
+<li><strong>book_info</strong>: Information about the books including title, isbn, author(s), and list of shelves.</li>
+<li><strong>book_id_map</strong>: books ids used to join the other two data sets together</li>
+</ul>
+<p>Note that this data set is a bit outdated (only six books from 2019 and none from 2020 or later). It would be nice to obtain an updated data set.</p>
+<section id="filtering-by-genre" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-by-genre">Filtering by genre</h2>
+<p>The <code>shelves</code> field in the <code>book_info</code> data set is a list of virtual shelves that users have added books to. The shelf name is defined by the user and can be anything such as “to read”, “book club”, or the name of the genre. By looking at the list of shelves associated with a particular book, we can make some inferences about its genre. To limit books for my book club to Christian fiction (the focus of our group), I included books that were on at least one shelf with “christian” in the name and at least one shelf with “fiction” in the name (being careful to ignore “nonfiction” and “non-fiction”). This isn’t a perfect method for determining genre, but it significantly reduced the data size: 228,648,342 user-book interactions reduced to 5,628,062, a 98% reduction. If you’d like to try filtering the data by a different genre, use the <a href="https://github.com/AmandaRP/NeuralCollaborativeFiltering/blob/master/Data/genre_subset.R"><code>genre_subset.R</code></a> script.</p>
+<div id="fig-top-five" class="quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 20.0%;justify-content: center;">
+<p><img src="images/thelionthewitchandthewardrobe.jpg" class="img-fluid figure-img"> <img src="images/thepoisonwoodbible.jpg" class="img-fluid figure-img"> <img src="images/thecroniclesofnarnia.jpg" class="img-fluid figure-img"> <img src="images/thefivepeopleyoumeetinheaven.jpg" class="img-fluid figure-img"> <img src="images/unbroken.jpg" class="img-fluid figure-img"></p>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: The top five books appearing on the most shelves</figcaption><p></p>
+</figure>
+</div>
+<p>The top book, <a href="https://www.goodreads.com/book/show/100915.The_Lion_the_Witch_and_the_Wardrobe?from_search=true&amp;from_srp=true&amp;rank=1">The Lion, the Witch and the Wardrobe</a>, is a well known classic fiction book and part of the series of books at #3, <a href="https://www.goodreads.com/book/show/101704">The Chronicles of Narnia</a>. It is one that I read as a young girl. I was not familiar with the books at #2 and #4: <a href="https://www.goodreads.com/book/show/17847199">The Poisonwood Bible</a> and <a href="https://www.goodreads.com/book/show/6980106">The Five People You Meet in Heaven</a>. Finally, the last on the list at #5 is <a href="https://www.goodreads.com/book/show/21864196">Unbroken: A World War II Story of Survival, Resilience, and Redemption</a>. This book is a true story and actually shouldn’t be included in the fiction genre. So, we see that this filtering method isn’t perfect. I’m OK with that.</p>
+</section>
+<section id="bookmark" class="level2">
+<h2 class="anchored" data-anchor-id="bookmark">Inferring Likes and Dislikes</h2>
+<p>For the NCF model, we need a list of books that each user liked and a list that they did not like. Some users provided explicit ratings (1 to 5 stars), however, not all users rate the books that they read. Additionally, it may be the case that some users just rate books that they like (or didn’t like). To obtain a sufficient amount of training data, I included both explicit and implicit feedback.</p>
+<p>We’ll assume that a reader likes the book if:</p>
+<ol type="1">
+<li>They read the book AND (either gave it 4 or 5 stars OR didn’t provide rating). That is: <code>(is_read == 1 &amp; (0 == rating | rating &gt;= 4))</code>, OR</li>
+<li>The book is on their shelf and not read yet. That is, <code>(is_read == 0)</code>.</li>
+</ol>
+<p>This is an optimistic viewpoint because we may include books on the reader’s shelf that they later read and decide that they do not like.</p>
+<p>Alternatively, we’ll assume that a reader did <em>not</em> like a book if they read it and gave it a rating of 1 or 2. Books with a score of 3 were not used for model training.</p>
+<p>Note that there exist cases where no rating was provided (value of <code>rating</code> is 0), but a text review exists. An enhancement for obtaining more positive and negative examples might be to mine the sentiment of reviews for these instances.</p>
+<p>After performing these steps, I filtered out users who did not have at least 3 “positive” book examples (a threshold that could be tweaked). As a result we have a total of 264898 users and 25450 books.</p>
+</section>
+<section id="data-for-my-book-club" class="level2">
+<h2 class="anchored" data-anchor-id="data-for-my-book-club">Data for my book club</h2>
+<p>I added our club’s books to the data set. We have read dozens of books, but the following were those that we had a strong opinion about (either “good” and “bad”).</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<div class="cell" data-layout-align="center">
+
+</div>
+<p>As you can see, the number of “duds” was much smaller than the number of books that we liked. Francine Rivers was a popular author (I’ve only read one of her books, but hope to catch up soon). I would have also used the following books as positive training examples, but they were not in the data set: <a href="https://www.goodreads.com/book/show/35620754-the-kremlin-conspiracy?ac=1&amp;from_search=true&amp;qid=TOx79fls5W&amp;rank=1">The Kremlin Conspiracy</a> by Joel Rosenberg <!-- , [The 49th Mistic](https://www.goodreads.com/book/show/36548233-the-49th-mystic) by Ted Dekker,  --> and <a href="https://www.goodreads.com/book/show/40402597-my-heart-belongs-in-the-blue-ridge?from_search=true&amp;from_srp=true&amp;qid=GIbp9eeJTH&amp;rank=1">My Heart Belongs in Blue Ridge</a> by Pepper Basham.</p>
+</section>
+<section id="trainvalidationtest-split" class="level2">
+<h2 class="anchored" data-anchor-id="trainvalidationtest-split">Train/Validation/Test Split</h2>
+<p>I split the data into train, validation, and test sets following the method used in the NCF paper:</p>
+<ul>
+<li>Training: 4 negatives for every positive (for each user)</li>
+<li>Validation: 1 positive (for each user)</li>
+<li>Test: 1 positive, 100 negative (for each user)</li>
+</ul>
+<p>If a user did not have enough negatives for the 4-to-1 ratio of negatives to positives in the training set, then I sampled “implicit” negatives (i.e.&nbsp;those books that are not on the user’s shelf). The empirical popularity distribution of the books provided sampling probabilities, meaning that more popular books were more likely to be sampled. This is often a good idea for training recommender systems since users are likely already aware of the popular items. I sampled these training data points for each epoch of model training.</p>
+<p>If the user had <em>more</em> negatives than the 4-to-1 ratio, then the extras were put in the test set. Subsequently, if the test set lacked the 100 negatives, then I sampled “implicit” negatives to fill out the test set (using the same strategy described for the training set). Sampling of the test set was done once prior to model training.</p>
+</section>
+</section>
+<section id="results" class="level1">
+<h1>Results</h1>
+<p>The distribution of predictions for all books and users in the test set is shown below (separated by “good” and “bad” books).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/plt_preds.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>I’m happy to see that the most of the “bad” books have low scores while the “good” books are more evenly spread out with a little bump on the high end. The goal is to score “good” higher than the “bad” (on a per-user basis).</p>
+<p>The scores can be used to rank the books for each user. A couple of useful metrics for evaluating that ranking are:</p>
+<ul>
+<li>Hit rate (HR) at <em>k</em>: The percentage of users who’s “good” book appeared in their top <em>k</em> recommended books. (Recall the test set is composed of 100 “bad” and 1 “good” book for each user.) The range is [0, 1].</li>
+<li>Normalized Discounted Cumulative Gain (NDGC) at 10: “Good” items appearing lower on the list are penalized (only considering the top <em>k</em> items). Normalization occurs by dividing the discounted cumulative gain by its “optimal” value. The metric is then averaged over all users. The range is [0, 1].</li>
+</ul>
+<p>The experiment result was 0.59 HR at 10 and 0.37 NDGC at 10 (evaluated on the test set).</p>
+<p>As a sanity check I also computed the metrics for a recommender “model” based solely on popularity (i.e.&nbsp;everyone’s number one recommendation will be <a href="https://www.goodreads.com/book/show/100915.The_Lion_the_Witch_and_the_Wardrobe?from_search=true&amp;from_srp=true&amp;rank=1">The Lion, The Witch, and The Wardrobe</a> unless they already have it on their shelf). The resulting HR at 10 is 0.28 and the NDCG at 10 is 0.15. These metrics are significantly worse than those from the NCF model, so it paid to add the personalization.</p>
+<section id="recommendations-for-my-book-club" class="level2">
+<h2 class="anchored" data-anchor-id="recommendations-for-my-book-club">Recommendations for my book club</h2>
+<p>To get a better sense of how this recommender did, let’s inspect the recommendations for my book club. The top 3 recommendations were all books by Francine Rivers (which makes sense since four of her books were on our short list of books that we liked). In fact, looking at the top 25 books on the recommended list, 76 percent were written by this author. It seems that having four of nine books by Francine as part of our “good” training set may be skewing the recommendations toward this author.</p>
+<p>Coming in at #4, we find the first book by a different author: <a href="https://www.goodreads.com/book/show/359994.Gods_and_Kings">Gods and Kings</a> by Lynn Austin. This is an author that we have not read before. Interestingly, the book appears as a “Readers also enjoyed” suggestion on the GoodReads page of one of our “liked” books:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/peoplealsoliked.png" class="img-fluid figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Looking at the worst scoring books for our group, we find books that we would likely <em>not</em> enjoy: <a href="https://www.goodreads.com/book/show/22085728-come-on-over#">Come On Over (CO2)</a> and <a href="https://www.goodreads.com/book/show/256272615-marry-now-sorry-later">Marry Me Now, Sorry Later</a> (rank 25,437 and 25,436 respectively). In fact, these books are not even in our preferred genre of Christian fiction. They were mistakenly included due to the author’s name: Christian Simamora.</p>
+<p>Next, I decided to look at the rank of the top recommended book for each of the authors who wrote books that my group enjoyed. The result was (out of 25,437 total books):</p>
+<ul>
+<li>Francine Rivers (#1, <a href="https://www.goodreads.com/book/show/95602.Mark_of_the_Lion_Trilogy?from_search=true&amp;from_srp=true&amp;qid=aPoPk0tBes&amp;rank=1">Mark of the Lion Trilogy</a>)</li>
+<li>Lori Wick (#30, <a href="https://www.goodreads.com/book/show/289745.Pretense?ac=1&amp;from_search=true&amp;qid=J93foRiGvl&amp;rank=1">Pretense</a>)</li>
+<li>Charles Martin (#32, <a href="https://www.goodreads.com/book/show/241386.Wrapped_in_Rain?from_search=true&amp;from_srp=true&amp;qid=3zJt0wTUgi&amp;rank=1">Wrapped in Rain</a>)</li>
+<li>Tessa Afshar (#38, <a href="https://www.goodreads.com/book/show/20702178-in-the-field-of-grace?from_search=true&amp;from_srp=true&amp;qid=ElbF3skUjQ&amp;rank=1">In the Field of Grace</a>)</li>
+<li>Randy Alcorn (#425, <a href="https://www.goodreads.com/book/show/290363.Deadline?ac=1&amp;from_search=true&amp;qid=6dPXAtqezB&amp;rank=5">Deadline</a>)</li>
+</ul>
+<p>Interestingly, I had already ordered Tessa Afshar’s <a href="https://www.goodreads.com/book/show/20702178-in-the-field-of-grace?from_search=true&amp;from_srp=true&amp;qid=s7ibzAubn2&amp;rank=1">In the Field of Grace</a> before looking at these recommendations. So, that is right on point. Sadly, Randy Alcorn’s highest ranking book is at number 425 (his book, <a href="https://www.goodreads.com/book/show/290369.Safely_Home?ac=1&amp;from_search=true&amp;qid=k40Ui7fZo6&amp;rank=1">Safely Home</a>, was one of my favorites).</p>
+<p>Overall, I’m fairly happy with these recommendations, even though the top of the list doesn’t demonstrate as much author variety as I’d like to see. The recommendations do feel tailored to my group’s reading interests.</p>
+</section>
+</section>
+<section id="final-thoughts" class="level1">
+<h1>Final thoughts</h1>
+<p>There are a few areas of improvement that could be made:</p>
+<ol type="1">
+<li>Due to hardware limitations and slow model training, I didn’t perform hyper-parameter tuning. (I am using a GTX 970 GPU. Each training epoch takes a few hours.) Instead I used the defaults that were used in the NCF paper. A grid search of the hyperparamter space would likely be beneficial.</li>
+<li>My group’s training data is small (nine books). Compare that to Goodreads.com, which requires users to rate 20 books before they will provide recommendations. A model that is better suited for cold start situations (users with little to no training data) may be beneficial. Such models incorporates side features (e.g.&nbsp;author, book description).</li>
+<li>As mentioned earlier, the Goodreads data set that I used is a couple of years out of date. It would be great to retrain the model on newer data.</li>
+<li>There are many other types of recommendation models to try, some of which claim to beat NCF. See <a href="https://github.com/hongleizhang/RSPapers">this list of must-read recommender papers</a>.</li>
+</ol>
+<p>In the meantime, I have a few books on my short list to read, but I’m still in search of more. I may try another recommender model. Or, let me know if you have a good suggestion! You can find me on Twitter <span class="citation" data-cites="DrAmandaRP">@DrAmandaRP</span>.</p>
+<p>P.S. If you are new to deep learning in R, I recommend the <a href="https://www.manning.com/books/deep-learning-with-r">Deep Learning with R</a> book by François Chollet with J. J. Allaire.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
