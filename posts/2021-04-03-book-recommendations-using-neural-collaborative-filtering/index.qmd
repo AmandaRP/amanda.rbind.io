@@ -2,9 +2,9 @@
 title: Book Recommendations via Neural Collaborative Filtering
 author: Amanda Peterson
 date: '2021-04-12'
-slug: book-recommendations-using-neural-collaborative-filtering
+description: 'A recommender systems model built with R Keras'
 tags: ["deep learning", "recommender systems"]
-draft: true
+draft: false
 ---
 
 ```{r setup, include=FALSE}
@@ -34,6 +34,8 @@ The model is designed for binary feedback (that is, positive and negative user p
 knitr::include_graphics(str_c("images/NCFarchitecture.png"))
 ```
 
+![](images/NCFarchitecture.png){width=85% fig-align='center'}
+
 # The Data
 
 To train the model I used a data set originally obtained from [GoodReads.com](https://en.wikipedia.org/wiki/Goodreads), a social book cataloging system. The data is available on the [USCD Book Graph webiste](https://sites.google.com/eng.ucsd.edu/ucsdbookgraph). Specifically, I'm using three files, each containing the following fields:
@@ -49,11 +51,11 @@ Note that this data set is a bit outdated (only six books from 2019 and none fro
 The `shelves` field in the `book_info` data set is a list of virtual shelves that users have added books to. The shelf name is defined by the user and can be anything such as "to read", "book club", or the name of the genre. By looking at the list of shelves associated with a particular book, we can make some inferences about its genre. To limit books for my book club to Christian fiction (the focus of our group), I included books that were on at least one shelf with "christian" in the name and at least one shelf with "fiction" in the name (being careful to ignore "nonfiction" and "non-fiction"). This isn't a perfect method for determining genre, but it significantly reduced the data size: 228,648,342 user-book interactions reduced to 5,628,062, a 98% reduction. If you'd like to try filtering the data by a different genre, use the [`genre_subset.R`](https://github.com/AmandaRP/NeuralCollaborativeFiltering/blob/master/Data/genre_subset.R) script.
 
 <center>
-![](images/thelionthewitchandthewardrobe.jpg){width=18%} 
-![](images/thepoisonwoodbible.jpg){width=18%}
-![](images/thecroniclesofnarnia.jpg){width=18%}
-![](images/thefivepeopleyoumeetinheaven.jpg){width=18%}
-![](images/unbroken.jpg){width=18%}
+![](images/thelionthewitchandthewardrobe.jpg "The Lion the Witch and the Wardrobe"){width=18%} 
+![](images/thepoisonwoodbible.jpg "The Poisonwood Bible"){width=18%}
+![](images/thecroniclesofnarnia.jpg "The Chronicles of Narnia"){width=18%}
+![](images/thefivepeopleyoumeetinheaven.jpg "The Five People You Meet in Heaven"){width=18%}
+![](images/unbroken.jpg "Unbroken"){width=18%}
 
 The top five books appearing on the most shelves
 
@@ -82,14 +84,30 @@ After performing these steps, I filtered out users who did not have at least 3 "
 
 I added our club's books to the data set. We have read dozens of books, but the following were those that we had a strong opinion about (either "good" and "bad").
 
-```{r, eval=FALSE, echo=FALSE,out.width="11%",fig.cap="Books that we liked",fig.show='hold',fig.align='center'}
+<center>
+![](images/safelyhome.jpg "Safely Home"){width=10%}
+![](images/longwaygone.jpg "Long Way Gone"){width=10%}
+![](images/whencricketscry.jpg "When Crickets Cry"){width=10%}
+![](images/redeeminglove.jpg "Redeeming Love"){width=10%}
+![](images/Assureasdawn.jpg "As Sure as Dawn"){width=10%}
+![](images/echointhedarkness.jpg "An Echo in the Darkness"){width=10%}
+![](images/avoiceinthewind.jpg "A Voice in the Wind"){width=10%}
+![](images/pearlinthesand.jpg "Pearl in the Sand"){width=10%}
+![](images/sophiesheart.jpg "Sophie's Heart"){width=10%}
+Books that we liked
 
-knitr::include_graphics(c(str_c(path,"safelyhome.jpg"),str_c(path,"longwaygone.jpg"),str_c(path,"whencricketscry.jpg"),str_c(path,"redeeminglove.jpg"),str_c(path,"Assureasdawn.jpg"),str_c(path,"echointhedarkness.jpg"),str_c(path,"avoiceinthewind.jpg"),str_c(path,"pearlinthesand.jpg"),str_c(path,"sophiesheart.jpg")))
-```
+</center>
 
-```{r, eval=FALSE, echo=FALSE,out.width="11%",fig.cap="Books that we did not like",fig.show='hold',fig.align='center'}
-knitr::include_graphics(c(str_c(path,"athomeinmitford.jpg"),str_c(path,"thehideaway.jpg"),str_c(path,"thelacemaker.jpg"),str_c(path,"theredtent.jpg")))
-```
+
+<center>
+![](images/athomeinmitford.jpg "At Home in Mitford"){width=10%}
+![](images/thehideaway.jpg "The Hideaway"){width=10%}
+![](images/thelacemaker.jpg "The Lacemaker"){width=10%}
+![](images/theredtent.jpg "The Red Tent"){width=10%}
+
+Books that we did not like
+</center>
+
 
 As you can see, the number of "duds" was much smaller than the number of books that we liked. Francine Rivers was a popular author (I've only read one of her books, but hope to catch up soon). I would have also used the following books as positive training examples, but they were not in the data set: [The Kremlin Conspiracy](https://www.goodreads.com/book/show/35620754-the-kremlin-conspiracy?ac=1&from_search=true&qid=TOx79fls5W&rank=1) by Joel Rosenberg <!-- , [The 49th Mistic](https://www.goodreads.com/book/show/36548233-the-49th-mystic) by Ted Dekker,  --> and [My Heart Belongs in Blue Ridge](https://www.goodreads.com/book/show/40402597-my-heart-belongs-in-the-blue-ridge?from_search=true&from_srp=true&qid=GIbp9eeJTH&rank=1) by Pepper Basham.
 

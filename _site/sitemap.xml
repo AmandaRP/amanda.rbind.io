@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://amanda.rbind.io/index.html</loc>
-    <lastmod>2023-04-02T13:06:29.918Z</lastmod>
+    <lastmod>2023-04-03T01:47:10.014Z</lastmod>
   </url>
   <url>
     <loc>https://amanda.rbind.io/posts/2019-05-24-new-r-package-hddtest/index.html</loc>
@@ -51,5 +51,9 @@
   <url>
     <loc>https://amanda.rbind.io/posts/2021-01-21-rstudio-global/index.html</loc>
     <lastmod>2023-04-02T12:08:57.004Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanda.rbind.io/posts/2021-04-03-book-recommendations-using-neural-collaborative-filtering/index.html</loc>
+    <lastmod>2023-04-03T01:47:09.362Z</lastmod>
   </url>
 </urlset>
