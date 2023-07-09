@@ -15,4 +15,4 @@ about:
       href: https://github.com/AmandaRP
 ---
 
-About this blog
+Hi! I'm a data scientist living and working in Maryland, specifically the metro DC area. When I get time, I like to write about statistics and data science topics. If I haven't posted in a while, it's most likely because I've been distracted by a good book or have decided to spend more time outside. Feel free to reach out to me on Twitter or LinkedIn!

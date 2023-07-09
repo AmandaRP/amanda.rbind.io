@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,7 +20,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -64,6 +64,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
@@ -89,34 +90,35 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Amanda’s Data Science Blog</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">About</a>
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/AmandaRP"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/AmandaRP" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/DrAmandaRP"><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/DrAmandaRP" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../index.xml" rel="" target=""><i class="bi bi-rss" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -154,6 +156,7 @@ ul.task-list li input[type="checkbox"] {
         <p class="date">March 10, 2019</p>
       </div>
     </div>
+    
       
     </div>
     
@@ -166,8 +169,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bingo-questions-for-probability-statistics-i" id="toc-bingo-questions-for-probability-statistics-i" class="nav-link active" data-scroll-target="#bingo-questions-for-probability-statistics-i">Bingo Questions for Probability &amp; Statistics I:</a></li>
-  <li><a href="#bingo-questions-for-probability-statistics-ii" id="toc-bingo-questions-for-probability-statistics-ii" class="nav-link" data-scroll-target="#bingo-questions-for-probability-statistics-ii">Bingo Questions for Probability &amp; Statistics II:</a></li>
+  <li><a href="#bingo-questions-for-probability-statistics-i" id="toc-bingo-questions-for-probability-statistics-i" class="nav-link active" data-scroll-target="#bingo-questions-for-probability-statistics-i">Bingo Questions for Probability &amp; Statistics I</a></li>
+  <li><a href="#bingo-questions-for-probability-statistics-ii" id="toc-bingo-questions-for-probability-statistics-ii" class="nav-link" data-scroll-target="#bingo-questions-for-probability-statistics-ii">Bingo Questions for Probability &amp; Statistics II</a></li>
   </ul>
 </nav>
     </div>
@@ -178,20 +181,20 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>I just wrapped up another round of teaching stats. I co-teach two courses per year as an adjunct instructor: one class that covers intro stats and the other that hits higher level concepts. Both courses move at a high pace; they’re intended to be a survey course for professionals with a STEM background. Some students have a math background, but have never taken a statistics course. Other students have had statistics a long time ago in their undergraduate studies, but want to brush up on the material.</p>
-<p>In both classes, by the time we get to the end, the students appreciate a light hearted activity. I found bingo to be the perfect activity to reveiew material and have a little fun. Jenny Bryan and Dean Attali have an <a href="https://daattali.com/shiny/bingo/">R Shiny app</a> for creating such bingo games. Their site has a handful of pre-populated game themes such as “boring meeting” and “bad data”. Or you can choose to create your own by pasting a list of words.</p>
+<p>In both classes, by the time we get to the end, the students appreciate a light hearted activity. I found bingo to be the perfect activity to reveiw material and have a little fun. Jenny Bryan and Dean Attali have an <a href="https://daattali.com/shiny/bingo/">R Shiny app</a> for creating such bingo games. Their site has a handful of pre-populated game themes such as “boring meeting” and “bad data”. Or you can choose to create your own by pasting a list of words.</p>
 <p>I created my own bingo questions that I ask during the game and answers that are written on the bingo cards. (Tip: Don’t forget to bring the associated list of questions to class like I did!) I’ve pasted the questions and answers below that I used for each class.</p>
-<p>Lastly, don’t forget the sugar! M&amp;M’s make great bingo chips. And, cookies decorated with statsistics are a crowd pleaser.</p>
+<p>Lastly, don’t forget the sugar! M&amp;M’s make great bingo chips. And, cookies decorated with statistics are a crowd-pleaser.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="rstats_cookies.jpg" class="img-fluid figure-img" alt="cookies"></p>
 </figure>
 </div>
 <section id="bingo-questions-for-probability-statistics-i" class="level2">
-<h2 class="anchored" data-anchor-id="bingo-questions-for-probability-statistics-i">Bingo Questions for Probability &amp; Statistics I:</h2>
+<h2 class="anchored" data-anchor-id="bingo-questions-for-probability-statistics-i">Bingo Questions for Probability &amp; Statistics I</h2>
 <table class="table">
 <colgroup>
-<col style="width: 66%">
-<col style="width: 33%">
+<col style="width: 86%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -209,102 +212,98 @@ ul.task-list li input[type="checkbox"] {
 <td><span class="math inline">\(P(X)\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">3. Step 5 of the hypothesis testing method is to provide a conclusion in the _____.</td>
-<td>context of the problem</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4. Square root of the variance</td>
+<td style="text-align: left;">3. Square root of the variance</td>
 <td>standard deviation</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">5. Mathematical function used to count number of possibilities: without replacement, order doesn’t matter.</td>
+<tr class="even">
+<td style="text-align: left;">4. Mathematical function used to count number of possibilities: without replacement, order doesn’t matter.</td>
 <td>choose</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">6. A ___ sample results when the population is divided into at least two different subpopulations based on some characteristic, and a sample is drawn from each subpopulation.</td>
+<tr class="odd">
+<td style="text-align: left;">5. To obtain a ___ sample: Divide the population into at least two different sub-populations based on some characteristic of interest. A sample is drawn from each sub-population.</td>
 <td>stratified</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">7. The Central Limit Theorem says that the distribution of the mean converges to this distribution as <span class="math inline">\(n\)</span> goes to infinity (variance must be defined).</td>
+<tr class="even">
+<td style="text-align: left;">6. The Central Limit Theorem says that the distribution of the mean converges to this distribution as <span class="math inline">\(n\)</span> goes to infinity (variance must be defined).</td>
 <td>normal</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">8. The ____ distribution approximates the Binomial when <span class="math inline">\(n\)</span> is large and <span class="math inline">\(p\)</span> is small. In this case we set <span class="math inline">\(\lambda=np\)</span>.</td>
+<tr class="odd">
+<td style="text-align: left;">7. The ____ distribution approximates the Binomial when <span class="math inline">\(n\)</span> is large and <span class="math inline">\(p\)</span> is small. In this case we set the parameter <span class="math inline">\(\lambda=np\)</span>.</td>
 <td>Poisson</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">9. <span class="math inline">\(P(A \cup B) = P(A) + P(B) -\)</span> ___ ?</td>
+<tr class="even">
+<td style="text-align: left;">8. <span class="math inline">\(P(A \cup B) = P(A) + P(B) -\)</span> ___ ?</td>
 <td><span class="math inline">\(P(A \cap B)\)</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">10. Discrete distribution that models the number of successes in <span class="math inline">\(n\)</span> Bernoulli trials, where <span class="math inline">\(p\)</span> is the probability of success.</td>
+<tr class="odd">
+<td style="text-align: left;">9. Discrete distribution that models the number of successes in <span class="math inline">\(n\)</span> Bernoulli trials, where <span class="math inline">\(p\)</span> is the probability of success.</td>
 <td>Binomial</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">11. The test statistic in the Test of Independence and The Goodness of Fit has a ___ distribution.</td>
+<tr class="even">
+<td style="text-align: left;">10. The test statistic in the Test of Independence and The Goodness of Fit has a ___ distribution.</td>
 <td>Chi-Square</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">12. This distribution has PMF <span class="math inline">\(P(X=k) = p^k(1-p)^{1-k}\)</span></td>
+<tr class="odd">
+<td style="text-align: left;">11. This distribution has PMF <span class="math inline">\(P(X=k) = p^k(1-p)^{1-k}\)</span></td>
 <td>Bernoulli</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">13. Used to control the type I error of a hypothesis test</td>
+<tr class="even">
+<td style="text-align: left;">12. Used to control the type I error of a hypothesis test</td>
 <td>significance level (<span class="math inline">\(\alpha\)</span>)</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">14. In hypothesis testing, we reject the null hypothesis if the test statistic falls in the ____ region.</td>
+<tr class="odd">
+<td style="text-align: left;">13. In hypothesis testing, we reject the null hypothesis if the test statistic falls in the ____ region.</td>
 <td>critical</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">15. Bayes Rule: <span class="math inline">\(P(A \text{ given } B) =\)</span> ____ * <span class="math inline">\(\frac{P(A)}{P(B)}\)</span></td>
-<td><span class="math inline">\(P(B \text{ given } A)\)</span></td>
-</tr>
 <tr class="even">
-<td style="text-align: left;">16. The area under the entire PDF curve</td>
+<td style="text-align: left;">14. Bayes Rule: <span class="math inline">\(P(A | B) =\)</span> ____ * <span class="math inline">\(\frac{P(A)}{P(B)}\)</span></td>
+<td><span class="math inline">\(P(B | A)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15. The area under the entire PDF curve</td>
 <td>1</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">17. The continuous distribution that looks like a bell curve (except that it has fat tails), converges to normal as <span class="math inline">\(n\)</span> increases, and is used when modeling data with small sample size.</td>
+<tr class="even">
+<td style="text-align: left;">16. The continuous distribution that looks like a bell curve (except that it has fat tails), converges to normal as <span class="math inline">\(n\)</span> increases, and is used when modeling data with small sample size.</td>
 <td>Student’s <span class="math inline">\(t\)</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">18. The maximum minus the minimum</td>
+<tr class="odd">
+<td style="text-align: left;">17. The maximum minus the minimum</td>
 <td>range</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">19. The most frequent observation in a data sample</td>
+<tr class="even">
+<td style="text-align: left;">18. The most frequent observation in a data sample</td>
 <td>mode</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">20. The function <span class="math inline">\(F(X) = P(X \le x)\)</span>. You could describe it as a running total of the probability density function.</td>
+<tr class="odd">
+<td style="text-align: left;">19. The function <span class="math inline">\(F(X) = P(X \le x)\)</span>.</td>
 <td>CDF</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">21. A ___ provides a range for which we are <span class="math inline">\((1-\alpha)\)</span>% confident contains the true value of the population parameter. In class we considered such ranges for the true mean, <span class="math inline">\(\mu\)</span>, and for proportions.</td>
+<tr class="even">
+<td style="text-align: left;">20. A ___ provides a range for which we are <span class="math inline">\((1-\alpha)\)</span>% confident contains the true value of the population parameter. In class we considered such ranges for the true mean, <span class="math inline">\(\mu\)</span>, and for proportions.</td>
 <td>confidence interval</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">22. The ___ error occurs when the null hypothesis is true, but we reject it in favor of the alternative hypothesis.</td>
+<tr class="odd">
+<td style="text-align: left;">21. The ___ error occurs when the null hypothesis is true, but we reject it in favor of the alternative hypothesis.</td>
 <td>Type I</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">23. The ___ of a hypothesis test is the probability that we reject the null hypothesis when it is in fact false.</td>
+<tr class="even">
+<td style="text-align: left;">22. The ___ of a hypothesis test is the probability that we reject the null hypothesis when it is in fact false.</td>
 <td>power</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">24. <span class="math inline">\(1 - P(A) =\)</span> the probability of the ___ of <span class="math inline">\(A\)</span>.</td>
+<tr class="odd">
+<td style="text-align: left;">23. <span class="math inline">\(1 - P(A) =\)</span> the probability of the ___ of <span class="math inline">\(A\)</span>.</td>
 <td>compliment</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="bingo-questions-for-probability-statistics-ii" class="level2">
-<h2 class="anchored" data-anchor-id="bingo-questions-for-probability-statistics-ii">Bingo Questions for Probability &amp; Statistics II:</h2>
+<h2 class="anchored" data-anchor-id="bingo-questions-for-probability-statistics-ii">Bingo Questions for Probability &amp; Statistics II</h2>
 <table class="table">
 <colgroup>
-<col style="width: 66%">
-<col style="width: 33%">
+<col style="width: 72%">
+<col style="width: 27%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -314,7 +313,7 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">1. Let {<span class="math inline">\(X_i\)</span>} for <span class="math inline">\(i=1..n\)</span> partition the sample space. Bayes rule says that <span class="math inline">\(f(X_i \text{ given } Y) = \frac{f(Y \text{ given } X_i)f(X_i)}{\sum_{i=1}^{n}f(Y \text{ given } X_i)f(X_i)}\)</span>. The ___ law is used in denominator when marginal, <span class="math inline">\(f(Y)\)</span>, is unknown.</td>
+<td style="text-align: left;">1. Let {<span class="math inline">\(X_i\)</span>} for <span class="math inline">\(i=1..n\)</span> partition the sample space. Bayes rule says that <span class="math inline">\(f(X_i | Y) = \frac{f(Y | X_i)f(X_i)}{\sum_{i=1}^{n}f(Y | X_i)f(X_i)}\)</span>. The ___ law is used in denominator when the marginal, <span class="math inline">\(f(Y)\)</span>, is unknown.</td>
 <td>Law of Total Probability</td>
 </tr>
 <tr class="even">
@@ -322,95 +321,77 @@ ul.task-list li input[type="checkbox"] {
 <td>MLE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">3. Probability density function for 2 or more variables</td>
+<td style="text-align: left;">3. Joint probability density function for two or more variables</td>
 <td>Joint PDF</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">4. Function used to count number of possibilities: without replacement, order doesn’t matter</td>
-<td>choose</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">5. Result of integrating <span class="math inline">\(f(X,Y)\)</span> with respect to <span class="math inline">\(Y\)</span>, over the support of <span class="math inline">\(Y\)</span></td>
+<td style="text-align: left;">4. Result of integrating <span class="math inline">\(f(X,Y)\)</span> with respect to <span class="math inline">\(Y\)</span>, over the support of <span class="math inline">\(Y\)</span></td>
 <td>marginal of <span class="math inline">\(X\)</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">6. An alternative to frequentist statistical analysis</td>
+<tr class="odd">
+<td style="text-align: left;">5. An alternative to frequentist statistical analysis</td>
 <td>Bayesian statistics</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">7. CLT says that the distribution of the mean converges to this distribution as <span class="math inline">\(n\)</span> goes to infinity (variance must be defined)</td>
-<td>Normal</td>
-</tr>
 <tr class="even">
-<td style="text-align: left;">8. <span class="math inline">\(P(A \cap B) = P(A \text{ given } B)\)</span> * ____</td>
+<td style="text-align: left;">6. <span class="math inline">\(P(A \cap B) = P(A | B)\)</span> * ____</td>
 <td><span class="math inline">\(P(B)\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">9. Discrete distribution that models number of trials until 1 success</td>
+<td style="text-align: left;">7. Discrete distribution that models number of trials until 1 success</td>
 <td>Geometric (special case of negative binomial)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">10. Continuous distribution use to model time until events occur</td>
+<td style="text-align: left;">8. Continuous distribution use to model time until events occur</td>
 <td>Gamma</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">11. True or false: <span class="math inline">\(Cov(X,Y)=0\)</span> implies <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. (TRUE if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are jointly normally distributed. Independence implies <span class="math inline">\(cov=0\)</span> ).</td>
-<td>FALSE</td>
+<td style="text-align: left;">9. True or false: <span class="math inline">\(Cov(X,Y)=0\)</span> implies <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent.</td>
+<td>FALSE<br>
+(TRUE if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are jointly normally distributed. Independence implies <span class="math inline">\(cov=0\)</span> ).</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">12. <span class="math inline">\(E(XY) = E(X)E(Y)\)</span> when X and Y are independent</td>
+<td style="text-align: left;">10. <span class="math inline">\(E(XY) = E(X)E(Y)\)</span> when X and Y are independent</td>
 <td>TRUE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">13. <span class="math inline">\(Var(X) = E(X^2) -\)</span> ____</td>
+<td style="text-align: left;">11. <span class="math inline">\(Var(X) = E(X^2) -\)</span> ____</td>
 <td><span class="math inline">\(E(X)^2\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">14. <span class="math inline">\(V(aX+b) =\)</span> ___</td>
+<td style="text-align: left;">12. <span class="math inline">\(V(aX+b) =\)</span> ___</td>
 <td><span class="math inline">\(a^2V(X)\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">15. Name of this function: <span class="math inline">\(E(X^{tx})\)</span> (Note: obtain <span class="math inline">\(k^{th}\)</span> moment by taking <span class="math inline">\(k^{th}\)</span> derivative and evaluating at <span class="math inline">\(t\)</span>=0)</td>
+<td style="text-align: left;">13. Name of this function: <span class="math inline">\(E(X^{tx})\)</span><br>
+(Note: obtain <span class="math inline">\(k^{th}\)</span> moment by taking <span class="math inline">\(k^{th}\)</span> derivative and evaluating at <span class="math inline">\(t\)</span>=0)</td>
 <td>Moment Generating Function</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">16. This distribution has PMF <span class="math inline">\(P(X=k)= p^k(1-p)^{1-k}\)</span></td>
-<td>Bernoulli</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">17. Used in sampling from strata to ensure that the proportion of observations in the sample mimic the population proportions.</td>
+<td style="text-align: left;">14. Used in sampling from strata to ensure that the proportion of observations in the sample mimic the population proportions.</td>
 <td>Proportional allocation</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">18. Used to control the type I error of a hypothesis test</td>
+<tr class="odd">
+<td style="text-align: left;">15. Used to control the type I error of a hypothesis test</td>
 <td>Significance level (<span class="math inline">\(\alpha\)</span>)</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">19. In Bayesian statistics, the population parameters are considered to be ____.</td>
+<tr class="even">
+<td style="text-align: left;">16. In Bayesian statistics, the population parameters are considered to be ____.</td>
 <td>random variables</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">20. <span class="math inline">\(P(A \text{ given } B) =\)</span> ____ * <span class="math inline">\(\frac{P(A)}{P(B)}\)</span></td>
-<td><span class="math inline">\(P(B \text{ given } A)\)</span></td>
-</tr>
 <tr class="odd">
-<td style="text-align: left;">21. <span class="math inline">\(P(A \cup B) = P(A) + P(B)\)</span> - ______</td>
-<td><span class="math inline">\(P(A \cap B)\)</span></td>
+<td style="text-align: left;">17. <span class="math inline">\(P(A | B) =\)</span> ____ * <span class="math inline">\(\frac{P(A)}{P(B)}\)</span></td>
+<td><span class="math inline">\(P(B | A)\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">22. The area under the entire PDF curve</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">23. The derivative of the CDF with respect to the random variable (for a single random variable)</td>
+<td style="text-align: left;">18. The result of taking the derivative of the CDF with respect to the random variable (for a single random variable)</td>
 <td>PDF</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">24. The second non-central moment</td>
+<tr class="odd">
+<td style="text-align: left;">19. The second non-central moment</td>
 <td>Variance</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">25. If <span class="math inline">\(E(\hat{\theta}) = \theta\)</span> we say <span class="math inline">\(\hat{\theta}\)</span> is ___.</td>
+<tr class="even">
+<td style="text-align: left;">20. If <span class="math inline">\(E(\hat{\theta}) = \theta\)</span> we say <span class="math inline">\(\hat{\theta}\)</span> is ___.</td>
 <td>Unbiased</td>
 </tr>
 </tbody>
@@ -552,7 +533,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -560,9 +543,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -574,7 +571,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -610,24 +624,128 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

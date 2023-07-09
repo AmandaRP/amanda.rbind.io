@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,7 +20,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -92,34 +92,35 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Amanda’s Data Science Blog</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">About</a>
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/AmandaRP"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/AmandaRP" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/DrAmandaRP"><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/DrAmandaRP" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../index.xml" rel="" target=""><i class="bi bi-rss" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -153,6 +154,7 @@ ul.task-list li input[type="checkbox"] {
         <p class="date">February 7, 2020</p>
       </div>
     </div>
+    
       
     </div>
     
@@ -173,11 +175,11 @@ ul.task-list li input[type="checkbox"] {
 <p>We made an app showing the wildfires in south eastern Australia along with historic rainfall and temperature data. This dataset was provided as a <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-07/readme.md">Tidy Tuesday</a> dataset by the R for Data Science Learning Community.</p>
 <p>Here is a peak at the app…</p>
 <center>
-<p></p><div id="tweet-45889"></div><script>tweet={"url":"https:\/\/twitter.com\/RLadiesBmore\/status\/1222660774134370304","author_name":"R-Ladies Baltimore","author_url":"https:\/\/twitter.com\/RLadiesBmore","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E.\u003Ca href=\"https:\/\/twitter.com\/DrAmandaRP?ref_src=twsrc%5Etfw\"\u003E@DrAmandaRP\u003C\/a\u003E leading an interactive workshop demo-ing a \u003Ca href=\"https:\/\/twitter.com\/hashtag\/rstats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#rstats\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/shiny?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#shiny\u003C\/a\u003E app using \u003Ca href=\"https:\/\/twitter.com\/hashtag\/AustralianFires?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#AustralianFires\u003C\/a\u003E data \u003Ca href=\"https:\/\/t.co\/aye5Kwq7XH\"\u003Epic.twitter.com\/aye5Kwq7XH\u003C\/a\u003E\u003C\/p\u003E&mdash; R-Ladies Baltimore (@RLadiesBmore) \u003Ca href=\"https:\/\/twitter.com\/RLadiesBmore\/status\/1222660774134370304?ref_src=twsrc%5Etfw\"\u003EJanuary 29, 2020\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-45889").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-30301"></div><script>tweet={"url":"https:\/\/twitter.com\/RLadiesBmore\/status\/1222660774134370304","author_name":"R-Ladies Baltimore","author_url":"https:\/\/twitter.com\/RLadiesBmore","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E.\u003Ca href=\"https:\/\/twitter.com\/DrAmandaRP?ref_src=twsrc%5Etfw\"\u003E@DrAmandaRP\u003C\/a\u003E leading an interactive workshop demo-ing a \u003Ca href=\"https:\/\/twitter.com\/hashtag\/rstats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#rstats\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/shiny?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#shiny\u003C\/a\u003E app using \u003Ca href=\"https:\/\/twitter.com\/hashtag\/AustralianFires?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#AustralianFires\u003C\/a\u003E data \u003Ca href=\"https:\/\/t.co\/aye5Kwq7XH\"\u003Epic.twitter.com\/aye5Kwq7XH\u003C\/a\u003E\u003C\/p\u003E&mdash; R-Ladies Baltimore (@RLadiesBmore) \u003Ca href=\"https:\/\/twitter.com\/RLadiesBmore\/status\/1222660774134370304?ref_src=twsrc%5Etfw\"\u003EJanuary 29, 2020\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-30301").innerHTML = tweet["html"];</script><p></p>
 </center>
 <p>And, a few more pictures from the event…</p>
 <center>
-<p></p><div id="tweet-51969"></div><script>tweet={"url":"https:\/\/twitter.com\/stephaniehicks\/status\/1222656050202988544","author_name":"Stephanie Hicks","author_url":"https:\/\/twitter.com\/stephaniehicks","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EWe’re getting started at the January \u003Ca href=\"https:\/\/twitter.com\/RLadiesBmore?ref_src=twsrc%5Etfw\"\u003E@RLadiesBmore\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/meetup?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#meetup\u003C\/a\u003E with \u003Ca href=\"https:\/\/twitter.com\/DrAmandaRP?ref_src=twsrc%5Etfw\"\u003E@DrAmandaRP\u003C\/a\u003E talking about \u003Ca href=\"https:\/\/twitter.com\/hashtag\/rstats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#rstats\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/shiny?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#shiny\u003C\/a\u003E apps! \u003Ca href=\"https:\/\/t.co\/hdSmo3sqj2\"\u003Epic.twitter.com\/hdSmo3sqj2\u003C\/a\u003E\u003C\/p\u003E&mdash; Stephanie Hicks (@stephaniehicks) \u003Ca href=\"https:\/\/twitter.com\/stephaniehicks\/status\/1222656050202988544?ref_src=twsrc%5Etfw\"\u003EJanuary 29, 2020\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-51969").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-40831"></div><script>tweet={"url":"https:\/\/twitter.com\/stephaniehicks\/status\/1222656050202988544","author_name":"Stephanie Hicks","author_url":"https:\/\/twitter.com\/stephaniehicks","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EWe’re getting started at the January \u003Ca href=\"https:\/\/twitter.com\/RLadiesBmore?ref_src=twsrc%5Etfw\"\u003E@RLadiesBmore\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/meetup?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#meetup\u003C\/a\u003E with \u003Ca href=\"https:\/\/twitter.com\/DrAmandaRP?ref_src=twsrc%5Etfw\"\u003E@DrAmandaRP\u003C\/a\u003E talking about \u003Ca href=\"https:\/\/twitter.com\/hashtag\/rstats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#rstats\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/shiny?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#shiny\u003C\/a\u003E apps! \u003Ca href=\"https:\/\/t.co\/hdSmo3sqj2\"\u003Epic.twitter.com\/hdSmo3sqj2\u003C\/a\u003E\u003C\/p\u003E&mdash; Stephanie Hicks (@stephaniehicks) \u003Ca href=\"https:\/\/twitter.com\/stephaniehicks\/status\/1222656050202988544?ref_src=twsrc%5Etfw\"\u003EJanuary 29, 2020\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-40831").innerHTML = tweet["html"];</script><p></p>
 </center>
 <p>Slides:</p>
 <div class="cell" data-layout-align="center">
@@ -320,7 +322,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -328,9 +332,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -342,7 +360,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -378,24 +413,128 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
