@@ -2,7 +2,9 @@
 title: "rstudio::conf recap"
 author: "Amanda Peterson"
 date: 2019-01-26
-categories: ["rstats","conference"]
+categories: 
+  - rstats
+  - conference
 description: "My notes from 2019 rstudio::conf"
 image: "rstudio_conf_2019.png"
 ---

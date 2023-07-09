@@ -2,9 +2,9 @@
 title: DC R Conference Recap
 author: Amanda Peterson
 date: '2019-11-12'
-categories: ["rstats", "conference"]
-tags:
-  - Conference
+categories:
+  - rstats
+  - conference
 description: "A summary of the 2019 DC R Conference at Georgetown University."
 image: dcr.png
 draft: false

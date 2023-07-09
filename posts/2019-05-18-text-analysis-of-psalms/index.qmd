@@ -4,7 +4,10 @@ author: AmandaRP
 execute:
   eval: false
 date: '2019-06-22'
-categories: ["rstats", "sentiment", "bible"]
+categories: 
+  - rstats
+  - sentiment
+  - bible
 description: "Sentiment analysis of Psalms using the `tidytext` and `sentimentr` packages"
 code-copy: true
 draft: false

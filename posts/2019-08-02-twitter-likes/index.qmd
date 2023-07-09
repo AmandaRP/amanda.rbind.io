@@ -3,7 +3,10 @@ title: 'Shiny App: Twitter Likes'
 author: Amanda Peterson
 date: '2019-08-02'
 description: "Analysis of my Twitter likes via a wordcloud and a shiny app."
-categories: ["rstats","shiny", "twitter"]
+categories: 
+  - rstats
+  - shiny
+  - twitter
 code-copy: true
 ---
 

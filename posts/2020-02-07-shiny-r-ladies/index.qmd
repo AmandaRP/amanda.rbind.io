@@ -2,7 +2,10 @@
 title: Shiny R-Ladies
 author: Amanda Peterson
 date: '2020-02-07'
-tags: ["rstats", "shiny", "rladies"]
+categrories:
+  - rstats
+  - shiny
+  - rladies
 description: "Tutorial on R Shiny at a Baltimore R-Ladies meetup"
 draft: false
 image: shiny_rladies.png

@@ -3,7 +3,9 @@ title: Book Recommendations via Neural Collaborative Filtering
 author: Amanda Peterson
 date: '2021-04-12'
 description: 'A recommender systems model built with R Keras'
-tags: ["deep learning", "recommender systems"]
+categories:
+  - "deep learning"
+  - "recommender systems"
 draft: false
 ---
 

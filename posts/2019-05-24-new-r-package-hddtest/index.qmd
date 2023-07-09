@@ -2,7 +2,9 @@
 title: 'Introducing the hddtest R package'
 author: Amanda Peterson
 date: '2019-05-24'
-categories: ["statistics","rstats"]
+categories: 
+  - statistics
+  - rstats
 description: "An R package for two sample hypothesis testing of high dimensional discrete data"
 draft: false
 image: thumbnail_package.jpg
