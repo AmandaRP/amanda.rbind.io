@@ -30,11 +30,7 @@ A recommender system utilizes user feedback history (either "explicit" feedback,
 
 In this experiment, I'll be using a Neural Collaborative Filtering (NCF) model, a deep learning model proposed by He et. al. in their [2017 paper](https://arxiv.org/pdf/1708.05031.pdf?source=post_page---------------------------). The model is implemented by the authors using Keras and is available in [this GitHub repository](https://github.com/hexiangnan/neural_collaborative_filtering). For my own fun exercise, I implemented the model using [R Keras](https://keras.rstudio.com/). You can find it in my [GitHub repository](https://github.com/AmandaRP/NeuralCollaborativeFiltering).
 
-The model is designed for binary feedback (that is, positive and negative user preferences). I'll be using a mixture of explicit and implicit feedback, described in more detail in the [Inferring Likes and Dislikes section](#bookmark) of this post. The image below, from the [NCF paper](https://arxiv.org/pdf/1708.05031.pdf?source=post_page---------------------------), shows the neural network model architecture.
-
-```{r, echo=FALSE,out.width="85%", out.height="90%",fig.show='hold',fig.align='center'}
-knitr::include_graphics(str_c("images/NCFarchitecture.png"))
-```
+The model is designed for binary feedback (that is, positive and negative user preferences). I'll be using a mixture of explicit and implicit feedback, described in more detail in the [Inferring Likes and Dislikes section](#bookmark) of this post. The image below, from the [NCF paper](https://arxiv.org/pdf/1708.05031.pdf), shows the neural network model architecture.
 
 ![](images/NCFarchitecture.png){width="85%" fig-align="center"}
 

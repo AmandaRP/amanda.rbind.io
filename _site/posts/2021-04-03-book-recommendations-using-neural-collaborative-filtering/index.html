@@ -8,7 +8,7 @@
 
 <meta name="author" content="Amanda Peterson">
 <meta name="dcterms.date" content="2021-04-12">
-<meta name="description" content="A deep learning recommender systems model built with R Keras">
+<meta name="description" content="A recommender systems model built with R Keras">
 
 <title>Amanda’s Data Science Blog - Book Recommendations via Neural Collaborative Filtering</title>
 <style>
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <h1 class="title">Book Recommendations via Neural Collaborative Filtering</h1>
                   <div>
         <div class="description">
-          A deep learning recommender systems model built with R Keras
+          A recommender systems model built with R Keras
         </div>
       </div>
                           <div class="quarto-categories">
@@ -203,16 +203,7 @@ ul.task-list li input[type="checkbox"] {
 <li>YouTube recommends videos to watch</li>
 </ul>
 <p>In this experiment, I’ll be using a Neural Collaborative Filtering (NCF) model, a deep learning model proposed by He et. al.&nbsp;in their <a href="https://arxiv.org/pdf/1708.05031.pdf?source=post_page---------------------------">2017 paper</a>. The model is implemented by the authors using Keras and is available in <a href="https://github.com/hexiangnan/neural_collaborative_filtering">this GitHub repository</a>. For my own fun exercise, I implemented the model using <a href="https://keras.rstudio.com/">R Keras</a>. You can find it in my <a href="https://github.com/AmandaRP/NeuralCollaborativeFiltering">GitHub repository</a>.</p>
-<p>The model is designed for binary feedback (that is, positive and negative user preferences). I’ll be using a mixture of explicit and implicit feedback, described in more detail in the <a href="#bookmark">Inferring Likes and Dislikes section</a> of this post. The image below, from the <a href="https://arxiv.org/pdf/1708.05031.pdf?source=post_page---------------------------">NCF paper</a>, shows the neural network model architecture.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/NCFarchitecture.png" style="width:85.0%;height:90.0%" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+<p>The model is designed for binary feedback (that is, positive and negative user preferences). I’ll be using a mixture of explicit and implicit feedback, described in more detail in the <a href="#bookmark">Inferring Likes and Dislikes section</a> of this post. The image below, from the <a href="https://arxiv.org/pdf/1708.05031.pdf">NCF paper</a>, shows the neural network model architecture.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/NCFarchitecture.png" class="img-fluid figure-img" style="width:85.0%"></p>
@@ -254,11 +245,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="data-for-my-book-club">Data for my book club</h2>
 <p>I added our club’s books to the data set. We have read dozens of books, but the following were those that we had a strong opinion about (either “good” and “bad”).</p>
 <center>
-<p><img src="images/safelyhome.jpg" title="Safely Home" class="img-fluid" style="width:10.0%"> <img src="images/longwaygone.jpg" title="Long Way Gone" class="img-fluid" style="width:10.0%"> <img src="images/whencricketscry.jpg" title="When Crickets Cry" class="img-fluid" style="width:10.0%"> <img src="images/redeeminglove.jpg" title="Redeeming Love" class="img-fluid" style="width:10.0%"> <img src="images/Assureasdawn.jpg" title="As Sure as Dawn" class="img-fluid" style="width:10.0%"> <img src="images/echointhedarkness.jpg" title="An Echo in the Darkness" class="img-fluid" style="width:10.0%"> <img src="images/avoiceinthewind.jpg" title="A Voice in the Wind" class="img-fluid" style="width:10.0%"> <img src="images/pearlinthesand.jpg" title="Pearl in the Sand" class="img-fluid" style="width:10.0%"> <img src="images/sophiesheart.jpg" title="Sophie's Heart" class="img-fluid" style="width:10.0%"> Books that we liked</p>
+<img src="images/safelyhome.jpg" title="Safely Home" class="img-fluid" style="width:10.0%"> <img src="images/longwaygone.jpg" title="Long Way Gone" class="img-fluid" style="width:10.0%"> <img src="images/whencricketscry.jpg" title="When Crickets Cry" class="img-fluid" style="width:10.0%"> <img src="images/redeeminglove.jpg" title="Redeeming Love" class="img-fluid" style="width:10.0%"> <img src="images/Assureasdawn.jpg" title="As Sure as Dawn" class="img-fluid" style="width:10.0%"> <img src="images/echointhedarkness.jpg" title="An Echo in the Darkness" class="img-fluid" style="width:10.0%"> <img src="images/avoiceinthewind.jpg" title="A Voice in the Wind" class="img-fluid" style="width:10.0%"> <img src="images/pearlinthesand.jpg" title="Pearl in the Sand" class="img-fluid" style="width:10.0%"> <img src="images/sophiesheart.jpg" title="Sophie's Heart" class="img-fluid" style="width:10.0%"> Books that we liked
 </center>
 <center>
 <p><img src="images/athomeinmitford.jpg" title="At Home in Mitford" class="img-fluid" style="width:10.0%"> <img src="images/thehideaway.jpg" title="The Hideaway" class="img-fluid" style="width:10.0%"> <img src="images/thelacemaker.jpg" title="The Lacemaker" class="img-fluid" style="width:10.0%"> <img src="images/theredtent.jpg" title="The Red Tent" class="img-fluid" style="width:10.0%"></p>
-Books that we did not like
+<p>Books that we did not like</p>
 </center>
 <p>As you can see, the number of “duds” was much smaller than the number of books that we liked. Francine Rivers was a popular author (I’ve only read one of her books, but hope to catch up soon). I would have also used the following books as positive training examples, but they were not in the data set: <a href="https://www.goodreads.com/book/show/35620754-the-kremlin-conspiracy?ac=1&amp;from_search=true&amp;qid=TOx79fls5W&amp;rank=1">The Kremlin Conspiracy</a> by Joel Rosenberg <!-- , [The 49th Mistic](https://www.goodreads.com/book/show/36548233-the-49th-mystic) by Ted Dekker,  --> and <a href="https://www.goodreads.com/book/show/40402597-my-heart-belongs-in-the-blue-ridge?from_search=true&amp;from_srp=true&amp;qid=GIbp9eeJTH&amp;rank=1">My Heart Belongs in Blue Ridge</a> by Pepper Basham.</p>
 </section>
