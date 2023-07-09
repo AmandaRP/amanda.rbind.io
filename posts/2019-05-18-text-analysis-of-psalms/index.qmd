@@ -6,7 +6,7 @@ execute:
 date: '2019-06-22'
 categories: 
   - rstats
-  - sentiment
+  - "sentiment analysis"
   - bible
 description: "Sentiment analysis of Psalms using the `tidytext` and `sentimentr` packages"
 code-copy: true
