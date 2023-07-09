@@ -14,24 +14,14 @@ We made an app showing the wildfires in south eastern Australia along with histo
 
 Here is a peak at the app...
 
-<center>
-
 {{< tweet RLadiesBmore 1222660774134370304 >}}
-
-</center>
 
 And, a few more pictures from the event...
 
-<center>
-
 {{< tweet stephaniehicks 1222656050202988544 >}}
 
-</center>
-
 Slides:
-
 
 ```{r echo=FALSE, fig.align="center"}
 knitr::include_url('https://amanda.rbind.io/slides/shiny-rladies')
 ```
-

@@ -13,11 +13,7 @@ I love that Twitter recently came out with bookmarks! My previous MO on Twitter 
 
 # `rtweet` Package
 
-<center>
-
 {{< tweet dataandme 1109764129005420544 >}}
-
-</center>
 
 To grab the tweets, there is a little setup with Twitter that is necessary. The setup is described on the [`rtweet` website](https://rtweet.info/index.html).
 

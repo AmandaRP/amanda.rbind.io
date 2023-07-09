@@ -7,7 +7,6 @@ description: "My notes from 2019 rstudio::conf"
 image: "rstudio_conf_2019.png"
 ---
 
-
 **The overview**: I had the pleasure of attending rstudio::conf 2019 (in Austin, TX), a conference about all things R and RStudio. Over 1700 people attended the main conference, which consisted of three tracks (so my notes below cover only a third of the conference talks). There were an additional two days of tutorials and a two-day hackathon, which I did not attend. The 2020 conference will be in San Francisco Jan 27-30.
 
 **My thoughts**: rstudio::conf (and also the yearly UseR! conference) is a great way to stay up to date on the latest and greatest R packages (there are currently 13K+ packages on CRAN) and to meet others excited about #rstats. They also gave the most useful swag that I've ever received at a conference: a binder full fo R package cheat sheets! ... in addition to hex stickers and t-shirts. A big theme was using R in production; I found the talk about the use of [R at T-mobile](#production) interesting. Additionally, the talks by Garrett Grolemund and Yihui Xie about [rmarkdown/pagedown](#doc) and the keynote by David Robinson, [The Unreasonable Effectiveness of Public Work](#ds), motivated me to create this blog site!

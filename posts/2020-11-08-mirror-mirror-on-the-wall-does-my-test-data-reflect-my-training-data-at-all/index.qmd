@@ -21,12 +21,9 @@ The authors point out a few mistakes or "questionable techniques" used in the re
 
 ------------------------------------------------------------------------
 
-
-![](images/para1.png){width="48%" fig-align='center'}
-![](images/para2.png){width="48%" fig-align='center'}
+![](images/para1.png){width="48%" fig-align="center"} ![](images/para2.png){width="48%" fig-align="center"}
 
 Snippet of the 2020 paper, "Are We Really Making Much Progress? A Worrying Analysis of Recent Neural Recommendation Approaches", by Dacrema, Cremonesi, and Jannach
-
 
 ------------------------------------------------------------------------
 
@@ -91,8 +88,6 @@ slice_sample(train, n = 5) %>%
   gt() %>%
   tab_header(title = "Sample of Training Data")
 ```
-
-
 
 ```{r}
 #| echo: false
@@ -231,7 +226,6 @@ item_frequency_new <-
 
 Let's visualize the newly sampled train and test data, which we can compare to Figure 1.
 
-
 ```{r }
 #| echo: true
 #| fig.align: 'center'
@@ -251,7 +245,6 @@ item_frequency_new %>%
   xlab("Items") +
   ylab("Normalized number of interactions")
 ```
-
 
 The test and train popularity distributions look much closer!
 

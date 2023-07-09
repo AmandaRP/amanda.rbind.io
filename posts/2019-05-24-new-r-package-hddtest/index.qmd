@@ -23,7 +23,7 @@ set.seed(1969)
 
 I'd like to introduce a package that I wrote recently, `hddtest`, for two sample hypothesis testing of high dimensional discrete data. The package is currently available on [GitHub](https://github.com/AmandaRP/hddtest). It contains methods for both multivariate binary data and multinomial data.
 
-I'll illustrate the use of one of its functions, the multinomial neighborhood test, by using a dataset included in `hddtest` called `twoNewsGroups`. It contains document term frequency matrices for two of the [20 newgroups](http://qwone.com/~jason/20Newsgroups/). Each matrix has dimension 594 by 16214. The $(i,j)$ entry of each matrix is the count (term frequency) of the $j^{th}$ word in the $i^{th}$ document. The first matrix in the list contains 594 sampled documents from the `rec.sport.baseball` newsgroup. The second contains 594 sampled documents from the `sci.med` newsgroup.
+I'll illustrate the use of one of its functions, the multinomial neighborhood test, by using a dataset included in `hddtest` called `twoNewsGroups`. It contains document term frequency matrices for two of the [20 newsgroups](http://qwone.com/~jason/20Newsgroups/). Each matrix has dimension 594 by 16214. The $(i,j)$ entry of each matrix is the count (term frequency) of the $j^{th}$ word in the $i^{th}$ document. The first matrix in the list contains 594 sampled documents from the `rec.sport.baseball` newsgroup. The second contains 594 sampled documents from the `sci.med` newsgroup.
 
 We might like to compare two sets of documents to determine whether or not they come from the same newsgroup. To do this, we'll perform a neighborhood test.
 
@@ -90,7 +90,7 @@ simulation <- function(data, null_hyp, delta, reps = 30, num_docs = c(200, 200))
 } #end simulation function
 ```
 
-Now run the simulation for varying values of `delta` (in the range 1 to 160) testing both the null and alternative hypotheses for 30 replications each. For the null hypothesis simulation, we sample documents from the same newsgroup. For the simulation of the alternative hypotheis, we sample documents from the two different newsgroups. The resulting plot shows one curve for each the 60 simulations (which compute the p-value at each value of `delta`.)
+Now run the simulation for varying values of `delta` (in the range 1 to 160) testing both the null and alternative hypotheses for 30 replications each. For the null hypothesis simulation, we sample documents from the same newsgroup. For the simulation of the alternative hypothesis, we sample documents from the two different newsgroups. The resulting plot shows one curve for each the 60 simulations (which compute the p-value at each value of `delta`.)
 
 ```{r}
 delta <- 1:160

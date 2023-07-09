@@ -19,13 +19,13 @@ Due to the COVID-19 pandemic, this year's rstudio::conf was virtual (and free!).
 
 **Speaker**: Hadley Wickham (Chief Scientist at RStudio)
 
-![](images/hadley.png){width="100%" fig-align='center'}
+![](images/hadley.png){width="100%" fig-align="center"}
 
 -   Discussed the life cycle of functions and packages, which you will see tagged on many of RStudio's packages. See [this page](https://www.tidyverse.org/lifecycle/){target="_blank"} and the [`lifecycle`](https://cran.r-project.org/web/packages/lifecycle/index.html){target="_blank"} package for more details.
 -   To maintain a static package installation for a project: Use [`renv`](https://rstudio.github.io/renv/){target="_blank"} or [RStudio's public package manager](https://packagemanager.rstudio.com/client/#/){target="_blank"}. On the latter, just pick a day in the past to maintain package state from that date (only for packages on CRAN).
 -   If you haven't already heard, [`dplyr`](https://dplyr.tidyverse.org/){target="_blank"}'s spread & gather functions are not going away. However, the recommended replacement functions are `pivot_longer` and `wider_wider`.
 
-![](images/gather.jpeg){width="85%" fig-align='center'}
+![](images/gather.jpeg){width="85%" fig-align="center"}
 
 -   [`magrittr`](https://magrittr.tidyverse.org/){target="_blank"} will be around for at least 4 or 5 years, but people will be encouraged to use the new pipe in base R version 4.1.
 -   [`modelr`](https://modelr.tidyverse.org/){target="_blank"} is superseded by [`tidymodels`](https://www.tidymodels.org/){target="_blank"}.
@@ -50,8 +50,7 @@ Due to the COVID-19 pandemic, this year's rstudio::conf was virtual (and free!).
 
 Allison talked about the importance of art for making R instruction material more approachable for learners. Some of her new artwork was featured in this talk-- I'm feeling motivated to add some of new artwork to some of my training materials. Allison's artwork can be found in her [GitHub repo](https://github.com/allisonhorst/stats-illustrations){target="_blank"}.
 
-![](images/horst2.png){width="100%" fig-align='center'}
-
+![](images/horst2.png){width="100%" fig-align="center"}
 
 <br>
 
@@ -61,8 +60,7 @@ Allison talked about the importance of art for making R instruction material mor
 
 John's talk focused on data visualization for a mass audience. The data viz research paper that has been the most influential on his work: [Beyond Memorability: Visualization Recognition and Recall](https://vcg.seas.harvard.edu/files/pfister/files/infovis_submission251-camera.pdf?m=1441898216){target="_blank"}.
 
-![](images/keynote2.png){width="100%" fig-align='center'}
-
+![](images/keynote2.png){width="100%" fig-align="center"}
 
 Lessons:
 
@@ -112,8 +110,7 @@ Options for distributing at scale:
 -   shinyapps.io or RStudio connect, or\
 -   distribute within a package
 
-![](images/mine.png){width="100%" fig-align='center'}
-
+![](images/mine.png){width="100%" fig-align="center"}
 
 <br>
 

@@ -40,11 +40,7 @@ Highlights for me personally included [Malorie Hughes' presentation of `flexdash
 -   She included an export/download data button on her dashboard. See her code to learn how to do that.
 -   See Malorie's official DC R dashboard:
 
-<center>
-
 {{< tweet rstatsdc 1192878268850081792 >}}
-
-</center>
 
 **Using networkD3 and R to Visualize and Explore Relationships in Data**, Dr Ami Gates, [*\@DrGates309*](https://twitter.com/DrGates309)
 
@@ -149,11 +145,7 @@ Be sue to catch his `#tidytuesday` screen casts [on YouTube](https://www.youtube
 9.  `separate()` to split a column into multiple columns based on a regex
 10. `extract()` to extract information from a column based on a regex
 
-<center>
-
 {{< tweet drob 1193212461773545472 >}}
-
-</center>
 
 **Raising baby with R**, Jared Lander, [*\@jaredlander*](https://twitter.com/jaredlander)
 
@@ -198,8 +190,4 @@ conda_envs$name[[1]] #have to restart R if you want to change env again)
 -   See [`learnr`](https://cran.r-project.org/web/packages/learnr/index.html) for creating teaching materials. (Use in conjunction with [`gradethis`](https://rstudio-education.github.io/gradethis/.)
 -   For conversations about R administration, see `#radmins` on Twitter, [solutions.rstudio.com](https://solutions.rstudio.com/), or the radmins channel on [community.rstudio.com](https://community.rstudio.com/). Management and IT folks should watch Kelly O'Briant's talk, [Reflections on a Year Spent Talking to Data Scientists About DevOps](https://speakerdeck.com/kellobri/a-year-of-talking-about-devops).
 
-<center>
-
 {{< tweet rstatsdc 1192889086639513600 >}}
-
-</center>
