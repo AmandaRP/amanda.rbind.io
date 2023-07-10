@@ -193,7 +193,7 @@
     "href": "posts/2020-02-07-shiny-r-ladies/index.html",
     "title": "Shiny R-Ladies",
     "section": "",
-    "text": "Earlier this year I had the pleasure of talking about R shiny at the Baltimore R-Ladies Meetup. shiny is an R package for building interactive web applications.\nWe made an app showing the wildfires in south eastern Australia along with historic rainfall and temperature data. This dataset was provided as a Tidy Tuesday dataset by the R for Data Science Learning Community.\nHere is a peak at the app…\n\n\n\nAnd, a few more pictures from the event…\n\n\n\nSlides:"
+    "text": "Earlier this year I had the pleasure of talking about R shiny at the Baltimore R-Ladies Meetup. shiny is an R package for building interactive web applications.\nWe made an app showing the wildfires in south eastern Australia along with historic rainfall and temperature data. This dataset was provided as a Tidy Tuesday dataset by the R for Data Science Learning Community.\nHere is a peak at the app…\n\nAnd, a few more pictures from the event…\n\nSlides: (Sorry… we’re having technical difficulties.)"
   },
   {
     "objectID": "posts/2020-11-08-mirror-mirror-on-the-wall-does-my-test-data-reflect-my-training-data-at-all/index.html",

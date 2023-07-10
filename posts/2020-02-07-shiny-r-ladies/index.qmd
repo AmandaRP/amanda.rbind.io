@@ -23,8 +23,10 @@ And, a few more pictures from the event...
 
 {{< tweet stephaniehicks 1222656050202988544 >}}
 
-Slides:
+Slides: (Sorry... we're having technical difficulties.)
 
 ```{r echo=FALSE, fig.align="center"}
-knitr::include_url('https://amanda.rbind.io/slides/shiny-rladies')
+#knitr::include_url('https://amanda.rbind.io/slides/shiny-rladies')
+#knitr::include_url('https://amandarp.github.io/recsys-tutorial-2022/recsys-presentation.html#/title-slide')
+
 ```
